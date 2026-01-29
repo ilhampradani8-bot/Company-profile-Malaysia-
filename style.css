@@ -1,0 +1,37 @@
+/* 1. IMPORT FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&family=Playfair+Display:ital,wght@1,500&display=swap');
+
+/* 2. BASE STYLES */
+html {
+    scroll-behavior: smooth;
+    /* JANGAN pakai overflow-x: hidden di sini, bikin animasi macet */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden; /* Cukup di body saja */
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+/* 3. CUSTOM SCROLLBAR */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #000;
+}
+
+/* 4. UTILITIES */
+[x-cloak] { 
+    display: none !important; 
+}
