@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - MIJ Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Outfit', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body x-data="{ darkMode: false, mobileMenu: false }" :class="{ 'dark': darkMode }" class="bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-500 antialiased flex flex-col min-h-screen">
+
+    <nav class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 h-20 md:h-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full relative z-50">
+            <div class="flex justify-between items-center h-full gap-4">
+                <a href="index.html" class="flex-shrink-0 flex flex-col leading-none select-none cursor-pointer group w-28 md:w-auto">
+                    <span class="font-display font-black text-xl md:text-3xl tracking-tighter text-black dark:text-white transition group-hover:opacity-80">MIJ<span class="text-red-600">.</span></span>
+                    <span class="text-[0.5rem] md:text-[0.65rem] font-bold tracking-[0.35em] uppercase text-gray-400 dark:text-gray-500 -mt-0.5 ml-0.5 group-hover:text-black dark:group-hover:text-white transition duration-500">Digital</span>
+                </a>
+                <div class="hidden lg:flex flex-1 justify-center items-center gap-8">
+                    <a href="services.html" class="text-xs font-bold tracking-widest uppercase text-black dark:text-white hover:text-red-600 dark:hover:text-red-400 transition">Services</a>
+                    <a href="pricing.html" class="text-xs font-bold tracking-widest uppercase text-red-600 dark:text-red-400 transition">Pricing</a>
+                    <a href="portfolio.html" class="text-xs font-bold tracking-widest uppercase text-black dark:text-white hover:text-red-600 dark:hover:text-red-400 transition">Portfolio</a>
+                    <a href="faq.html" class="text-xs font-bold tracking-widest uppercase text-black dark:text-white hover:text-red-600 dark:hover:text-red-400 transition">FAQ</a>
+                    <button @click="darkMode = !darkMode" class="text-xs font-bold tracking-widest uppercase text-gray-400 hover:text-black dark:hover:text-white transition w-24 text-center"><span x-text="darkMode ? 'Light Mode' : 'Night Mode'"></span></button>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://wa.me/60196106905" target="_blank" class="hidden md:inline-flex items-center gap-2 bg-green-800 hover:bg-green-700 text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition shadow-lg transform hover:-translate-y-1">Call Now</a>
+                    <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-black dark:text-white p-2 border border-gray-200 dark:border-gray-700 rounded-lg"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+                </div>
+            </div>
+        </div>
+        <div x-show="mobileMenu" @click.outside="mobileMenu = false" class="absolute top-20 md:top-24 left-0 w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-2xl z-40 lg:hidden" x-cloak>
+            <div class="flex flex-col p-0">
+                <a href="services.html" class="block px-6 py-4 text-sm font-bold uppercase tracking-widest text-black dark:text-white border-b border-gray-100 dark:border-gray-800">Services</a>
+                <a href="pricing.html" class="block px-6 py-4 text-sm font-bold uppercase tracking-widest text-red-600 dark:text-red-400 bg-gray-50 dark:bg-gray-800">Pricing</a>
+                <a href="portfolio.html" class="block px-6 py-4 text-sm font-bold uppercase tracking-widest text-black dark:text-white border-b border-gray-100 dark:border-gray-800">Portfolio</a>
+                <a href="faq.html" class="block px-6 py-4 text-sm font-bold uppercase tracking-widest text-black dark:text-white border-b border-gray-100 dark:border-gray-800">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 md:pt-40 pb-12 text-center px-4">
+        <h1 class="text-4xl md:text-6xl font-display font-black uppercase tracking-tighter mb-4" data-aos="fade-down">Investment</h1>
+        <div class="w-20 h-1 bg-red-600 mx-auto mb-6" data-aos="fade-down"></div>
+        <p class="text-gray-500 max-w-xl mx-auto">Transparent pricing. No hidden fees.</p>
+    </header>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="border border-gray-200 dark:border-gray-700 p-8 rounded-2xl hover:shadow-2xl transition duration-500" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="text-xl font-bold uppercase tracking-widest mb-4">Personal</h3>
+                <div class="text-4xl font-display font-black mb-6">RM 1,500<span class="text-sm font-sans font-normal text-gray-500">/start</span></div>
+                <ul class="space-y-4 mb-8 text-sm text-gray-600 dark:text-gray-400">
+                    <li class="flex items-center gap-2"><span class="text-green-500">✓</span> High-End Portfolio Design</li>
+                    <li class="flex items-center gap-2"><span class="text-green-500">✓</span> WhatsApp Integration</li>
+                    <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 1 Month Support</li>
+                </ul>
+                <a href="https://wa.me/60196106905" class="block w-full py-4 border-2 border-black dark:border-white text-center font-bold uppercase tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition rounded-lg">Select</a>
+            </div>
+            <div class="bg-black text-white dark:bg-white dark:text-black p-8 rounded-2xl shadow-2xl transform md:-translate-y-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-red-600 font-bold tracking-widest text-xs uppercase mb-2">Most Popular</div>
+                <h3 class="text-xl font-bold uppercase tracking-widest mb-4">Corporate</h3>
+                <div class="text-4xl font-display font-black mb-6">RM 3,500<span class="text-sm font-sans font-normal text-gray-400 dark:text-gray-600">/start</span></div>
+                <ul class="space-y-4 mb-8 text-sm text-gray-300 dark:text-gray-600">
+                    <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Everything in Personal</li>
+                    <li class="flex items-center gap-2"><span class="text-green-500">✓</span> SEO Optimization</li>
+                    <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 5-10 Pages</li>
+                    <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 3 Months Support</li>
+                </ul>
+                <a href="https://wa.me/60196106905" class="block w-full py-4 bg-white text-black dark:bg-black dark:text-white text-center font-bold uppercase tracking-widest hover:opacity-90 transition rounded-lg">Select</a>
+            </div>
+            <div class="border border-gray-200 dark:border-gray-700 p-8 rounded-2xl hover:shadow-2xl transition duration-500" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="text-xl font-bold uppercase tracking-widest mb-4">POS System</h3>
+                <div class="text-4xl font-display font-black mb-6">Custom<span class="text-sm font-sans font-normal text-gray-500">/quote</span></div>
+                <ul class="space-y-4 mb-8 text-sm text-gray-600 dark:text-gray-400">
+                    <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Inventory Management</li>
+                    <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Cashier Interface</li>
+                    <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Sales Analytics</li>
+                </ul>
+                <a href="https://wa.me/60196106905" class="block w-full py-4 border-2 border-black dark:border-white text-center font-bold uppercase tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition rounded-lg">Contact Us</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-50 dark:bg-black py-10 text-center border-t border-gray-200 dark:border-gray-800 mt-auto"><p class="text-gray-400 text-xs font-bold tracking-widest uppercase">&copy; 2026 MIJ Digital Sdn. Bhd.</p></footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script>AOS.init();</script>
+</body>
+</html>

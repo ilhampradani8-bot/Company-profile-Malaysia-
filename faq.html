@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - MIJ Digital</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body x-data="{ darkMode: false, mobileMenu: false }" 
+      :class="{ 'dark': darkMode }" 
+      class="bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-200 antialiased flex flex-col min-h-screen">
+
+    <nav class="fixed w-full top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 h-20 md:h-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full relative z-50">
+            <div class="flex justify-between items-center h-full gap-4">
+                <a href="index.html" class="flex-shrink-0 flex flex-col leading-none select-none cursor-pointer group w-28 md:w-auto">
+                    <span class="font-display font-black text-xl md:text-3xl tracking-tighter text-black dark:text-white transition group-hover:opacity-80">
+                        MIJ<span class="text-red-600">.</span>
+                    </span>
+                    <span class="text-[0.5rem] md:text-[0.65rem] font-bold tracking-[0.35em] uppercase text-gray-400 dark:text-gray-500 -mt-0.5 ml-0.5 group-hover:text-black dark:group-hover:text-white transition duration-500">
+                        Digital
+                    </span>
+                </a>
+                
+                <div class="hidden lg:flex flex-1 justify-center items-center gap-8">
+                    <a href="services.html" class="text-xs font-bold tracking-widest uppercase text-black dark:text-white hover:text-red-600 dark:hover:text-red-400 transition">Services</a>
+                    <a href="pricing.html" class="text-xs font-bold tracking-widest uppercase text-black dark:text-white hover:text-red-600 dark:hover:text-red-400 transition">Pricing</a>
+                    <a href="portfolio.html" class="text-xs font-bold tracking-widest uppercase text-black dark:text-white hover:text-red-600 dark:hover:text-red-400 transition">Portfolio</a>
+                    <a href="faq.html" class="text-xs font-bold tracking-widest uppercase text-red-600 dark:text-red-400 transition">FAQ</a>
+                    <button @click="darkMode = !darkMode" class="text-xs font-bold tracking-widest uppercase text-gray-400 hover:text-black dark:hover:text-white transition w-24 text-center">
+                        <span x-text="darkMode ? 'Light Mode' : 'Night Mode'"></span>
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="https://wa.me/60196106905" target="_blank" class="hidden md:inline-flex items-center gap-2 bg-green-800 hover:bg-green-700 text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition shadow-lg transform hover:-translate-y-1">Call Now</a>
+                    <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-black dark:text-white p-2 border border-gray-200 dark:border-gray-700 rounded-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div x-show="mobileMenu" @click.outside="mobileMenu = false" class="absolute top-20 md:top-24 left-0 w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-2xl z-40 lg:hidden" x-cloak>
+            <div class="flex flex-col p-0">
+                <a href="services.html" class="block px-6 py-4 text-sm font-bold uppercase tracking-widest text-black dark:text-white border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800">Services</a>
+                <a href="pricing.html" class="block px-6 py-4 text-sm font-bold uppercase tracking-widest text-black dark:text-white border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800">Pricing</a>
+                <a href="portfolio.html" class="block px-6 py-4 text-sm font-bold uppercase tracking-widest text-black dark:text-white border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800">Portfolio</a>
+                <a href="faq.html" class="block px-6 py-4 text-sm font-bold uppercase tracking-widest text-red-600 dark:text-red-400 bg-gray-50 dark:bg-gray-800">FAQ</a>
+                 <div class="p-6">
+                    <a href="https://wa.me/60196106905" class="block w-full py-4 bg-green-800 text-white text-center text-sm font-bold uppercase rounded-lg shadow-md hover:bg-green-700 transition">Call Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 md:pt-40 pb-12 text-center px-4">
+        <h1 class="text-4xl md:text-6xl font-display font-black uppercase tracking-tighter mb-4">
+            F.A.Q
+        </h1>
+        <div class="w-20 h-1 bg-red-600 mx-auto mb-6"></div>
+        <p class="text-gray-500 max-w-xl mx-auto text-sm md:text-base">Common questions about our services and workflow.</p>
+    </header>
+
+    <main class="flex-grow max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 w-full">
+        <div x-data="{ active: 1 }" class="space-y-4">
+            
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-sm">
+                <button @click="active = (active === 1 ? null : 1)" class="w-full flex items-center justify-between p-6 text-left focus:outline-none bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    <span class="font-bold uppercase tracking-widest text-sm">How do I register or order?</span>
+                    <svg class="w-5 h-5 transform transition-transform duration-200" :class="active === 1 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div x-show="active === 1" class="border-t border-gray-200 dark:border-gray-700">
+                    <div class="p-6 bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+                        It's simple. Just click the <strong>"Call Now"</strong> or <strong>"WhatsApp"</strong> button. <br>
+                        You will be directed to our official WhatsApp where you can fill out a simple <strong>Order Form</strong> to get started immediately.
+                    </div>
+                </div>
+            </div>
+
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-sm">
+                <button @click="active = (active === 2 ? null : 2)" class="w-full flex items-center justify-between p-6 text-left focus:outline-none bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    <span class="font-bold uppercase tracking-widest text-sm">How fast is the response time?</span>
+                    <svg class="w-5 h-5 transform transition-transform duration-200" :class="active === 2 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div x-show="active === 2" class="border-t border-gray-200 dark:border-gray-700">
+                    <div class="p-6 bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+                        Our IT Team will respond <strong>immediately / as soon as possible</strong>. <br>
+                        We use an automated notification system, so your request alerts our engineers instantly.
+                    </div>
+                </div>
+            </div>
+
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-sm">
+                <button @click="active = (active === 3 ? null : 3)" class="w-full flex items-center justify-between p-6 text-left focus:outline-none bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    <span class="font-bold uppercase tracking-widest text-sm">How do we communicate during the project?</span>
+                    <svg class="w-5 h-5 transform transition-transform duration-200" :class="active === 3 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div x-show="active === 3" class="border-t border-gray-200 dark:border-gray-700">
+                    <div class="p-6 bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+                        Direct and transparent. We create a dedicated WhatsApp Group containing <strong>You, our IT Technical Team, and the Directors.</strong> <br>
+                        No middleman. You talk directly to the people building your product.
+                    </div>
+                </div>
+            </div>
+
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-sm">
+                <button @click="active = (active === 4 ? null : 4)" class="w-full flex items-center justify-between p-6 text-left focus:outline-none bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    <span class="font-bold uppercase tracking-widest text-sm">Where are you based? Can I use international domains?</span>
+                    <svg class="w-5 h-5 transform transition-transform duration-200" :class="active === 4 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div x-show="active === 4" class="border-t border-gray-200 dark:border-gray-700">
+                    <div class="p-6 bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+                        We are proudly <strong>Malaysian-based</strong>, but we serve clients globally. <br>
+                        Yes, we can register any domain for you, whether it's local (<strong>.com.my, .my</strong>) or International (<strong>.com, .net, .io, etc.</strong>).
+                    </div>
+                </div>
+            </div>
+
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-sm">
+                <button @click="active = (active === 5 ? null : 5)" class="w-full flex items-center justify-between p-6 text-left focus:outline-none bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    <span class="font-bold uppercase tracking-widest text-sm">Do you only make Websites?</span>
+                    <svg class="w-5 h-5 transform transition-transform duration-200" :class="active === 5 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div x-show="active === 5" class="border-t border-gray-200 dark:border-gray-700">
+                    <div class="p-6 bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+                        <strong>No.</strong> We are a full-service Tech Agency. <br>
+                        We provide all kinds of IT services including <strong>Mobile Apps (Android/iOS), Automation Bots, Scraping Tools, Custom ERP Systems, and Cyber Security.</strong> Just tell us your logic, we build it.
+                    </div>
+                </div>
+            </div>
+
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-sm">
+                <button @click="active = (active === 6 ? null : 6)" class="w-full flex items-center justify-between p-6 text-left focus:outline-none bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    <span class="font-bold uppercase tracking-widest text-sm">How long does development take?</span>
+                    <svg class="w-5 h-5 transform transition-transform duration-200" :class="active === 6 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div x-show="active === 6" class="border-t border-gray-200 dark:border-gray-700">
+                    <div class="p-6 bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+                        <strong>Personal Branding:</strong> 3-7 Working Days.<br>
+                        <strong>Company Profile / POS System:</strong> 14-30 Working Days depending on complexity.
+                    </div>
+                </div>
+            </div>
+
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-sm">
+                <button @click="active = (active === 7 ? null : 7)" class="w-full flex items-center justify-between p-6 text-left focus:outline-none bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    <span class="font-bold uppercase tracking-widest text-sm">Can I register 24/7 via Bot?</span>
+                    <svg class="w-5 h-5 transform transition-transform duration-200" :class="active === 7 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div x-show="active === 7" class="border-t border-gray-200 dark:border-gray-700">
+                    <div class="p-6 bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+                        <strong>Yes, absolutely.</strong> Our system is equipped with an AI Automation Bot that works 24/7. You can consult or place an order anytime, and our system will process it instantly.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-gray-50 dark:bg-black py-10 text-center border-t border-gray-200 dark:border-gray-800 mt-auto">
+        <p class="text-gray-400 text-xs font-bold tracking-widest uppercase">&copy; 2026 MIJ Digital Sdn. Bhd.</p>
+    </footer>
+
+</body>
+</html>
