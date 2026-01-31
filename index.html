@@ -39,39 +39,35 @@
 
           </div>
 
-
-
-<nav class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 h-20 md:h-24"
-         x-data="{ mobileMenu: false, desktopMenuOpen: false }">
+<nav class="fixed w-full top-0 z-50 h-20 md:h-24 transition-all duration-300 bg-[#FDFBF7]/60 backdrop-blur-md border-b border-gray-200/30"
+         x-data="{ mobileMenu: false }">
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full relative z-50">
             <div class="flex justify-between items-center h-full gap-4">
                 
                 <a href="index.html" class="flex-shrink-0 flex flex-col leading-none select-none cursor-pointer group w-28 md:w-auto">
-                    <span class="font-display font-black text-xl md:text-3xl tracking-tighter text-black dark:text-white transition group-hover:opacity-80">
+                    <span class="font-display font-black text-xl md:text-3xl tracking-tighter text-gray-900 transition group-hover:opacity-80">
                         MIJ<span class="text-red-600">.</span>
                     </span>
-                    <span class="text-[0.5rem] md:text-[0.65rem] font-bold tracking-[0.35em] uppercase text-gray-400 dark:text-gray-500 -mt-0.5 ml-0.5 group-hover:text-black dark:group-hover:text-white transition duration-500">
+                    <span class="text-[0.5rem] md:text-[0.65rem] font-bold tracking-[0.35em] uppercase text-gray-400 -mt-0.5 ml-0.5 group-hover:text-black transition duration-500">
                         Digital
                     </span>
                 </a>
                 
                 <div class="hidden lg:flex flex-1 justify-center items-center gap-8">
-                    <a href="services.html" class="text-xs font-bold tracking-widest uppercase text-black dark:text-white hover:text-red-600 dark:hover:text-red-400 transition">Services</a>
-                    <a href="pricing.html" class="text-xs font-bold tracking-widest uppercase text-black dark:text-white hover:text-red-600 dark:hover:text-red-400 transition">Pricing</a>
-                    <a href="portfolio.html" class="text-xs font-bold tracking-widest uppercase text-black dark:text-white hover:text-red-600 dark:hover:text-red-400 transition">Portfolio</a>
-                    <a href="faq.html" class="text-xs font-bold tracking-widest uppercase text-black dark:text-white hover:text-red-600 dark:hover:text-red-400 transition">FAQ</a>
-                    <button @click="darkMode = !darkMode" class="text-xs font-bold tracking-widest uppercase text-gray-400 hover:text-black dark:hover:text-white transition w-24 text-center">
-                        <span x-text="darkMode ? 'Light Mode' : 'Night Mode'"></span>
-                    </button>
+                    <a href="services.html" class="text-xs font-bold tracking-widest uppercase text-gray-900 hover:text-red-600 transition">Services</a>
+                    <a href="pricing.html" class="text-xs font-bold tracking-widest uppercase text-gray-900 hover:text-red-600 transition">Pricing</a>
+                    <a href="portfolio.html" class="text-xs font-bold tracking-widest uppercase text-gray-900 hover:text-red-600 transition">Portfolio</a>
+                    <a href="faq.html" class="text-xs font-bold tracking-widest uppercase text-gray-900 hover:text-red-600 transition">FAQ</a>
                 </div>
 
                 <div class="flex items-center gap-4">
                     <a href="https://wa.me/60196106905" target="_blank" class="hidden md:inline-flex items-center gap-2 bg-green-800 hover:bg-green-700 text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition shadow-lg transform hover:-translate-y-1">
-                        Call Now
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.48s1.066 2.875 1.215 3.072c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        Chat With Me
                     </a>
-
-                    <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-black dark:text-white p-2 border border-gray-200 dark:border-gray-700 rounded-lg">
+                    
+                    <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-gray-900 p-2 border border-gray-400/30 rounded-lg bg-white/20 backdrop-blur-sm">
                         <svg x-show="!mobileMenu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         <svg x-show="mobileMenu" x-cloak class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                     </button>
@@ -79,24 +75,16 @@
             </div>
         </div>
 
-        <div x-show="mobileMenu" 
-             @click.outside="mobileMenu = false" 
-             class="absolute top-20 md:top-24 left-0 w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-2xl z-40 lg:hidden" 
-             x-cloak>
+        <div x-show="mobileMenu" @click.outside="mobileMenu = false" class="absolute top-20 md:top-24 left-0 w-full bg-[#FDFBF7] border-b border-gray-200 shadow-xl z-40 lg:hidden" x-cloak>
             <div class="flex flex-col p-0">
-                <a href="services.html" class="block px-6 py-4 text-sm font-bold uppercase tracking-widest text-black dark:text-white border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800">Services</a>
-                <a href="pricing.html" class="block px-6 py-4 text-sm font-bold uppercase tracking-widest text-black dark:text-white border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800">Pricing</a>
-                <a href="portfolio.html" class="block px-6 py-4 text-sm font-bold uppercase tracking-widest text-black dark:text-white border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800">Portfolio</a>
-                <a href="faq.html" class="block px-6 py-4 text-sm font-bold uppercase tracking-widest text-black dark:text-white border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800">FAQ</a>
-                
-                <button @click="darkMode = !darkMode" class="w-full px-6 py-4 text-sm font-bold uppercase tracking-widest text-left text-gray-500 hover:text-black dark:hover:text-white border-b border-gray-100 dark:border-gray-800 transition flex justify-between items-center">
-                    <span x-text="darkMode ? 'Switch to Light Mode' : 'Switch to Night Mode'"></span>
-                    <svg x-show="darkMode" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                    <svg x-show="!darkMode" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-                </button>
-
+                <a href="services.html" class="block px-6 py-4 text-sm font-bold uppercase tracking-widest text-gray-900 border-b border-gray-100 hover:bg-gray-100">Services</a>
+                <a href="pricing.html" class="block px-6 py-4 text-sm font-bold uppercase tracking-widest text-gray-900 border-b border-gray-100 hover:bg-gray-100">Pricing</a>
+                <a href="portfolio.html" class="block px-6 py-4 text-sm font-bold uppercase tracking-widest text-gray-900 border-b border-gray-100 hover:bg-gray-100">Portfolio</a>
+                <a href="faq.html" class="block px-6 py-4 text-sm font-bold uppercase tracking-widest text-gray-900 border-b border-gray-100 hover:bg-gray-100">FAQ</a>
                 <div class="p-6">
-                    <a href="https://wa.me/60196106905" class="block w-full py-4 bg-green-800 text-white text-center text-sm font-bold uppercase rounded-lg shadow-md hover:bg-green-700 transition">Call Now</a>
+                    <a href="https://wa.me/60196106905" class="block w-full py-4 bg-green-800 text-white text-center text-sm font-bold uppercase rounded-lg shadow-md hover:bg-green-700 transition">
+                        Chat With Me
+                    </a>
                 </div>
             </div>
         </div>
@@ -104,46 +92,76 @@
 
 
 
-
-<section class="relative min-h-screen flex items-center bg-[url('hero.jpg')] bg-cover bg-center bg-fixed no-repeat">
-    
-    <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-l from-black/90 via-black/40 to-black/20 z-0"></div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex justify-end pt-20 md:pt-0">
+<style>
+        .bg-cream { background-color: #FDFBF7; }
         
-        <div class="w-full md:w-3/5 lg:w-1/2 text-right md:text-left">
+        /* LOGIC: GAMBAR MENGAMBANG (SAFE MODE) */
+        .img-safe {
+            object-fit: contain; /* Wajib Muat Semua */
+            object-position: bottom center; /* Rata Bawah */
+            width: 100%;
+            height: 90%; /* HANYA ISI 90% TINGGI CONTAINER (Sisa 10% buat nafas) */
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* KHUSUS HP LANDSCAPE */
+        @media only screen and (max-height: 500px) and (orientation: landscape) {
+            .hero-container { flex-direction: row !important; height: 100dvh !important; }
+            .area-gambar { width: 45% !important; height: 100% !important; padding: 0 !important; align-items: flex-end !important; }
+            .area-teks { width: 55% !important; height: 100% !important; padding-top: 4rem !important; }
+            .img-safe { height: 95% !important; width: auto !important; } /* Di landscape boleh agak tinggi dikit */
+            .judul-hero { font-size: 2rem !important; line-height: 1.1 !important; } 
+            .deskripsi-hero { display: none !important; }
+        }
+    </style>
+
+    <section class="hero-container relative w-full h-[100dvh] min-h-[600px] flex flex-col lg:flex-row bg-cream overflow-hidden" id="home">
+        
+        <div class="area-gambar relative w-full lg:w-1/2 h-[55dvh] lg:h-full order-1 flex items-end justify-center bg-cream pb-8 lg:pb-0">
             
-<div class="mb-6 flex justify-end md:justify-start" data-aos="fade-up">
-    <p class="text-gray-300 font-display font-bold tracking-widest uppercase text-xl md:text-3xl flex items-center">
-        WE STRATEGIZE. WE EXECUTE.
-    </p>
-</div>
-
-<h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-black leading-tight mb-6 tracking-tight text-white drop-shadow-xl" data-aos="fade-up" data-aos-delay="200">
-    AND WE CAN <br>
-    BUILD A <br>
-    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
-        WEBSITE <br> FOR YOU.
-    </span>
-</h1>
-
-<p class="text-sm md:text-lg text-gray-200 mb-10 font-sans font-medium leading-relaxed max-w-lg ml-auto md:ml-0" data-aos="fade-up" data-aos-delay="400">
-    Discipline in sports translates to discipline in code.
-    We handle the tech complexity so you can focus on your fame.
-</p>
-
-            <div class="flex flex-col md:flex-row gap-4 justify-end md:justify-start" data-aos="fade-up" data-aos-delay="600">
-                <a href="https://wa.me/60196106905" class="px-8 md:px-10 py-4 bg-white text-black font-display font-bold text-sm tracking-widest uppercase hover:scale-105 transition rounded-full shadow-lg text-center">
-                    Start Now
-                </a>
-                <a href="#who" class="px-8 md:px-10 py-4 border-2 border-white text-white font-display font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-black transition rounded-full text-center">
-                    Why Us?
-                </a>
+            <img src="hero.jpg" 
+                 alt="Profile" 
+                 class="img-safe drop-shadow-2xl z-10 relative">
+            
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+                <div class="w-[60vw] h-[60vw] bg-black/5 rounded-full blur-3xl lg:hidden transform translate-y-10"></div>
             </div>
         </div>
-    </div>
-</section>
 
+        <div class="area-teks relative w-full lg:w-1/2 h-[45dvh] lg:h-full flex flex-col justify-start lg:justify-center px-6 lg:pl-10 lg:pr-20 order-2 bg-cream z-20 pt-4 lg:pt-0">
+            
+            <div class="w-full text-center lg:text-left" data-aos="fade-up">
+                <p class="text-gray-500 font-display font-bold tracking-[0.2em] uppercase text-[0.65rem] md:text-sm mb-2 flex items-center justify-center lg:justify-start gap-3">
+                    <span class="w-8 h-[2px] bg-red-600 inline-block"></span>
+                    WE STRATEGIZE. WE EXECUTE.
+                </p>
+
+                <h1 class="judul-hero text-3xl sm:text-5xl lg:text-7xl font-display font-black leading-[1.1] mb-3 tracking-tight text-gray-900">
+                    I BUILD <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-black">
+                        WEBSITES
+                    </span> <br>
+                    FOR YOU.
+                </h1>
+
+                <p class="deskripsi-hero text-[0.7rem] sm:text-sm text-gray-600 mb-5 font-sans font-medium leading-relaxed max-w-xs sm:max-w-md mx-auto lg:mx-0">
+                    Discipline in sports translates to discipline in code. 
+                    I handle the tech complexity so you can focus on your fame.
+                </p>
+
+                <div class="flex flex-row gap-3 justify-center lg:justify-start pb-10">
+                    <a href="https://wa.me/60196106905" class="px-5 py-3 bg-black text-white font-display font-bold text-[0.65rem] md:text-xs tracking-widest uppercase hover:bg-gray-800 transition rounded-lg shadow-lg">
+                        Start Now
+                    </a>
+                    <a href="#who" class="px-5 py-3 border border-gray-300 text-gray-900 font-display font-bold text-[0.65rem] md:text-xs tracking-widest uppercase hover:bg-gray-200 transition rounded-lg">
+                        Why Us?
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
 
 <section id="who" class="py-24 bg-gray-50 dark:bg-gray-800 transition-colors duration-500">
         <div class="max-w-7xl mx-auto px-4">
