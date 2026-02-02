@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MIJ Digital - Personal Branding</title>
+    <meta name="theme-color" content="#ea580c">
+    <meta name="msapplication-navbutton-color" content="#ea580c">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23ea580c%22/><text x=%2250%22 y=%2270%22 font-family=%22Arial, sans-serif%22 font-weight=%22900%22 font-size=%2245%22 text-anchor=%22middle%22 fill=%22white%22>MIJ</text></svg>">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,20 +42,25 @@
 
     <nav x-data="{ mobileMenu: false }" class="fixed w-full top-0 z-50 pointer-events-none">
         
-        <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-20 pt-8 flex justify-start items-center gap-4">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-20 pt-8 flex flex-row items-center justify-start gap-3">
             
-            <button @click="mobileMenu = !mobileMenu" class="pointer-events-auto bg-white text-black w-12 h-12 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-110 transition flex items-center justify-center group z-50">
+            <button @click="mobileMenu = !mobileMenu" class="pointer-events-auto bg-white text-black w-10 h-10 md:w-12 md:h-12 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-110 transition flex items-center justify-center group z-50 shrink-0">
                 <div class="space-y-1.5 transform group-hover:rotate-180 transition duration-500">
-                    <span class="block w-6 h-0.5 bg-black"></span>
-                    <span class="block w-6 h-0.5 bg-black"></span>
-                    <span class="block w-6 h-0.5 bg-black"></span>
+                    <span class="block w-5 h-0.5 bg-black"></span>
+                    <span class="block w-5 h-0.5 bg-black"></span>
+                    <span class="block w-5 h-0.5 bg-black"></span>
                 </div>
             </button>
 
-            <a href="index.html" class="pointer-events-auto bg-white/10 backdrop-blur-md border border-white/20 px-6 py-2.5 rounded-full shadow-lg group transition hover:bg-white hover:scale-105 z-50">
-                <span class="font-display font-black text-xl tracking-tighter text-white group-hover:text-black transition">
+            <a href="index.html" class="pointer-events-auto bg-white/10 backdrop-blur-md border border-white/20 px-4 md:px-6 py-2 md:py-2.5 rounded-full shadow-lg group transition hover:bg-white hover:scale-105 z-50 shrink-0">
+                <span class="font-display font-black text-lg md:text-xl tracking-tighter text-white group-hover:text-black transition">
                     MIJ<span class="text-orange-500">.</span>
                 </span>
+            </a>
+
+            <a href="https://wa.me/601155886905" target="_blank" class="pointer-events-auto bg-orange-600 text-white px-5 py-2 md:py-2.5 rounded-full shadow-lg hover:bg-white hover:text-orange-600 transition hover:scale-105 z-50 flex items-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.48s1.066 2.875 1.215 3.072c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span class="font-bold text-[10px] md:text-xs uppercase tracking-widest">Chat With Me</span>
             </a>
 
         </div>
@@ -73,7 +83,7 @@
                 
                 <div class="pt-8">
                     <a href="https://wa.me/601155886905" class="px-8 py-4 bg-white text-black rounded-full font-bold uppercase tracking-widest hover:bg-green-600 hover:text-white transition shadow-xl">
-                        Chat With Me
+                        WhatsApp Now
                     </a>
                 </div>
             </div>
@@ -191,229 +201,356 @@
         </div>
     </section>
 
-    <section class="py-24 bg-gray-900 text-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4">
+    <section class="py-32 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden relative">
+        
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
+            <div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-orange-600/30 rounded-full blur-[120px]"></div>
+            <div class="absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] bg-orange-600/20 rounded-full blur-[120px]"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
             
-            <h2 class="text-3xl md:text-5xl font-black mb-12 text-center uppercase" data-aos="fade-down">
-                We Know What You’re Thinking...
-            </h2>
+            <div class="text-center mb-20" data-aos="fade-down">
+                <span class="text-orange-500 font-bold tracking-[0.2em] text-sm uppercase mb-4 block">Transparency First</span>
+                <h2 class="text-3xl md:text-5xl font-display font-black uppercase tracking-tight leading-tight">
+                    WE’VE ANTICIPATED YOUR DOUBTS.
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
+                        HERE IS THE REALITY.
+                    </span>
+                </h2>
+            </div>
             
-            <div class="swiper mySwiper w-full pt-10 pb-16">
+            <div class="swiper mySwiper w-full py-10">
                 <div class="swiper-wrapper">
                     
-                    <div class="swiper-slide bg-white text-black rounded-2xl p-8 md:p-10 shadow-2xl flex flex-col justify-center h-[420px] max-w-[350px] relative select-none border-t-8 border-black">
-                        <div class="absolute top-4 right-4 text-gray-100">
-                            <svg class="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <div class="swiper-slide bg-white text-black rounded-3xl shadow-2xl flex flex-col h-[480px] max-w-[360px] relative select-none border-t-4 border-orange-500 ring-1 ring-gray-200/50 overflow-hidden group">
+                        
+                        <div class="p-8 pb-0 flex-1 relative">
+                            <div class="mb-8 flex flex-col items-start">
+                                <div class="p-3 bg-orange-50 rounded-2xl mb-3 shadow-sm group-hover:scale-110 transition-transform">
+                                   <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                </div>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Technical Skill Concern</span>
+                            </div>
+                            <p class="font-display font-black text-3xl relative z-10 leading-tight">"I’m not tech-savvy."</p>
                         </div>
                         
-                        <p class="text-orange-600 font-black text-2xl mb-6 relative z-10">"I’m not tech-savvy."</p>
-                        
-                        <div class="mt-auto relative z-10">
-                            <p class="text-xs text-gray-400 font-bold uppercase tracking-widest mb-2">OUR PROMISE</p>
-                            <h3 class="text-3xl font-black mb-3">We handle everything.</h3>
-                            <p class="text-gray-600 font-medium">You don't need to code. We ensure your site is secure & fast.</p>
+                        <div class="mt-auto relative z-10 bg-gray-50 p-8 border-t border-gray-100">
+                            <p class="text-xs text-orange-600 font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                THE REALITY
+                            </p>
+                            <h3 class="text-2xl font-black mb-2 font-display">We handle everything.</h3>
+                            <p class="text-gray-600 font-medium text-sm leading-relaxed">You don't need to code. We ensure your site is secure, fast, and always running.</p>
                         </div>
                     </div>
 
-                    <div class="swiper-slide bg-white text-black rounded-2xl p-8 md:p-10 shadow-2xl flex flex-col justify-center h-[420px] max-w-[350px] relative select-none border-t-8 border-black">
-                        <div class="absolute top-4 right-4 text-gray-100">
-                            <svg class="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="swiper-slide bg-white text-black rounded-3xl shadow-2xl flex flex-col h-[480px] max-w-[360px] relative select-none border-t-4 border-orange-500 ring-1 ring-gray-200/50 overflow-hidden group">
+                        <div class="p-8 pb-0 flex-1 relative">
+                            <div class="mb-8 flex flex-col items-start">
+                                <div class="p-3 bg-orange-50 rounded-2xl mb-3 shadow-sm group-hover:scale-110 transition-transform">
+                                   <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                </div>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Cost Concern</span>
+                            </div>
+                            <p class="font-display font-black text-3xl relative z-10 leading-tight">"Is it expensive?"</p>
                         </div>
-
-                        <p class="text-orange-600 font-black text-2xl mb-6 relative z-10">"Is it expensive?"</p>
-                        
-                        <div class="mt-auto relative z-10">
-                            <p class="text-xs text-gray-400 font-bold uppercase tracking-widest mb-2">OUR PROMISE</p>
-                            <h3 class="text-3xl font-black mb-3">It pays for itself.</h3>
-                            <p class="text-gray-600 font-medium">Securing just ONE new client pays for this entire project.</p>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide bg-white text-black rounded-2xl p-8 md:p-10 shadow-2xl flex flex-col justify-center h-[420px] max-w-[350px] relative select-none border-t-8 border-black">
-                        <div class="absolute top-4 right-4 text-gray-100">
-                            <svg class="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        </div>
-
-                        <p class="text-orange-600 font-black text-2xl mb-6 relative z-10">"I don't have time."</p>
-                        
-                        <div class="mt-auto relative z-10">
-                            <p class="text-xs text-gray-400 font-bold uppercase tracking-widest mb-2">OUR PROMISE</p>
-                            <h3 class="text-3xl font-black mb-3">Zero Hassle.</h3>
-                            <p class="text-gray-600 font-medium">Just send your CV/Profile. We write, design, and launch it for you.</p>
+                        <div class="mt-auto relative z-10 bg-gray-50 p-8 border-t border-gray-100">
+                            <p class="text-xs text-orange-600 font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                THE REALITY
+                            </p>
+                            <h3 class="text-2xl font-black mb-2 font-display">It pays for itself.</h3>
+                            <p class="text-gray-600 font-medium text-sm leading-relaxed">Securing just ONE new premium client often covers the entire project cost.</p>
                         </div>
                     </div>
 
-                    <div class="swiper-slide bg-white text-black rounded-2xl p-8 md:p-10 shadow-2xl flex flex-col justify-center h-[420px] max-w-[350px] relative select-none border-t-8 border-black">
-                        <div class="absolute top-4 right-4 text-gray-100">
-                            <svg class="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <div class="swiper-slide bg-white text-black rounded-3xl shadow-2xl flex flex-col h-[480px] max-w-[360px] relative select-none border-t-4 border-orange-500 ring-1 ring-gray-200/50 overflow-hidden group">
+                        <div class="p-8 pb-0 flex-1 relative">
+                            <div class="mb-8 flex flex-col items-start">
+                                <div class="p-3 bg-orange-50 rounded-2xl mb-3 shadow-sm group-hover:scale-110 transition-transform">
+                                   <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                </div>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Time Constraint</span>
+                            </div>
+                            <p class="font-display font-black text-3xl relative z-10 leading-tight">"I don't have time."</p>
                         </div>
-
-                        <p class="text-orange-600 font-black text-2xl mb-6 relative z-10">"What if it breaks?"</p>
-                        
-                        <div class="mt-auto relative z-10">
-                            <p class="text-xs text-gray-400 font-bold uppercase tracking-widest mb-2">OUR PROMISE</p>
-                            <h3 class="text-3xl font-black mb-3">Free Support.</h3>
-                            <p class="text-gray-600 font-medium">We provide 3 months of free maintenance. We won't ghost you.</p>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide bg-white text-black rounded-2xl p-8 md:p-10 shadow-2xl flex flex-col justify-center h-[420px] max-w-[350px] relative select-none border-t-8 border-black">
-                        <div class="absolute top-4 right-4 text-gray-100">
-                            <svg class="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                        </div>
-
-                        <p class="text-orange-600 font-black text-2xl mb-6 relative z-10">"Will people find me?"</p>
-                        
-                        <div class="mt-auto relative z-10">
-                            <p class="text-xs text-gray-400 font-bold uppercase tracking-widest mb-2">OUR PROMISE</p>
-                            <h3 class="text-3xl font-black mb-3">SEO Optimized.</h3>
-                            <p class="text-gray-600 font-medium">We build it Google-friendly so you rank higher on search results.</p>
+                        <div class="mt-auto relative z-10 bg-gray-50 p-8 border-t border-gray-100">
+                            <p class="text-xs text-orange-600 font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                THE REALITY
+                            </p>
+                            <h3 class="text-2xl font-black mb-2 font-display">Zero Hassle Process.</h3>
+                            <p class="text-gray-600 font-medium text-sm leading-relaxed">Just send your existing Profile/CV. We write the copy, design, and launch it.</p>
                         </div>
                     </div>
 
-                    <div class="swiper-slide bg-white text-black rounded-2xl p-8 md:p-10 shadow-2xl flex flex-col justify-center h-[420px] max-w-[350px] relative select-none border-t-8 border-black">
-                        <div class="absolute top-4 right-4 text-gray-100">
-                            <svg class="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <div class="swiper-slide bg-white text-black rounded-3xl shadow-2xl flex flex-col h-[480px] max-w-[360px] relative select-none border-t-4 border-orange-500 ring-1 ring-gray-200/50 overflow-hidden group">
+                        <div class="p-8 pb-0 flex-1 relative">
+                            <div class="mb-8 flex flex-col items-start">
+                                <div class="p-3 bg-orange-50 rounded-2xl mb-3 shadow-sm group-hover:scale-110 transition-transform">
+                                   <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                </div>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Maintenance Fear</span>
+                            </div>
+                            <p class="font-display font-black text-3xl relative z-10 leading-tight">"What if it breaks?"</p>
                         </div>
+                        <div class="mt-auto relative z-10 bg-gray-50 p-8 border-t border-gray-100">
+                            <p class="text-xs text-orange-600 font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                THE REALITY
+                            </p>
+                            <h3 class="text-2xl font-black mb-2 font-display">Free Support Included.</h3>
+                            <p class="text-gray-600 font-medium text-sm leading-relaxed">We provide 3 months of free maintenance. We won't ghost you after launch.</p>
+                        </div>
+                    </div>
 
-                        <p class="text-orange-600 font-black text-2xl mb-6 relative z-10">"I have no photos."</p>
-                        
-                        <div class="mt-auto relative z-10">
-                            <p class="text-xs text-gray-400 font-bold uppercase tracking-widest mb-2">OUR PROMISE</p>
-                            <h3 class="text-3xl font-black mb-3">We Guide You.</h3>
-                            <p class="text-gray-600 font-medium">We'll advise on poses or use premium stock assets to make you look pro.</p>
+                    <div class="swiper-slide bg-white text-black rounded-3xl shadow-2xl flex flex-col h-[480px] max-w-[360px] relative select-none border-t-4 border-orange-500 ring-1 ring-gray-200/50 overflow-hidden group">
+                        <div class="p-8 pb-0 flex-1 relative">
+                            <div class="mb-8 flex flex-col items-start">
+                                <div class="p-3 bg-orange-50 rounded-2xl mb-3 shadow-sm group-hover:scale-110 transition-transform">
+                                   <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                </div>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Visibility Concern</span>
+                            </div>
+                            <p class="font-display font-black text-3xl relative z-10 leading-tight">"Will people find me?"</p>
+                        </div>
+                        <div class="mt-auto relative z-10 bg-gray-50 p-8 border-t border-gray-100">
+                            <p class="text-xs text-orange-600 font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                THE REALITY
+                            </p>
+                            <h3 class="text-2xl font-black mb-2 font-display">SEO Optimized Core.</h3>
+                            <p class="text-gray-600 font-medium text-sm leading-relaxed">We build it Google-friendly from day one so you rank higher on search results.</p>
                         </div>
                     </div>
 
-                    <div class="swiper-slide bg-white text-black rounded-2xl p-8 md:p-10 shadow-2xl flex flex-col justify-center h-[420px] max-w-[350px] relative select-none border-t-8 border-black">
-                        <div class="absolute top-4 right-4 text-gray-100">
-                            <svg class="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <div class="swiper-slide bg-white text-black rounded-3xl shadow-2xl flex flex-col h-[480px] max-w-[360px] relative select-none border-t-4 border-orange-500 ring-1 ring-gray-200/50 overflow-hidden group">
+                        <div class="p-8 pb-0 flex-1 relative">
+                            <div class="mb-8 flex flex-col items-start">
+                                <div class="p-3 bg-orange-50 rounded-2xl mb-3 shadow-sm group-hover:scale-110 transition-transform">
+                                   <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Asset Concern</span>
+                            </div>
+                            <p class="font-display font-black text-3xl relative z-10 leading-tight">"I have no photos."</p>
                         </div>
-
-                        <p class="text-orange-600 font-black text-2xl mb-6 relative z-10">"Is it worth it?"</p>
-                        
-                        <div class="mt-auto relative z-10">
-                            <p class="text-xs text-gray-400 font-bold uppercase tracking-widest mb-2">OUR PROMISE</p>
-                            <h3 class="text-3xl font-black mb-3">Your Best Asset.</h3>
-                            <p class="text-gray-600 font-medium">In 2026, if you're not online, you don't exist. Let's fix that.</p>
+                        <div class="mt-auto relative z-10 bg-gray-50 p-8 border-t border-gray-100">
+                            <p class="text-xs text-orange-600 font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                THE REALITY
+                            </p>
+                            <h3 class="text-2xl font-black mb-2 font-display">We Guide & Provide.</h3>
+                            <p class="text-gray-600 font-medium text-sm leading-relaxed">We advise on poses or use premium stock assets tailored to your brand look.</p>
                         </div>
                     </div>
+                     <div class="swiper-slide bg-white text-black rounded-3xl shadow-2xl flex flex-col h-[480px] max-w-[360px] relative select-none border-t-4 border-orange-500 ring-1 ring-gray-200/50 overflow-hidden group">
+                        <div class="p-8 pb-0 flex-1 relative">
+                            <div class="mb-8 flex flex-col items-start">
+                                <div class="p-3 bg-orange-50 rounded-2xl mb-3 shadow-sm group-hover:scale-110 transition-transform">
+                                   <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                </div>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">ROI Concern</span>
+                            </div>
+                            <p class="font-display font-black text-3xl relative z-10 leading-tight">"Is it worth it?"</p>
+                        </div>
+                        <div class="mt-auto relative z-10 bg-gray-50 p-8 border-t border-gray-100">
+                            <p class="text-xs text-orange-600 font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                THE REALITY
+                            </p>
+                            <h3 class="text-2xl font-black mb-2 font-display">Your Best Long-term Asset.</h3>
+                            <p class="text-gray-600 font-medium text-sm leading-relaxed">In 2026, online presence is credibility. The opportunity cost of missing out is higher.</p>
+                        </div>
+                    </div>
+
 
                 </div>
                 <div class="swiper-pagination !bottom-0"></div>
             </div>
             
-            <p class="text-center text-gray-500 text-sm mt-8 flex items-center justify-center gap-2">
-                <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path></svg>
-                Swipe cards to see more
-                <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            <p class="text-center text-orange-200/60 text-sm mt-8 flex items-center justify-center gap-3 uppercase tracking-widest font-bold">
+                <svg class="w-5 h-5 animate-bounce text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path></svg>
+                Swipe to explore
+                <svg class="w-5 h-5 animate-bounce text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
             </p>
 
         </div>
     </section>
 
-    <section id="pricing" class="py-24 bg-white dark:bg-gray-800 transition-colors duration-500 border-t border-gray-100 dark:border-gray-700">
-        <div class="max-w-7xl mx-auto px-4">
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            initialSlide: 1,
+            loop: true, /* MENGAKTIFKAN LOOP AGAR MUTAR TERUS */
+            coverflowEffect: {
+                rotate: 30,
+                stretch: 0,
+                depth: 150,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            autoplay: {
+                delay: 4000, /* Sedikit lebih lambat agar lebih elegan */
+                disableOnInteraction: false,
+            },
+        });
+        AOS.init();
+    </script>
+
+    <section id="pricing" class="py-24 bg-white text-black relative border-t border-gray-100">
+        
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
             
             <div class="text-center mb-16" data-aos="fade-up">
                 <span class="text-orange-600 font-bold tracking-widest text-xs uppercase mb-2 block">Our Packages</span>
-                <h2 class="text-4xl md:text-5xl font-display font-black dark:text-white mb-4">CHOOSE YOUR WEAPON.</h2>
-                <p class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
-                    Whether you are an individual, a company, or a retailer. We have the digital solution for you.
-                    <br><strong>All packages include 1 Year of Support, Hosting & Domain.</strong>
+                
+                <div class="flex flex-row items-center justify-center w-full gap-2 md:gap-6">
+                    
+                    <svg class="w-10 h-10 sm:w-16 sm:h-16 md:w-24 md:h-24 text-black/80 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 21a11.996 11.996 0 0 1 .53-5.26c.71-2.26 2.1-4.22 3.97-5.59a11.99 11.99 0 0 1 4.5-1.92"/>
+                        <path d="M5.5 19.5c.98-1.57 2.37-2.88 4-3.83"/>
+                        <path d="M4.5 17c1.37-1 3.06-1.63 4.82-1.8"/>
+                        <path d="M4.5 14c1.65-.25 3.37.1 4.86.99"/>
+                        <path d="M5.5 11.5c1.29.58 2.37 1.6 3.1 2.85"/>
+                        <path d="M7.5 9.5c.87 1.05 1.35 2.38 1.36 3.75"/>
+                    </svg>
+
+                    <h2 class="text-3xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-tighter leading-[0.9] text-center">
+                        CHOOSE YOUR <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-400">WEAPON.</span>
+                    </h2>
+
+                    <svg class="w-10 h-10 sm:w-16 sm:h-16 md:w-24 md:h-24 text-black/80 shrink-0 transform scale-x-[-1]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 21a11.996 11.996 0 0 1 .53-5.26c.71-2.26 2.1-4.22 3.97-5.59a11.99 11.99 0 0 1 4.5-1.92"/>
+                        <path d="M5.5 19.5c.98-1.57 2.37-2.88 4-3.83"/>
+                        <path d="M4.5 17c1.37-1 3.06-1.63 4.82-1.8"/>
+                        <path d="M4.5 14c1.65-.25 3.37.1 4.86.99"/>
+                        <path d="M5.5 11.5c1.29.58 2.37 1.6 3.1 2.85"/>
+                        <path d="M7.5 9.5c.87 1.05 1.35 2.38 1.36 3.75"/>
+                    </svg>
+
+                </div>
+
+                <p class="text-gray-500 max-w-2xl mx-auto mt-6 text-sm md:text-lg font-medium">
+                    Whether you are an individual, a company, or a retailer.<br class="hidden md:block"> We have the digital solution for you.<br>
+                    <span class="text-orange-600 font-bold mt-2 block">All packages include 1 Year of Support, Hosting & Domain.</span>
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 
-                <div class="bg-white dark:bg-gray-900 border-2 border-gray-100 dark:border-gray-700 p-8 rounded-2xl hover:border-black dark:hover:border-white hover:-translate-y-2 transition duration-300 shadow-lg flex flex-col relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute top-0 right-0 bg-black text-white text-[10px] font-bold px-3 py-1 uppercase rounded-bl-lg">
+                <div class="bg-[#111] text-white p-8 rounded-3xl border border-gray-800 hover:border-orange-500 hover:shadow-2xl hover:-translate-y-2 transition duration-500 flex flex-col relative group overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 right-0 bg-gray-800 text-white text-[10px] font-bold px-4 py-1.5 uppercase rounded-bl-xl tracking-widest">
                         Ready in 7 Days
                     </div>
                     
-                    <div class="w-14 h-14 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mb-6 group-hover:bg-black group-hover:text-white transition-colors">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    <h3 class="text-2xl font-display font-black mb-1 text-white group-hover:text-orange-500 transition">Personal Branding</h3>
+                    <p class="text-xs text-gray-400 mb-6 border-b border-gray-800 pb-6">For Lecturers, Experts & Consultants.</p>
+
+                    <div class="mb-8">
+                        <p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-1">Starts From</p>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-sm font-bold text-orange-500">RM</span>
+                            <span class="text-5xl font-display font-black text-white">1,000</span>
+                        </div>
                     </div>
 
-                    <h3 class="text-2xl font-black mb-2 dark:text-white">Personal Branding</h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">For Lecturers, Experts & Consultants.</p>
-
-                    <ul class="space-y-3 mb-8 flex-1">
-                        <li class="flex items-start text-sm font-medium text-gray-700 dark:text-gray-300">
-                            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <ul class="space-y-4 mb-10 flex-1">
+                        <li class="flex items-start text-sm font-medium text-gray-300">
+                            <svg class="w-5 h-5 text-orange-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             Custom Portfolio Design
                         </li>
-                        <li class="flex items-start text-sm font-medium text-gray-700 dark:text-gray-300">
-                            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <li class="flex items-start text-sm font-medium text-gray-300">
+                            <svg class="w-5 h-5 text-orange-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             Free Domain (.com / .my)
                         </li>
-                        <li class="flex items-start text-sm font-medium text-gray-700 dark:text-gray-300">
-                            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <li class="flex items-start text-sm font-medium text-gray-300">
+                            <svg class="w-5 h-5 text-orange-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             1 Year Hosting & Support
                         </li>
                     </ul>
 
-                    <a href="https://wa.me/601155886905?text=Hi,%20I%20want%20to%20discuss%20Personal%20Branding%20Website" class="block w-full border-2 border-black dark:border-white text-black dark:text-white text-center py-3 font-bold uppercase text-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition rounded-lg">
+                    <a href="https://wa.me/601155886905?text=Hi,%20I%20want%20to%20discuss%20Personal%20Branding%20(Budget%20RM1000)" class="block w-full py-4 border border-white text-white text-center font-bold uppercase tracking-widest text-xs hover:bg-white hover:text-black transition rounded-xl">
                         Discuss Budget
                     </a>
                 </div>
 
-                <div class="bg-black text-white p-8 rounded-2xl hover:-translate-y-2 transition duration-300 shadow-2xl flex flex-col relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute top-0 right-0 bg-orange-600 text-white text-[10px] font-bold px-3 py-1 uppercase rounded-bl-lg">
+                <div class="bg-[#111] text-white p-8 rounded-3xl border-2 border-orange-600 shadow-[0_20px_50px_rgba(234,88,12,0.15)] hover:-translate-y-2 transition duration-500 flex flex-col relative group overflow-hidden scale-105 z-10" data-aos="fade-up" data-aos-delay="200">
+                    
+                    <div class="absolute top-0 inset-x-0 bg-orange-600 text-white text-[10px] font-black px-4 py-2 uppercase tracking-[0.3em] text-center">
                         Best Seller
                     </div>
 
-                    <div class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-colors">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    <h3 class="text-2xl font-display font-black mb-1 text-white mt-6">Company Profile</h3>
+                    <p class="text-xs text-gray-400 mb-6 border-b border-gray-800 pb-6">For SMEs, Agencies & Startups.</p>
+
+                    <div class="mb-8">
+                        <p class="text-orange-500 text-[10px] font-bold uppercase tracking-widest mb-1">Starts From</p>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-sm font-bold text-orange-500">RM</span>
+                            <span class="text-5xl font-display font-black text-white">1,000</span>
+                        </div>
                     </div>
 
-                    <h3 class="text-2xl font-black mb-2">Company Profile</h3>
-                    <p class="text-sm text-gray-400 mb-6">For SMEs, Agencies & Startups.</p>
-
-                    <ul class="space-y-3 mb-8 flex-1">
-                        <li class="flex items-start text-sm font-medium text-gray-300">
-                            <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <ul class="space-y-4 mb-10 flex-1">
+                        <li class="flex items-start text-sm font-medium text-white">
+                            <div class="bg-orange-600 rounded-full p-0.5 mr-3 mt-0.5"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path></svg></div>
                             Professional Corporate Look
                         </li>
-                        <li class="flex items-start text-sm font-medium text-gray-300">
-                            <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <li class="flex items-start text-sm font-medium text-white">
+                            <div class="bg-orange-600 rounded-full p-0.5 mr-3 mt-0.5"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path></svg></div>
                             SEO Basic Setup
                         </li>
-                        <li class="flex items-start text-sm font-medium text-gray-300">
-                            <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <li class="flex items-start text-sm font-medium text-white">
+                            <div class="bg-orange-600 rounded-full p-0.5 mr-3 mt-0.5"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path></svg></div>
                             1 Year Maintenance Included
                         </li>
                     </ul>
 
-                    <a href="https://wa.me/601155886905?text=Hi,%20I%20want%20to%20discuss%20Company%20Profile%20Website" class="block w-full bg-white text-black text-center py-3 font-bold uppercase text-sm hover:bg-gray-200 transition rounded-lg">
+                    <a href="https://wa.me/601155886905?text=Hi,%20I%20want%20to%20discuss%20Company%20Profile%20(Budget%20RM1000)" class="block w-full py-4 bg-orange-600 text-white text-center font-bold uppercase tracking-widest text-xs hover:bg-white hover:text-black transition rounded-xl shadow-lg">
                         Discuss Budget
                     </a>
                 </div>
 
-<div class="bg-white dark:bg-gray-900 border-2 border-gray-100 dark:border-gray-700 p-8 rounded-2xl hover:border-black dark:hover:border-white hover:-translate-y-2 transition duration-300 shadow-lg flex flex-col relative overflow-hidden group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-14 h-14 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mb-6 group-hover:bg-black group-hover:text-white transition-colors">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg>
+                <div class="bg-[#111] text-white p-8 rounded-3xl border border-gray-800 hover:border-orange-500 hover:shadow-2xl hover:-translate-y-2 transition duration-500 flex flex-col relative group overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                     <div class="absolute top-0 right-0 bg-gray-800 text-white text-[10px] font-bold px-4 py-1.5 uppercase rounded-bl-xl tracking-widest">
+                        Complex System
                     </div>
 
-                    <h3 class="text-2xl font-black mb-2 dark:text-white">LMS System</h3>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">For Schools, Tutors & Courses.</p>
+                    <h3 class="text-2xl font-display font-black mb-1 text-white group-hover:text-orange-500 transition">LMS System</h3>
+                    <p class="text-xs text-gray-400 mb-6 border-b border-gray-800 pb-6">For Schools, Tutors & Courses.</p>
 
-                    <ul class="space-y-3 mb-8 flex-1">
-                        <li class="flex items-start text-sm font-medium text-gray-700 dark:text-gray-300">
-                            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <div class="mb-8">
+                        <p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-1">Tailored Solution</p>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-display font-black text-white">Custom Offer</span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-4 mb-10 flex-1">
+                        <li class="flex items-start text-sm font-medium text-gray-300">
+                            <svg class="w-5 h-5 text-orange-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             Student & Course Management
                         </li>
-                        <li class="flex items-start text-sm font-medium text-gray-700 dark:text-gray-300">
-                            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <li class="flex items-start text-sm font-medium text-gray-300">
+                            <svg class="w-5 h-5 text-orange-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             Online Quiz & Certificates
                         </li>
-                        <li class="flex items-start text-sm font-medium text-gray-700 dark:text-gray-300">
-                            <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <li class="flex items-start text-sm font-medium text-gray-300">
+                            <svg class="w-5 h-5 text-orange-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             1 Year Technical Support
                         </li>
                     </ul>
 
-                    <a href="https://wa.me/601155886905?text=Hi,%20I%20want%20to%20discuss%20LMS%20System" class="block w-full border-2 border-black dark:border-white text-black dark:text-white text-center py-3 font-bold uppercase text-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition rounded-lg">
+                    <a href="https://wa.me/601155886905?text=Hi,%20I%20want%20to%20discuss%20LMS%20System%20Custom%20Project" class="block w-full py-4 border border-white text-white text-center font-bold uppercase tracking-widest text-xs hover:bg-white hover:text-black transition rounded-xl">
                         Discuss Budget
                     </a>
                 </div>
@@ -422,128 +559,239 @@
         </div>
     </section>
 
-    <section class="py-20 bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 transition-colors duration-500">
-        <div class="max-w-4xl mx-auto px-4">
-            
-            <div class="text-center mb-10" data-aos="fade-down">
-                <h2 class="text-2xl font-black uppercase dark:text-white tracking-widest">Our Work</h2>
-                <div class="w-10 h-1 bg-orange-600 mx-auto mt-2"></div>
-            </div>
+    <section class="relative py-32 bg-[#F9FAFB] border-t border-gray-200 z-40">
+        
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div class="absolute top-[10%] left-[5%] w-[500px] h-[500px] bg-orange-200/40 rounded-full blur-[100px] mix-blend-multiply animate-pulse"></div>
+            <div class="absolute bottom-[10%] right-[5%] w-[600px] h-[600px] bg-blue-100/40 rounded-full blur-[120px] mix-blend-multiply"></div>
+        </div>
 
-            <div x-data="{ active: 1 }" class="space-y-4">
+        <style>
+            @keyframes bar-grow { 0%, 100% { height: 30%; } 50% { height: 80%; } }
+            @keyframes bar-grow-2 { 0%, 100% { height: 50%; } 50% { height: 90%; } }
+            @keyframes bar-grow-3 { 0%, 100% { height: 40%; } 50% { height: 70%; } }
+            .animate-bar-1 { animation: bar-grow 2s ease-in-out infinite; }
+            .animate-bar-2 { animation: bar-grow-2 2.5s ease-in-out infinite; }
+            .animate-bar-3 { animation: bar-grow-3 1.8s ease-in-out infinite; }
+            @keyframes spin-slow { to { transform: rotate(360deg); } }
+            .animate-spin-slow { animation: spin-slow 8s linear infinite; }
+            @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+            .animate-marquee { animation: marquee 20s linear infinite; }
+        </style>
+
+        <div class="absolute top-0 left-0 w-full z-50 transform -translate-y-1/2 pointer-events-none">
+            <div class="w-full overflow-hidden">
+                <div class="bg-orange-600 py-5 shadow-2xl border-y-4 border-white">
+                    <div class="whitespace-nowrap flex gap-12 animate-marquee font-display font-black text-lg md:text-xl tracking-widest text-white uppercase">
+                        <span>Selected Works</span> • <span>Digital Excellence</span> • <span>High Impact</span> • <span>Future Ready</span> • 
+                        <span>Selected Works</span> • <span>Digital Excellence</span> • <span>High Impact</span> • <span>Future Ready</span> •
+                        <span>Selected Works</span> • <span>Digital Excellence</span> • <span>High Impact</span> • <span>Future Ready</span> •
+                        <span>Selected Works</span> • <span>Digital Excellence</span> • <span>High Impact</span> • <span>Future Ready</span> •
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-24 pb-20 text-center relative z-10" data-aos="fade-up">
+            <h2 class="text-5xl md:text-7xl font-display font-black uppercase tracking-tighter mb-4 text-gray-900">
+                Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-400">Masterpieces</span>
+            </h2>
+            <p class="text-gray-500 max-w-2xl mx-auto font-medium text-lg">
+                We don't just build websites. We build <span class="text-orange-600 font-bold">Assets</span> that generate value.
+            </p>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+
+            <div class="group relative bg-white/60 backdrop-blur-xl border border-white/50 rounded-[2rem] p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-500 overflow-hidden flex flex-col h-[550px]" data-aos="fade-up" data-aos-delay="100">
                 
-                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition border border-gray-100 dark:border-gray-700" data-aos="fade-up" data-aos-delay="100">
-                    <button @click="active = (active === 1 ? null : 1)" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-black dark:text-white">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
-                            </div>
-                            <span class="text-lg font-bold uppercase tracking-widest dark:text-white">Personal Branding</span>
-                        </div>
-                        <svg class="w-5 h-5 transform transition-transform duration-300 dark:text-white" :class="active === 1 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
+                <span class="absolute -top-6 -right-6 text-[12rem] font-display font-black text-gray-900/5 select-none z-0 group-hover:text-orange-600/10 transition duration-500">
+                    01
+                </span>
 
-                    <div x-show="active === 1" x-collapse x-cloak>
-                        <div class="p-6 pt-0 border-t border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
-                            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Examples of high-converting profile websites for Lecturers, Coaches, and Experts.</p>
-                            <div class="flex gap-3">
-                                <a href="#" onclick="alert('Portfolio coming soon')" class="flex-1 py-3 border border-black dark:border-white text-black dark:text-white text-center text-xs font-bold uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition rounded">View Portfolio</a>
-                                <a href="https://wa.me/601155886905?text=Info%20Personal%20Branding" class="flex-1 py-3 bg-black dark:bg-white text-white dark:text-black text-center text-xs font-bold uppercase hover:opacity-80 transition rounded">Order Now</a>
+                <div class="relative z-10 flex-1 flex flex-col">
+                    <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 text-orange-600 shadow-sm group-hover:scale-110 transition duration-300">
+                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    </div>
+
+                    <h3 class="text-3xl font-display font-black mb-3 text-gray-900">Personal Branding</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-8 font-medium">
+                        High-converting profile websites for Lecturers, Coaches, and Industry Experts. Designed to establish authority.
+                    </p>
+
+                    <div class="w-full h-48 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 flex items-center justify-center shadow-inner group-hover:shadow-md transition duration-500">
+                        <div class="flex items-center gap-4 bg-white p-4 rounded-xl border border-gray-100 shadow-xl transform group-hover:scale-105 transition duration-500">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-gray-200 to-gray-100 border-2 border-orange-500 shadow-lg relative">
+                                <div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="w-24 h-2.5 bg-gray-200 rounded-full"></div>
+                                <div class="flex gap-2 items-center">
+                                    <div class="px-2 py-0.5 bg-orange-50 border border-orange-100 rounded">
+                                        <span class="text-[10px] font-bold text-orange-600">12.5k</span>
+                                    </div>
+                                    <span class="text-[10px] text-gray-400 font-bold">Followers</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition border border-gray-100 dark:border-gray-700" data-aos="fade-up" data-aos-delay="200">
-                    <button @click="active = (active === 2 ? null : 2)" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-black dark:text-white">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                            </div>
-                            <span class="text-lg font-bold uppercase tracking-widest dark:text-white">Company Profile</span>
-                        </div>
-                        <svg class="w-5 h-5 transform transition-transform duration-300 dark:text-white" :class="active === 2 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-
-                    <div x-show="active === 2" x-collapse x-cloak>
-                        <div class="p-6 pt-0 border-t border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
-                            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Corporate websites for SMEs, Startups, and Agencies looking for credibility.</p>
-                            <div class="flex gap-3">
-                                <a href="#" onclick="alert('Portfolio coming soon')" class="flex-1 py-3 border border-black dark:border-white text-black dark:text-white text-center text-xs font-bold uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition rounded">View Portfolio</a>
-                                <a href="https://wa.me/601155886905?text=Info%20Company%20Profile" class="flex-1 py-3 bg-black dark:bg-white text-white dark:text-black text-center text-xs font-bold uppercase hover:opacity-80 transition rounded">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="mt-auto relative z-10 pt-6">
+                    <a href="https://wa.me/601155886905?text=Info%20Personal%20Branding" class="flex items-center justify-between w-full py-4 px-6 bg-white border border-gray-200 rounded-xl text-gray-900 font-bold uppercase text-xs tracking-widest hover:bg-black hover:text-white hover:border-black transition duration-300 group">
+                        View Details
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
                 </div>
-
-            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition border border-gray-100 dark:border-gray-700" data-aos="fade-up" data-aos-delay="300">
-                    <button @click="active = (active === 3 ? null : 3)" class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center text-black dark:text-white">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg>
-                            </div>
-                            <span class="text-lg font-bold uppercase tracking-widest dark:text-white">LMS System</span>
-                        </div>
-                        <svg class="w-5 h-5 transform transition-transform duration-300 dark:text-white" :class="active === 3 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-
-                    <div x-show="active === 3" x-collapse x-cloak>
-                        <div class="p-6 pt-0 border-t border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
-                            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">E-learning platforms, Student Portals, and Online Course marketplaces.</p>
-                            <div class="flex gap-3">
-                                <a href="#" onclick="alert('Portfolio coming soon')" class="flex-1 py-3 border border-black dark:border-white text-black dark:text-white text-center text-xs font-bold uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition rounded">View Portfolio</a>
-                                <a href="https://wa.me/601155886905?text=Info%20LMS%20System" class="flex-1 py-3 bg-black dark:bg-white text-white dark:text-black text-center text-xs font-bold uppercase hover:opacity-80 transition rounded">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+
+            <div class="group relative bg-white/60 backdrop-blur-xl border border-white/50 rounded-[2rem] p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-500 overflow-hidden flex flex-col h-[550px]" data-aos="fade-up" data-aos-delay="200">
+                
+                <span class="absolute -top-6 -right-6 text-[12rem] font-display font-black text-gray-900/5 select-none z-0 group-hover:text-orange-600/10 transition duration-500">
+                    02
+                </span>
+
+                <div class="relative z-10 flex-1 flex flex-col">
+                    <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 text-orange-600 shadow-sm group-hover:scale-110 transition duration-300">
+                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    </div>
+
+                    <h3 class="text-3xl font-display font-black mb-3 text-gray-900">Company Profile</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-8 font-medium">
+                        Corporate digital identity for SMEs, Startups, and Agencies. Credibility built on pixels and code.
+                    </p>
+
+                    <div class="w-full h-48 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 flex items-center justify-center shadow-inner group-hover:shadow-md transition duration-500">
+                        <div class="flex items-end gap-2 h-24 w-36 border-b-2 border-l-2 border-gray-300 p-1 pb-0 relative">
+                            <div class="absolute inset-0 border-t border-gray-200 top-1/2"></div>
+                            <div class="w-1/4 bg-gray-300 rounded-t-sm h-[40%] animate-bar-1 opacity-80"></div>
+                            <div class="w-1/4 bg-gray-400 rounded-t-sm h-[60%] animate-bar-3 opacity-80"></div>
+                            <div class="w-1/4 bg-orange-600 rounded-t-sm h-[80%] animate-bar-2 shadow-lg"></div>
+                            <div class="absolute -top-8 right-0 bg-green-100 text-green-700 text-[10px] font-bold px-2 py-1 rounded-full flex items-center border border-green-200 shadow-sm">
+                                <svg class="w-2 h-2 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+                                +24%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-auto relative z-10 pt-6">
+                    <a href="https://wa.me/601155886905?text=Info%20Company%20Profile" class="flex items-center justify-between w-full py-4 px-6 bg-white border border-gray-200 rounded-xl text-gray-900 font-bold uppercase text-xs tracking-widest hover:bg-black hover:text-white hover:border-black transition duration-300 group">
+                        View Details
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="group relative bg-white/60 backdrop-blur-xl border border-white/50 rounded-[2rem] p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-500 overflow-hidden flex flex-col h-[550px]" data-aos="fade-up" data-aos-delay="300">
+                
+                <span class="absolute -top-6 -right-6 text-[12rem] font-display font-black text-gray-900/5 select-none z-0 group-hover:text-orange-600/10 transition duration-500">
+                    03
+                </span>
+
+                <div class="relative z-10 flex-1 flex flex-col">
+                    <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 text-orange-600 shadow-sm group-hover:scale-110 transition duration-300">
+                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg>
+                    </div>
+
+                    <h3 class="text-3xl font-display font-black mb-3 text-gray-900">LMS System</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-8 font-medium">
+                        Advanced E-learning platforms for Schools and Tutors. Manage students, quizzes, and certificates online.
+                    </p>
+
+                    <div class="w-full h-48 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 flex items-center justify-center shadow-inner group-hover:shadow-md transition duration-500">
+                        <div class="w-56 h-28 bg-white border border-gray-200 rounded-lg flex overflow-hidden shadow-xl relative transform group-hover:scale-105 transition duration-500">
+                            <div class="w-12 bg-gray-50 border-r border-gray-200 flex flex-col gap-1.5 p-2 items-center">
+                                <div class="w-5 h-5 bg-orange-600 rounded-full mb-2"></div>
+                                <div class="w-6 h-1 bg-gray-300 rounded"></div>
+                                <div class="w-6 h-1 bg-gray-300 rounded"></div>
+                            </div>
+                            <div class="flex-1 p-3">
+                                <div class="flex justify-between mb-2">
+                                    <div class="w-20 h-2 bg-gray-200 rounded"></div>
+                                    <div class="w-4 h-4 rounded-full bg-gray-200"></div>
+                                </div>
+                                <div class="flex gap-2 h-full">
+                                    <div class="flex-1 bg-gray-50 rounded border border-gray-100 flex items-center justify-center h-12">
+                                        <div class="w-8 h-8 rounded-full bg-[conic-gradient(at_center,_var(--tw-gradient-stops))] from-orange-500 via-gray-300 to-gray-300 animate-spin-slow"></div>
+                                    </div>
+                                    <div class="flex-1 bg-gray-50 rounded border border-gray-100 p-1 flex flex-col gap-1 h-12">
+                                        <div class="w-full h-1 bg-gray-300 rounded"></div>
+                                        <div class="w-2/3 h-1 bg-gray-300 rounded"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-auto relative z-10 pt-6">
+                    <a href="https://wa.me/601155886905?text=Info%20LMS%20System" class="flex items-center justify-between w-full py-4 px-6 bg-white border border-gray-200 rounded-xl text-gray-900 font-bold uppercase text-xs tracking-widest hover:bg-black hover:text-white hover:border-black transition duration-300 group">
+                        View Details
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </section>
-
-    <footer id="contact" class="bg-gray-100 dark:bg-black py-20 border-t border-gray-200 dark:border-gray-800 transition-colors duration-500 text-center relative overflow-hidden" 
-            x-data="{ message: '' }">
-        
-        <div class="max-w-3xl mx-auto px-4 relative z-10">
-            
-            <h2 class="text-3xl md:text-5xl font-black mb-6 dark:text-white tracking-tight" data-aos="fade-up">
-                READY TO TRANSFORM?
-            </h2>
-            <p class="text-gray-500 dark:text-gray-400 mb-10" data-aos="fade-up" data-aos-delay="100">
-                Tell us what you need, and let's start building your legacy.
-            </p>
-
-            <div class="mb-8" data-aos="fade-up" data-aos-delay="200">
-                <textarea 
-                    x-model="message"
-                    rows="3"
-                    placeholder="Example: Hi, I need a personal branding website for my consulting business..."
-                    class="w-full p-4 rounded-xl bg-white dark:bg-gray-900 border-2 border-transparent focus:border-black dark:focus:border-white outline-none shadow-lg text-black dark:text-white resize-none transition duration-300"></textarea>
-            </div>
-            
-            <div class="flex flex-col md:flex-row justify-center gap-4 mb-16" data-aos="fade-up" data-aos-delay="300">
-                
-                <a :href="'https://wa.me/601155886905?text=' + (message ? encodeURIComponent(message) : 'Hi%20MIJ%20Digital%2C%20I%20am%20interested%20in%20building%20a%20website.')" 
-                   target="_blank"
-                   class="inline-flex items-center justify-center gap-3 bg-black dark:bg-white text-white dark:text-black font-bold text-lg px-8 py-4 rounded-full transition hover:scale-105 shadow-xl hover:shadow-2xl">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.991c-.001 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></path></svg>
-                    WhatsApp Now
-                </a>
-
-                <a :href="'mailto:hello@mijdigital.com?subject=Project%20Inquiry&body=' + (message ? encodeURIComponent(message) : 'Hi%20MIJ%20Digital%2C%20I%20am%20interested%20in%20building%20a%20website.')"
-                   class="inline-flex items-center justify-center gap-3 border-2 border-black dark:border-white text-black dark:text-white font-bold text-lg px-8 py-4 rounded-full transition hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                    Send Email
-                </a>
-            </div>
-
-            <p class="text-gray-400 dark:text-gray-600 text-xs font-bold tracking-widest uppercase" data-aos="fade-up" data-aos-delay="400">
-                &copy; 2026 MIJ Digital Sdn. Bhd. • Kuala Lumpur
-            </p>
-        </div>
-    </footer>
     
+
+<footer id="contact" class="relative py-32 bg-[#F9FAFB] overflow-hidden" x-data="{ message: '' }">
+
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div class="absolute top-[20%] left-[10%] w-[600px] h-[600px] bg-orange-200/30 rounded-full blur-[100px] mix-blend-multiply animate-pulse"></div>
+            <div class="absolute bottom-[20%] right-[10%] w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-[120px] mix-blend-multiply"></div>
+        </div>
+
+        <div class="relative z-10 px-4 md:px-6">
+
+            <div class="max-w-6xl mx-auto bg-white/60 backdrop-blur-2xl border border-white/60 rounded-[3rem] p-8 md:p-16 shadow-[0_40px_100px_-15px_rgba(0,0,0,0.05)] text-center relative overflow-hidden" data-aos="fade-up">
+                
+                <div class="absolute -top-24 -right-24 w-48 h-48 bg-white/40 blur-3xl rounded-full pointer-events-none"></div>
+
+                <h2 class="text-5xl md:text-7xl font-display font-black mb-6 text-gray-900 tracking-tighter relative z-10">
+                    READY TO <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-400">TRANSFORM?</span>
+                </h2>
+                <p class="text-gray-500 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-medium relative z-10">
+                    Tell us what you need, and let's start building your legacy.
+                </p>
+
+                <div class="mb-12 w-full relative z-10">
+                    <div class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-orange-500 to-orange-300 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+
+                        <textarea 
+                            x-model="message"
+                            rows="4"
+                            placeholder="Example: Hi, I need a personal branding website for my consulting business..."
+                            class="relative w-full p-6 md:p-8 rounded-2xl bg-white border border-gray-200 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 outline-none shadow-sm text-lg text-gray-900 placeholder-gray-400 resize-none transition duration-300"></textarea>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row justify-center gap-4 md:gap-6 relative z-10">
+                    
+                    <a :href="'https://wa.me/601155886905?text=' + (message ? encodeURIComponent(message) : 'Hi%20MIJ%20Digital%2C%20I%20am%20interested%20in%20building%20a%20website.')" 
+                       target="_blank"
+                       class="inline-flex items-center justify-center gap-3 bg-black text-white font-bold text-lg px-10 py-5 rounded-2xl transition hover:bg-orange-600 hover:scale-105 shadow-xl hover:shadow-orange-500/20 group">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.991c-.001 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></path></svg>
+                        <span>WhatsApp Now</span>
+                        <svg class="w-5 h-5 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+
+                    <a :href="'mailto:hello@mijdigital.com?subject=Project%20Inquiry&body=' + (message ? encodeURIComponent(message) : 'Hi%20MIJ%20Digital%2C%20I%20am%20interested%20in%20building%20a%20website.')"
+                       class="inline-flex items-center justify-center gap-3 bg-white border-2 border-gray-200 text-gray-900 font-bold text-lg px-10 py-5 rounded-2xl transition hover:border-black hover:bg-gray-50">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        Send Email
+                    </a>
+                </div>
+
+                <p class="text-gray-400 text-xs font-bold tracking-widest uppercase mt-12 relative z-10">
+                    &copy; 2026 MIJ Digital Sdn. Bhd. • Kuala Lumpur
+                </p>
+            </div>
+        </div>
+    </footer>    
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -581,16 +829,27 @@
          x-transition:leave="transition ease-in duration-300"
          x-transition:leave-start="translate-y-0 opacity-100"
          x-transition:leave-end="translate-y-full opacity-0"
-         class="fixed bottom-0 left-0 w-full z-[100] p-4" x-cloak>
+         class="fixed bottom-0 left-0 w-full z-[100] p-4" 
+         x-cloak>
         
-        <div class="max-w-4xl mx-auto bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-xl shadow-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="text-sm text-gray-600 dark:text-gray-300">
-                <p class="font-bold mb-1">We value your privacy 🍪</p>
-                <p>We use cookies to enhance your browsing experience and analyze our traffic. By clicking "Accept", you consent to our use of cookies.</p>
+        <div class="max-w-4xl mx-auto bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-gray-200 dark:border-gray-700 rounded-2xl shadow-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 ring-1 ring-black/5">
+            
+            <div class="flex items-start gap-4">
+                <div class="p-3 bg-orange-100 rounded-full text-orange-600 hidden md:block">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                </div>
+                <div class="text-sm text-gray-600 dark:text-gray-300">
+                    <p class="font-bold text-lg text-black dark:text-white mb-1">We value your privacy 🍪</p>
+                    <p>We use cookies to enhance your browsing experience and analyze our traffic. By clicking "Accept", you consent to our use of cookies.</p>
+                </div>
             </div>
-            <div class="flex gap-3">
-                <button @click="show = false" class="text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition">Decline</button>
-                <button @click="localStorage.setItem('cookieAccepted', 'true'); show = false" class="px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-bold text-xs uppercase tracking-widest rounded-lg hover:opacity-80 transition shadow-lg">
+
+            <div class="flex gap-3 w-full md:w-auto">
+                <button @click="localStorage.setItem('cookieAccepted', 'true'); show = false" class="flex-1 md:flex-none px-6 py-3 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-black dark:hover:text-white transition border border-transparent hover:border-gray-300 rounded-lg">
+                    Decline
+                </button>
+                
+                <button @click="localStorage.setItem('cookieAccepted', 'true'); show = false" class="flex-1 md:flex-none px-8 py-3 bg-orange-600 text-white font-bold text-xs uppercase tracking-widest rounded-lg hover:bg-orange-700 transition shadow-lg transform hover:-translate-y-0.5">
                     Accept All
                 </button>
             </div>
