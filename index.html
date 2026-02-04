@@ -71,35 +71,32 @@
             Alpine.data('contentData', () => ({
                 lang: 'ENG',
                 text: {
-                    // --- NAVBAR ---
+                    // --- TOP BAR PROMO (HTML SUPPORTED) ---
+                    // Gunakan <s> untuk mencoret harga lama
+                    promo_text: { 
+                        ENG: '🔥 LIMITED OFFER: PERSONAL PORTFOLIO RM700 (<s>RM1000</s>) • COMPANY WEBSITE RM1000 (<s>RM1500</s>) • CLAIM NOW: +6011-5588-6905 • ', 
+                        BM: '🔥 TAWARAN TERHAD: PORTFOLIO PERSONAL RM700 (<s>RM1000</s>) • WEBSITE SYARIKAT RM1000 (<s>RM1500</s>) • TEKAN SINI: +6011-5588-6905 • ' 
+                    },
+
+                    // --- NAVBAR MENU ---
                     nav_home: { ENG: 'Home', BM: 'Utama' },
+                    nav_about: { ENG: 'About Me', BM: 'Tentang Saya' },
                     nav_services: { ENG: 'Services', BM: 'Servis' },
-                    nav_pricing: { ENG: 'Pricing', BM: 'Pakej' },
                     nav_portfolio: { ENG: 'Portfolio', BM: 'Portfolio' },
+                    nav_faq: { ENG: 'FAQ', BM: 'Soalan Lazim' },
                     nav_chat: { ENG: 'Chat With Me', BM: 'Hubungi Saya' },
-                    
-                    // --- HERO (UPDATE SPLIT TEXT) ---
+
+                    // --- HERO ---
                     hero_badge: { ENG: 'About Me', BM: 'Tentang Saya' },
                     hero_sub: { ENG: 'I HIKE. I RUN.', BM: 'SAYA MENDAKI. SAYA LARI.' },
-                    
-                    // Baris 1
                     hero_and: { ENG: 'AND', BM: 'DAN' },
-                    
-                    // Baris 2 (Highlight)
-                    hero_build: { ENG: 'I can build', BM: 'SAYA BOLEH BINA' },
-                    
-                    // Baris 3 (Campuran)
+                    hero_build: { ENG: 'I CAN BUILD', BM: 'SAYA BOLEH BINA' },
                     hero_a: { ENG: 'A', BM: 'SEBUAH' },
-                    hero_beautiful: { ENG: 'Beautiful Website', BM: 'LAMAN WEB MENARIK' },
-                    
-                    // Baris 4
+                    hero_beautiful: { ENG: 'BEAUTIFUL WEBSITE', BM: 'LAMAN WEB MENARIK' },
                     hero_foryou: { ENG: 'FOR YOU.', BM: 'UNTUK ANDA.' },
-                    
                     hero_desc: { ENG: 'The discipline of the outdoors applied to pixel-perfect code. I build high-performance digital assets tailored for you.', BM: 'Disiplin aktiviti luar diterapkan dalam kod yang sempurna. Saya membina aset digital berprestasi tinggi khusus untuk anda.' },
                     btn_start: { ENG: 'Start Now', BM: 'Mula Sekarang' },
 
-         
-         
                     // --- TRUSTED ---
                     trusted_title: { ENG: 'TRUSTED BY', BM: 'DIPERCAYAI OLEH' },
 
@@ -113,80 +110,84 @@
                     card_ind_title: { ENG: 'Industry Experts', BM: 'Pakar Industri' },
                     card_ind_desc: { ENG: 'Establish a verified presence.', BM: 'Bina kehadiran yang disahkan.' },
 
-                    // --- DOUBTS (SECTION KERAGUAN) ---
+                    // --- DOUBTS ---
                     doubt_badge: { ENG: 'Transparency First', BM: 'Ketelusan Diutamakan' },
                     doubt_head: { ENG: 'WE’VE ANTICIPATED YOUR DOUBTS.', BM: 'KAMI DAH JANGKA KERAGUAN ANDA.' },
                     reality_label: { ENG: 'THE REALITY', BM: 'REALITINYA' },
-                    swipe_text: { ENG: 'Swipe to explore', BM: 'Sapu untuk lihat' },
-                    
                     d_tech_q: { ENG: '"I’m not tech-savvy."', BM: '"Saya tak pandai IT."' },
                     d_tech_head: { ENG: 'We handle everything.', BM: 'Kami uruskan semua.' },
                     d_tech_desc: { ENG: 'You don\'t need to code.', BM: 'Tak perlu coding.' },
-
                     d_cost_q: { ENG: '"Is it expensive?"', BM: '"Mahal ke?"' },
                     d_cost_head: { ENG: 'It pays for itself.', BM: 'Pulangan berbaloi.' },
                     d_cost_desc: { ENG: 'One client covers the cost.', BM: 'Satu klien dah cover kos.' },
-
                     d_time_q: { ENG: '"I don\'t have time."', BM: '"Saya tiada masa."' },
                     d_time_head: { ENG: 'Zero hassle.', BM: 'Tiada pening kepala.' },
                     d_time_desc: { ENG: 'Just send your CV/Profile.', BM: 'Hanya hantar CV/Profil.' },
 
-                    // --- WORKS & PRICING TITLES ---
+                    // --- WORKS ---
                     work_head: { ENG: 'Our Masterpieces', BM: 'Karya Agung Kami' },
-                    work_desc: { ENG: 'We build Assets that generate value.', BM: 'Kami bina Aset yang menjana nilai.' },
+                    work_desc: { ENG: "We don't just build websites. We build Assets that generate value.", BM: "Kami bukan sekadar bina web. Kami bina Aset yang menjana nilai." },
                     view_details: { ENG: 'View Details', BM: 'Lihat Detail' },
-                    
                     work_1_title: { ENG: 'Personal Branding', BM: 'Personal Branding' },
-                    work_1_desc: { ENG: 'For Academicians & Experts.', BM: 'Untuk Ahli Akademik & Pakar.' },
-                    
+                    work_1_desc: { ENG: 'High-converting profile websites.', BM: 'Web profil konversi tinggi.' },
                     work_2_title: { ENG: 'Corporate Branding', BM: 'Jenama Korporat' },
-                    work_2_desc: { ENG: 'For SMEs, Agencies & Startups.', BM: 'Untuk PKS, Agensi & Startup.' },
-                    
+                    work_2_desc: { ENG: 'Corporate digital identity.', BM: 'Identiti digital korporat.' },
                     work_3_title: { ENG: 'Business System', BM: 'Sistem Bisnes' },
-                    work_3_desc: { ENG: 'For Rentals, Clinics, SMEs.', BM: 'Untuk Sewaan, Klinik, PKS.' },
+                    work_3_desc: { ENG: 'Management System for Rentals, Clinics.', BM: 'Sistem Pengurusan Sewaan, Klinik.' },
 
-                    // --- PRICING HEADER ---
-                    price_badge: { ENG: 'Our Packages', BM: 'Pakej Kami' },
+// --- PRICING HEADER (UPDATE HARGA & PROMO) ---
+                    price_badge: { ENG: 'Limited Offer', BM: 'Tawaran Terhad' },
                     price_head_1: { ENG: 'YOUR WEBSITE', BM: 'LAMAN WEB ANDA' },
                     price_head_2: { ENG: 'STARTS HERE.', BM: 'BERMULA DI SINI.' },
-                    price_sub: { ENG: 'All packages include 1 Year of Support.', BM: 'Semua pakej termasuk 1 Tahun Sokongan.' },
-                    price_btn: { ENG: 'Discuss Budget', BM: 'Bincang Bajet' },
+                    price_sub: { ENG: 'Promo valid for the first 2 months only.', BM: 'Promo sah untuk 2 bulan pertama sahaja.' },
+                    price_btn: { ENG: 'Grab Promo', BM: 'Dapatkan Promo' },
                     price_start: { ENG: 'Starts From', BM: 'Bermula Dari' },
                     price_custom: { ENG: 'Custom Offer', BM: 'Harga Tersuai' },
-
-                    // --- FITUR PRICING (DETAIL) ---
-                    // Personal
+                    
+                    // LABEL PROMO BARU
+                    promo_tag: { ENG: '🔥 2 MONTHS PROMO', BM: '🔥 PROMO 2 BULAN' },
+                    
+                    // HARGA BARU (Variable Text)
+                    p1_old: { ENG: 'RM 700', BM: 'RM 700' },
+                    p1_new: { ENG: 'RM 350', BM: 'RM 350' },
+                    
+                    p2_old: { ENG: 'RM 1,500', BM: 'RM 1,500' },
+                    p2_new: { ENG: 'RM 1,000', BM: 'RM 1,000' },
+                    // Fitur Pricing
                     pb_feat_1: { ENG: 'Bio & Portfolio Gallery', BM: 'Bio & Galeri Portfolio' },
                     pb_feat_2: { ENG: 'Research List', BM: 'Senarai Kajian' },
                     pb_feat_3: { ENG: 'WhatsApp Integration', BM: 'Integrasi WhatsApp' },
-
-                    // Corporate
                     cb_feat_1: { ENG: 'Modern Company Profile', BM: 'Profil Syarikat Moden' },
                     cb_feat_2: { ENG: 'Product Showcase', BM: 'Pameran Produk' },
                     cb_feat_3: { ENG: 'Google Maps & Trust', BM: 'Google Maps & Trust' },
-                    
-                    // LMS / System
                     lms_feat_1: { ENG: 'POS, Sales & Payment', BM: 'POS, Jualan & Bayaran' },
                     lms_feat_2: { ENG: 'Booking & Rental', BM: 'Tempahan & Sewaan' },
                     lms_feat_3: { ENG: 'Attendance & Reports', BM: 'Kehadiran & Laporan' },
 
-                    // --- FAQ (SOALAN LAZIM) ---
-                    faq_head: { ENG: 'FAQ', BM: 'Soalan Lazim' },
-                    faq_sub: { ENG: 'Common questions.', BM: 'Pertanyaan biasa.' },
-                    
-                    q1: { ENG: 'Who are you?', BM: 'Siapa anda?' },
-                    a1_text: { ENG: 'I am a Lecturer & Developer. Verify me here:', BM: 'Saya Pensyarah & Developer. Semak di sini:' },
-                    a1_link_text: { ENG: 'View UTM Profile', BM: 'Lihat Profil UTM' },
-
-                    q2: { ENG: 'Timeline?', BM: 'Berapa lama?' },
-                    a2: { ENG: 'Personal: 3-7 Days. Corporate: 7-14 Days.', BM: 'Personal: 3-7 Hari. Korporat: 7-14 Hari.' },
-
-                    q3: { ENG: 'Payment terms?', BM: 'Bayaran?' },
-                    a3: { ENG: '50% Deposit start, 50% completion.', BM: 'Deposit 50% mula, 50% siap.' },
-
-                    q4: { ENG: 'Support?', BM: 'Support?' },
-                    a4: { ENG: 'Yes, 1 Year Free Maintenance.', BM: 'Ya, 1 Tahun Maintenance Percuma.' },
-
+// --- FAQ (UPDATED BIO & LINKS) ---
+faq_head: { ENG: 'FAQ', BM: 'Soalan Lazim' },
+    faq_sub: { ENG: 'Common questions.', BM: 'Pertanyaan biasa.' },
+    
+    // Q1: WHO ARE YOU (DETAIL BARU)
+    q1: { ENG: 'Who are you?', BM: 'Siapa anda?' },
+    
+    // Bio Panjang
+    a1_bio: {
+        ENG: "I’m a husband and a father of three, and I serve as a senior lecturer at a public university in Southern Malaysia. Outside of work, I enjoy hiking and I run half marathons. I am a tech enthusiast who enjoys exploring emerging AI and building websites and systems that simplify daily work and streamline business operations.",
+        BM: "Saya seorang suami dan bapa kepada tiga anak, serta berkhidmat sebagai pensyarah kanan di sebuah universiti awam di Selatan Malaysia. Di luar waktu kerja, saya gemar mendaki dan berlari separuh maraton. Saya peminat teknologi yang suka meneroka AI terkini dan membina sistem untuk memudahkan operasi perniagaan."
+    },
+    
+    // Label Tombol
+    a1_btn_utm: { ENG: 'View Academic Profile', BM: 'Lihat Profil Akademik' },
+    a1_btn_strava: { ENG: 'Follow on Strava', BM: 'Ikuti di Strava' },
+    
+    // Q2, Q3, Q4 (TETAP SAMA)
+    q2: { ENG: 'Timeline?', BM: 'Berapa lama?' },
+    a2: { ENG: 'Personal: 3-7 Days. Corporate: 7-14 Days.', BM: 'Personal: 3-7 Hari. Korporat: 7-14 Hari.' },
+    q3: { ENG: 'Payment terms?', BM: 'Bayaran?' },
+    a3: { ENG: '50% Deposit start, 50% completion.', BM: 'Deposit 50% mula, 50% siap.' },
+    q4: { ENG: 'Support?', BM: 'Support?' },
+    a4: { ENG: 'Yes, 1 Year Free Maintenance.', BM: 'Ya, 1 Tahun Maintenance Percuma.' },
                     // --- FOOTER ---
                     footer_head: { ENG: 'READY TO LAUNCH?', BM: 'SEDIA MELUNCUR?' },
                     footer_sub: { ENG: 'Tell us what you need.', BM: 'Beritahu apa yang anda perlukan.' },
@@ -208,56 +209,82 @@
 
 <body x-data="contentData" class="bg-white text-black antialiased selection:bg-orange-500 selection:text-white overflow-x-hidden">
 
-    <nav class="fixed top-6 left-0 right-0 z-50 px-4 pointer-events-none" x-data="{ mobileMenu: false }">
-        <div class="max-w-7xl mx-auto flex items-center justify-between">
+<header x-data="{ isScrolled: false, mobileMenu: false }" 
+            @scroll.window="isScrolled = (window.pageYOffset > 50)"
+            class="fixed top-0 left-0 right-0 z-50">
+        
+        <div class="bg-black text-white h-10 flex items-center overflow-hidden transition-transform duration-500 ease-in-out relative z-50 border-b border-gray-800"
+             :class="isScrolled ? '-translate-y-full' : 'translate-y-0'">
+            <div class="w-full overflow-hidden">
+                <div class="whitespace-nowrap animate-marquee text-[10px] md:text-xs font-bold tracking-widest uppercase py-2">
+                    <span x-html="text.promo_text[lang]" class="mr-12"></span>
+                    <span x-html="text.promo_text[lang]" class="mr-12"></span>
+                    <span x-html="text.promo_text[lang]" class="mr-12"></span>
+                </div>
+            </div>
+        </div>
+
+        <nav :class="isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-3 -mt-10' : 'bg-transparent py-5'"
+             class="w-full transition-all duration-500 ease-in-out px-4 border-b border-transparent"
+             :style="isScrolled ? 'border-color: rgba(229, 231, 235, 1);' : ''">
             
-            <div class="pointer-events-auto flex items-center gap-4">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
                 
-                <button @click="mobileMenu = !mobileMenu" class="md:hidden w-12 h-12 bg-black text-white rounded-full flex items-center justify-center hover:bg-orange-600 transition shadow-lg">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
+                <div class="flex items-center gap-4">
+                    <button @click="mobileMenu = !mobileMenu" class="md:hidden w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-orange-600 transition shadow-lg pointer-events-auto">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                    <a href="index.html" 
+                       :class="isScrolled ? 'scale-90 origin-left' : 'scale-100'"
+                       class="flex flex-col items-start leading-none group transition duration-300 pointer-events-auto">
+                        <span class="font-modernica font-black text-4xl md:text-5xl tracking-tighter text-black group-hover:text-orange-600 transition">
+                            MIJ<span class="text-orange-600 group-hover:text-black">.</span>
+                        </span>
+                        <span class="font-sans font-bold text-[10px] tracking-[0.4em] text-black uppercase ml-1 mt-1 group-hover:text-orange-600 transition">
+                            DIGITAL
+                        </span>
+                    </a>
+                </div>
 
-                <a href="index.html" class="flex flex-col items-start leading-none group hover:scale-105 transition duration-300">
-                    <span class="font-modernica font-black text-5xl md:text-6xl tracking-tighter text-black group-hover:text-orange-600 transition">
-                        MIJ<span class="text-orange-600 group-hover:text-black">.</span>
-                    </span>
-                    <span class="font-sans font-bold text-[10px] md:text-[11px] tracking-[0.4em] text-black uppercase ml-1 mt-1 group-hover:text-orange-600 transition">
-                        DIGITAL
-                    </span>
-                </a>
-            </div>
+                <div class="hidden md:flex items-center gap-1 pointer-events-auto">
+                    <a href="index.html" class="px-4 py-2 text-sm font-bold text-gray-900 hover:text-orange-600 transition rounded-full hover:bg-gray-100" x-text="text.nav_home[lang]">Home</a>
+                    
+                    <a href="#about-me" class="px-4 py-2 text-sm font-bold text-gray-900 hover:text-orange-600 transition rounded-full hover:bg-gray-100" x-text="text.nav_about[lang]">About Me</a>
+                    
+                    <a href="services.html" class="px-4 py-2 text-sm font-bold text-gray-900 hover:text-orange-600 transition rounded-full hover:bg-gray-100" x-text="text.nav_services[lang]">Services</a>
+                    <a href="portfolio.html" class="px-4 py-2 text-sm font-bold text-gray-900 hover:text-orange-600 transition rounded-full hover:bg-gray-100" x-text="text.nav_portfolio[lang]">Portfolio</a>
+                    <a href="faq.html" class="px-4 py-2 text-sm font-bold text-gray-900 hover:text-orange-600 transition rounded-full hover:bg-gray-100" x-text="text.nav_faq[lang]">FAQ</a>
+                </div>
 
-            <div class="hidden md:flex pointer-events-auto bg-white/90 backdrop-blur-md border border-gray-200 shadow-2xl rounded-full px-2 py-2 items-center gap-1 transition hover:-translate-y-1 duration-300">
-                <a href="#" class="px-5 py-3 text-sm font-bold text-gray-600 hover:text-black hover:bg-gray-100 rounded-full transition" x-text="text.nav_home[lang]">Home</a>
-                <a href="#services" class="px-5 py-3 text-sm font-bold text-gray-600 hover:text-black hover:bg-gray-100 rounded-full transition" x-text="text.nav_services[lang]">Services</a>
-                <a href="#pricing" class="px-5 py-3 text-sm font-bold text-gray-600 hover:text-black hover:bg-gray-100 rounded-full transition" x-text="text.nav_pricing[lang]">Pricing</a>
-                <a href="portfolio.html" class="px-5 py-3 text-sm font-bold text-gray-600 hover:text-black hover:bg-gray-100 rounded-full transition" x-text="text.nav_portfolio[lang]">Portfolio</a>
-                
-                <div class="bg-black rounded-full p-1 flex text-[10px] font-bold ml-2">
-                    <button @click="lang = 'ENG'" :class="lang === 'ENG' ? 'bg-white text-black' : 'text-gray-400 hover:text-white'" class="px-3 py-1.5 rounded-full transition-all">ENG</button>
-                    <button @click="lang = 'BM'" :class="lang === 'BM' ? 'bg-white text-black' : 'text-gray-400 hover:text-white'" class="px-3 py-1.5 rounded-full transition-all">BM</button>
+                <div class="flex items-center gap-3 pointer-events-auto">
+                    <div class="hidden md:flex bg-black/5 border border-black/10 rounded-full p-1 text-[10px] font-bold">
+                        <button @click="lang = 'ENG'" :class="lang === 'ENG' ? 'bg-white text-black shadow-sm' : 'text-gray-500 hover:text-black'" class="px-3 py-1.5 rounded-full transition-all">ENG</button>
+                        <button @click="lang = 'BM'" :class="lang === 'BM' ? 'bg-white text-black shadow-sm' : 'text-gray-500 hover:text-black'" class="px-3 py-1.5 rounded-full transition-all">BM</button>
+                    </div>
+                    <a href="https://wa.me/601155886905" target="_blank" class="bg-orange-600 text-white font-bold text-xs px-5 py-3 rounded-full shadow-xl hover:bg-black transition transform hover:scale-105 flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.48s1.066 2.875 1.215 3.072c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        <span x-text="text.nav_chat[lang]">Chat</span>
+                    </a>
                 </div>
             </div>
 
-            <a href="https://wa.me/601155886905" target="_blank" class="pointer-events-auto bg-orange-600 text-white font-bold text-xs md:text-sm px-6 py-3 md:py-4 rounded-full shadow-xl hover:bg-black transition transform hover:scale-105 flex items-center gap-2">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.48s1.066 2.875 1.215 3.072c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                <span x-text="text.nav_chat[lang]">Chat With Me</span>
-            </a>
-        </div>
-
-        <div x-show="mobileMenu" class="pointer-events-auto fixed inset-0 bg-black/95 z-40 flex flex-col items-center justify-center transition-all md:hidden" x-cloak>
-            <button @click="mobileMenu = false" class="absolute top-8 right-8 text-white"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
-            <div class="flex flex-col gap-8 text-center text-white font-bold text-4xl">
-                <a href="#" @click="mobileMenu=false" x-text="text.nav_home[lang]">Home</a>
-                <a href="#pricing" @click="mobileMenu=false" x-text="text.nav_pricing[lang]">Pricing</a>
-                <a href="portfolio.html" @click="mobileMenu=false" x-text="text.nav_portfolio[lang]">Portfolio</a>
-                <div class="flex gap-4 justify-center mt-4">
-                     <button @click="lang = 'ENG'" :class="lang === 'ENG' ? 'text-orange-500' : 'text-gray-500'">ENG</button>
-                     <button @click="lang = 'BM'" :class="lang === 'BM' ? 'text-orange-500' : 'text-gray-500'">BM</button>
+            <div x-show="mobileMenu" class="pointer-events-auto fixed inset-0 bg-black/95 z-50 flex flex-col items-center justify-center transition-all md:hidden" x-cloak>
+                <button @click="mobileMenu = false" class="absolute top-8 right-8 text-white"><svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                <div class="flex flex-col gap-6 text-center text-white font-bold text-3xl">
+                    <a href="index.html" class="hover:text-orange-500" x-text="text.nav_home[lang]">Home</a>
+                    <a href="#about-me" class="hover:text-orange-500" x-text="text.nav_about[lang]">About Me</a>
+                    <a href="services.html" class="hover:text-orange-500" x-text="text.nav_services[lang]">Services</a>
+                    <a href="portfolio.html" class="hover:text-orange-500" x-text="text.nav_portfolio[lang]">Portfolio</a>
+                    <a href="faq.html" class="hover:text-orange-500" x-text="text.nav_faq[lang]">FAQ</a>
+                    <div class="flex gap-4 justify-center mt-4 text-sm">
+                         <button @click="lang = 'ENG'" :class="lang === 'ENG' ? 'text-orange-500' : 'text-gray-500'">ENG</button>
+                         <button @click="lang = 'BM'" :class="lang === 'BM' ? 'text-orange-500' : 'text-gray-500'">BM</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
+    
 
 
 
@@ -321,25 +348,28 @@
 
     
 
-
- <section class="relative py-24 bg-[#F9FAFB] border-t border-gray-200">
+<section class="relative py-24 bg-[#F9FAFB] border-t border-gray-200">
         
-        <div class="absolute top-0 left-0 w-full z-0 transform -translate-y-1/2 pointer-events-none opacity-30">
-            <div class="w-full overflow-hidden">
-                <div class="py-4 border-y-2 border-gray-200 bg-gray-50">
-                    <div class="whitespace-nowrap flex gap-12 animate-marquee font-display font-black text-6xl tracking-widest text-gray-200 uppercase">
-                        <span>Selected Works</span> <span>Digital Excellence</span> <span>Selected Works</span> <span>Digital Excellence</span>
-                    </div>
-                </div>
-            </div>
+        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+            
+            <h2 class="text-5xl md:text-7xl font-display font-black uppercase tracking-tighter mb-6">
+                <span x-show="lang === 'ENG'">
+                    <span class="text-gray-900">OUR</span> 
+                    <span class="text-orange-600">MASTERPIECES</span>
+                </span>
+                
+                <span x-show="lang === 'BM'">
+                    <span class="text-gray-900">KARYA AGUNG</span> 
+                    <span class="text-orange-600">KAMI</span>
+                </span>
+            </h2>
+
+            <p class="text-gray-500 max-w-2xl mx-auto font-medium text-lg leading-relaxed" x-text="text.work_desc[lang]">
+                We don't just build websites. We build Assets that generate value.
+            </p>
         </div>
 
-        <div class="max-w-7xl mx-auto px-6 pt-20 pb-12 text-center relative z-10">
-            <h2 class="text-5xl md:text-7xl font-display font-black uppercase tracking-tighter mb-4 text-gray-900" x-text="text.work_head[lang]">Our Masterpieces</h2>
-            <p class="text-gray-500 max-w-2xl mx-auto font-medium text-lg" x-text="text.work_desc[lang]">We build Assets that generate value.</p>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 relative z-10">
             
             <div class="bg-white border border-gray-200 rounded-[2rem] p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition duration-500 h-[500px] flex flex-col group overflow-hidden">
                 <div class="mb-4">
@@ -416,7 +446,8 @@
                         <rect x="75" y="40" width="90" height="60" rx="4" fill="#F9FAFB" stroke="#E5E7EB"/>
                         <rect x="85" y="70" width="10" height="20" rx="2" fill="#D1D5DB"/>
                         <rect x="100" y="60" width="10" height="30" rx="2" fill="#D1D5DB"/>
-                        <rect x="115" y="50" width="10" height="40" rx="2" fill="#F97316"/> <rect x="130" y="65" width="10" height="25" rx="2" fill="#D1D5DB"/>
+                        <rect x="115" y="50" width="10" height="40" rx="2" fill="#F97316"/>
+                        <rect x="130" y="65" width="10" height="25" rx="2" fill="#D1D5DB"/>
                         <rect x="145" y="55" width="10" height="35" rx="2" fill="#D1D5DB"/>
                         <rect x="75" y="110" width="40" height="30" rx="4" fill="#FFEDD5"/>
                         <rect x="125" y="110" width="40" height="30" rx="4" fill="#F3F4F6"/>
@@ -536,125 +567,198 @@
     </section>
 
   
-    
-    <section id="pricing" class="py-24 bg-white relative border-t border-gray-100">
+<section id="pricing" class="py-24 bg-white relative border-t border-gray-100">
         
-        <div class="max-w-7xl mx-auto px-4 text-center mb-16 group cursor-default" data-aos="fade-up">
-            <div class="flex items-end justify-center gap-4 leading-none">
-                <svg class="w-16 h-16 md:w-24 md:h-24 text-gray-200 group-hover:text-orange-500 transition-colors duration-500 pb-2" fill="currentColor" viewBox="0 0 24 24"><path d="M11.33 2.57a1 1 0 010 1.42c-.63.63-1.15 1.34-1.54 2.1a1 1 0 01-1.8-.88c.47-.94 1.1-1.82 1.92-2.64a1 1 0 011.42 0zm-4.08 5.26a1 1 0 10-1.64 1.16c.5.7 1.08 1.34 1.73 1.9a1 1 0 001.32-1.5c-.5-.44-.95-.93-1.41-1.56zm-2.22 4.35a1 1 0 10-1.28 1.54c.84.7 1.75 1.28 2.73 1.73a1 1 0 10.84-1.82 10.1 10.1 0 01-2.29-1.45zM4.1 18.59c-.28-.96-.43-1.96-.43-3 0-.28.02-.56.05-.83a1 1 0 10-1.98-.26C1.66 15.33 1.66 16.16 1.79 17c.05.3.12.6.2.89a1 1 0 001.9.29 8.18 8.18 0 01.22-.59zm-.37-4c.05-.29.11-.58.18-.86a1 1 0 00-1.94-.4c-.1.37-.18.76-.25 1.15a1 1 0 101.97.34 1.4 1.4 0 01.04-.23zm.68 5.7a1 1 0 10-1.86.72c.3.78.67 1.53 1.1 2.23a1 1 0 101.7-1.04c-.36-.58-.66-1.2-.94-1.91zm3.32 3.1c-.7.4-1.44.72-2.22.97a1 1 0 00.6 1.9c.95-.3 1.85-.7 2.7-1.19a1 1 0 10-1.08-1.68zM2.22 18.37a1 1 0 101.87-.7c-.2-.5-.35-1.02-.46-1.55a1 1 0 00-1.96.38c.14.66.32 1.28.55 1.87zm8.25 3.06a13.53 13.53 0 01-3.2-.62 1 1 0 00-.68 1.88c1.25.46 2.57.7 3.93.7a1 1 0 10-.05-1.96z"></path></svg>
-                <h2 class="text-3xl sm:text-5xl md:text-7xl font-display font-black uppercase tracking-tighter relative z-10 flex flex-col justify-end">
-                    <span x-text="text.price_head_1[lang]" class="block text-gray-900 group-hover:text-black transition leading-none">YOUR WEBSITE</span>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-400 group-hover:from-orange-500 group-hover:to-yellow-500 transition-all leading-none pt-2" x-text="text.price_head_2[lang]">STARTS HERE.</span>
-                </h2>
-                <svg class="w-16 h-16 md:w-24 md:h-24 text-gray-200 group-hover:text-orange-500 transition-colors duration-500 transform scale-x-[-1] pb-2" fill="currentColor" viewBox="0 0 24 24"><path d="M11.33 2.57a1 1 0 010 1.42c-.63.63-1.15 1.34-1.54 2.1a1 1 0 01-1.8-.88c.47-.94 1.1-1.82 1.92-2.64a1 1 0 011.42 0zm-4.08 5.26a1 1 0 10-1.64 1.16c.5.7 1.08 1.34 1.73 1.9a1 1 0 001.32-1.5c-.5-.44-.95-.93-1.41-1.56zm-2.22 4.35a1 1 0 10-1.28 1.54c.84.7 1.75 1.28 2.73 1.73a1 1 0 10.84-1.82 10.1 10.1 0 01-2.29-1.45zM4.1 18.59c-.28-.96-.43-1.96-.43-3 0-.28.02-.56.05-.83a1 1 0 10-1.98-.26C1.66 15.33 1.66 16.16 1.79 17c.05.3.12.6.2.89a1 1 0 001.9.29 8.18 8.18 0 01.22-.59zm-.37-4c.05-.29.11-.58.18-.86a1 1 0 00-1.94-.4c-.1.37-.18.76-.25 1.15a1 1 0 101.97.34 1.4 1.4 0 01.04-.23zm.68 5.7a1 1 0 10-1.86.72c.3.78.67 1.53 1.1 2.23a1 1 0 101.7-1.04c-.36-.58-.66-1.2-.94-1.91zm3.32 3.1c-.7.4-1.44.72-2.22.97a1 1 0 00.6 1.9c.95-.3 1.85-.7 2.7-1.19a1 1 0 10-1.08-1.68zM2.22 18.37a1 1 0 101.87-.7c-.2-.5-.35-1.02-.46-1.55a1 1 0 00-1.96.38c.14.66.32 1.28.55 1.87zm8.25 3.06a13.53 13.53 0 01-3.2-.62 1 1 0 00-.68 1.88c1.25.46 2.57.7 3.93.7a1 1 0 10-.05-1.96z"></path></svg>
-            </div>
-            <p class="text-orange-600 font-bold mt-6 block" x-text="text.price_sub[lang]">All packages include 1 Year of Support.</p>
+        <div class="max-w-7xl mx-auto px-4 text-center mb-16" data-aos="fade-up">
+            <h2 class="text-5xl md:text-7xl font-display font-black uppercase tracking-tighter mb-4">
+                <span x-text="text.price_head_1[lang]" class="block text-gray-900 leading-none">YOUR WEBSITE</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-400 leading-none" x-text="text.price_head_2[lang]">STARTS HERE.</span>
+            </h2>
+            <p class="text-orange-600 font-bold mt-4 animate-pulse" x-text="text.price_sub[lang]">Promo valid for the first 2 months only.</p>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
             
-            <div class="bg-black text-white p-8 rounded-3xl border border-gray-800 hover:border-orange-500 transition duration-500 flex flex-col relative group">
-                <div class="absolute top-4 right-4 bg-gray-800 text-orange-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-gray-700">Ready in 7 Days</div>
-                <h3 class="text-2xl font-display font-black mb-1" x-text="text.work_1_title[lang]">Personal Branding</h3>
+            <div class="h-full bg-black text-white p-8 rounded-3xl border border-gray-800 hover:border-orange-500 transition duration-500 flex flex-col relative group">
+                <div class="absolute top-0 inset-x-0 flex justify-center -mt-3">
+                    <span class="bg-orange-600 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest shadow-lg" x-text="text.promo_tag[lang]">PROMO</span>
+                </div>
+
+                <h3 class="text-2xl font-display font-black mb-1 mt-2" x-text="text.work_1_title[lang]">Personal Branding</h3>
                 <p class="text-xs text-gray-400 mb-6 border-b border-gray-800 pb-4" x-text="text.work_1_desc[lang]"></p>
-                <div class="mb-8"><p class="text-gray-500 text-[10px] font-bold uppercase" x-text="text.price_start[lang]"></p><span class="text-5xl font-display font-black">RM 1,000</span></div>
+                
+                <div class="mb-8">
+                    <div class="flex items-center gap-2 text-gray-500 text-sm font-bold line-through decoration-orange-600 decoration-2">
+                        <span x-text="text.p1_old[lang]">RM 700</span>
+                    </div>
+                    <span class="text-5xl font-display font-black text-white" x-text="text.p1_new[lang]">RM 350</span>
+                </div>
+
                 <ul class="space-y-3 mb-8 flex-1">
                     <li class="flex items-start text-sm font-medium text-gray-300"><span class="text-orange-500 mr-2">✓</span> <span x-text="text.pb_feat_1[lang]"></span></li>
                     <li class="flex items-start text-sm font-medium text-gray-300"><span class="text-orange-500 mr-2">✓</span> <span x-text="text.pb_feat_2[lang]"></span></li>
                     <li class="flex items-start text-sm font-medium text-gray-300"><span class="text-orange-500 mr-2">✓</span> <span x-text="text.pb_feat_3[lang]"></span></li>
                 </ul>
-                <a href="https://wa.me/601155886905" class="block w-full py-4 border border-white text-white text-center font-bold uppercase text-xs hover:bg-white hover:text-black transition rounded-xl" x-text="text.price_btn[lang]">Discuss Budget</a>
+                <a href="https://wa.me/601155886905" class="block w-full py-4 border border-white text-white text-center font-bold uppercase text-xs hover:bg-white hover:text-black transition rounded-xl" x-text="text.price_btn[lang]">Grab Promo</a>
             </div>
 
-            <div class="bg-black text-white p-8 rounded-3xl border-2 border-orange-600 shadow-xl scale-105 z-10 flex flex-col relative">
-                <div class="absolute -top-5 inset-x-0 flex justify-center"><div class="bg-gradient-to-r from-orange-600 to-orange-500 text-white text-xs font-black px-8 py-2 rounded-full uppercase tracking-[0.2em] shadow-lg ring-4 ring-white">BEST SELLER</div></div>
-                <h3 class="text-2xl font-display font-black mb-1 mt-4" x-text="text.work_2_title[lang]">Corporate Branding</h3>
+            <div class="h-full bg-black text-white p-8 rounded-3xl border-2 border-orange-600/50 hover:border-orange-600 shadow-xl flex flex-col relative group">
+                <div class="absolute top-0 inset-x-0 flex justify-center -mt-3">
+                    <span class="bg-gradient-to-r from-orange-600 to-red-600 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest shadow-lg" x-text="text.promo_tag[lang]">PROMO</span>
+                </div>
+
+                <h3 class="text-2xl font-display font-black mb-1 mt-2" x-text="text.work_2_title[lang]">Corporate Branding</h3>
                 <p class="text-xs text-gray-400 mb-6 border-b border-gray-800 pb-4" x-text="text.work_2_desc[lang]"></p>
-                <div class="mb-8"><p class="text-orange-500 text-[10px] font-bold uppercase" x-text="text.price_start[lang]"></p><span class="text-5xl font-display font-black">RM 1,000</span></div>
+                
+                <div class="mb-8">
+                    <div class="flex items-center gap-2 text-gray-500 text-sm font-bold line-through decoration-orange-600 decoration-2">
+                        <span x-text="text.p2_old[lang]">RM 1,500</span>
+                    </div>
+                    <span class="text-5xl font-display font-black text-orange-500" x-text="text.p2_new[lang]">RM 1,000</span>
+                </div>
+
                 <ul class="space-y-3 mb-8 flex-1">
                     <li class="flex items-start text-sm font-medium text-white"><span class="text-orange-500 mr-2">✓</span> <span x-text="text.cb_feat_1[lang]"></span></li>
                     <li class="flex items-start text-sm font-medium text-white"><span class="text-orange-500 mr-2">✓</span> <span x-text="text.cb_feat_2[lang]"></span></li>
                     <li class="flex items-start text-sm font-medium text-white"><span class="text-orange-500 mr-2">✓</span> <span x-text="text.cb_feat_3[lang]"></span></li>
                 </ul>
-                <a href="https://wa.me/601155886905" class="block w-full py-4 bg-orange-600 text-white text-center font-bold uppercase text-xs hover:bg-white hover:text-black transition rounded-xl" x-text="text.price_btn[lang]">Discuss Budget</a>
+                <a href="https://wa.me/601155886905" class="block w-full py-4 bg-orange-600 text-white text-center font-bold uppercase text-xs hover:bg-white hover:text-black transition rounded-xl" x-text="text.price_btn[lang]">Grab Promo</a>
             </div>
 
-            <div class="bg-black text-white p-8 rounded-3xl border border-gray-800 hover:border-orange-500 transition duration-500 flex flex-col relative group">
-                <div class="absolute top-4 right-4 border border-gray-700 text-gray-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Flexible</div>
-                <h3 class="text-xl font-display font-black mb-1" x-text="text.work_3_title[lang]">Business System</h3>
+            <div class="h-full bg-black text-white p-8 rounded-3xl border border-gray-800 hover:border-orange-500 transition duration-500 flex flex-col relative">
+                <h3 class="text-xl font-display font-black mb-1 mt-2" x-text="text.work_3_title[lang]">Business System</h3>
                 <p class="text-xs text-gray-400 mb-6 border-b border-gray-800 pb-4" x-text="text.work_3_desc[lang]"></p>
-                <div class="mb-6"><p class="text-gray-500 text-[10px] font-bold uppercase">Tailored</p><span class="text-4xl font-display font-black" x-text="text.price_custom[lang]">Custom</span></div>
+                
+                <div class="mb-8 pt-5">
+                    <p class="text-gray-500 text-[10px] font-bold uppercase">Tailored</p>
+                    <span class="text-4xl font-display font-black" x-text="text.price_custom[lang]">Custom</span>
+                </div>
+                
                 <ul class="space-y-3 mb-8 flex-1">
                     <li class="flex items-start text-sm font-medium text-gray-300"><span class="text-orange-500 mr-2">✓</span> <span x-text="text.lms_feat_1[lang]"></span></li>
                     <li class="flex items-start text-sm font-medium text-gray-300"><span class="text-orange-500 mr-2">✓</span> <span x-text="text.lms_feat_2[lang]"></span></li>
                     <li class="flex items-start text-sm font-medium text-gray-300"><span class="text-orange-500 mr-2">✓</span> <span x-text="text.lms_feat_3[lang]"></span></li>
                 </ul>
-                <a href="https://wa.me/601155886905" class="block w-full py-4 border border-white text-white text-center font-bold uppercase text-xs hover:bg-white hover:text-black transition rounded-xl" x-text="text.price_btn[lang]">Discuss Budget</a>
+                <a href="https://wa.me/601155886905" class="block w-full py-4 border border-white text-white text-center font-bold uppercase text-xs hover:bg-white hover:text-black transition rounded-xl">Discuss Budget</a>
             </div>
 
         </div>
     </section>
-
- <section class="py-16 bg-gray-50 border-t border-gray-200" x-data="{ active: null }">
-        <div class="max-w-3xl mx-auto px-6">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-display font-black uppercase tracking-tight text-gray-900" x-text="text.faq_head[lang]">FAQ</h2>
-                <p class="text-sm text-gray-500" x-text="text.faq_sub[lang]"></p>
+    
+<section class="py-24 bg-gray-50 border-t border-gray-200" x-data="{ active: 1 }">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-5xl md:text-7xl font-display font-black uppercase tracking-tighter mb-4 text-black" x-text="text.faq_head[lang]">
+                    FAQ
+                </h2>
+                <p class="text-xl md:text-2xl text-orange-600 font-bold tracking-wide" x-text="text.faq_sub[lang]">
+                    Common questions.
+                </p>
             </div>
-            <div class="space-y-3">
-                <div class="bg-white border border-gray-200 rounded-lg">
-                    <button @click="active === 1 ? active = null : active = 1" class="w-full px-5 py-4 flex justify-between font-bold text-gray-900 text-sm hover:bg-gray-50 text-left">
-                        <span x-text="text.q1[lang]"></span><span x-text="active === 1 ? '−' : '+'" class="text-orange-600"></span>
+
+            <div class="space-y-6">
+
+                <div id="about-me" class="bg-white border-2 border-gray-100 rounded-3xl overflow-hidden scroll-mt-40 transition duration-500 hover:border-orange-200" :class="active === 1 ? 'ring-4 ring-orange-500/10 border-orange-500' : ''">
+                    <button @click="active === 1 ? active = null : active = 1" class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none hover:bg-gray-50 transition">
+                        <span class="font-display font-bold text-xl md:text-2xl text-gray-900 flex items-center gap-4">
+                            <span class="text-3xl transition-colors duration-300" :class="active === 1 ? 'text-orange-600' : 'text-gray-300'">01.</span> 
+                            <span x-text="text.q1[lang]">Who are you?</span>
+                        </span>
+                        <span class="font-black text-3xl transition-colors duration-300" :class="active === 1 ? 'text-orange-600' : 'text-gray-300'" x-text="active === 1 ? '−' : '+'">+</span>
                     </button>
-                    <div x-show="active === 1" class="px-5 pb-5 text-sm text-gray-600">
-                        <p x-text="text.a1_text[lang]"></p>
-                        <a href="https://people.utm.my/ikhwanjamal" target="_blank" class="text-orange-600 font-bold hover:underline" x-text="text.a1_link_text[lang]"></a>
+                    
+                    <div x-show="active === 1" class="px-8 pb-8 pt-2 text-lg text-gray-600 border-t border-gray-100 leading-relaxed">
+                        <p class="mb-6" x-text="text.a1_bio[lang]"></p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://people.utm.my/ikhwanjamal" target="_blank" class="inline-flex items-center gap-2 bg-gray-100 hover:bg-orange-600 hover:text-white px-6 py-3 rounded-full text-sm font-bold transition transform hover:scale-105">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path></svg>
+                                <span x-text="text.a1_btn_utm[lang]">Academic Profile</span>
+                            </a>
+                            <a href="https://www.strava.com/" target="_blank" class="inline-flex items-center gap-2 bg-gray-100 hover:bg-[#FC4C02] hover:text-white px-6 py-3 rounded-full text-sm font-bold transition transform hover:scale-105">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                <span x-text="text.a1_btn_strava[lang]">Follow on Strava</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-lg">
-                    <button @click="active === 2 ? active = null : active = 2" class="w-full px-5 py-4 flex justify-between font-bold text-gray-900 text-sm hover:bg-gray-50 text-left">
-                        <span x-text="text.q2[lang]"></span><span x-text="active === 2 ? '−' : '+'" class="text-orange-600"></span>
+
+                <div class="bg-white border-2 border-gray-100 rounded-3xl overflow-hidden hover:border-orange-200 transition" :class="active === 2 ? 'ring-4 ring-orange-500/10 border-orange-500' : ''">
+                    <button @click="active === 2 ? active = null : active = 2" class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none hover:bg-gray-50 transition">
+                        <span class="font-display font-bold text-xl md:text-2xl text-gray-900 flex items-center gap-4">
+                            <span class="text-3xl transition-colors duration-300" :class="active === 2 ? 'text-orange-600' : 'text-gray-300'">02.</span> 
+                            <span x-text="text.q2[lang]">Timeline?</span>
+                        </span>
+                        <span class="font-black text-3xl transition-colors duration-300" :class="active === 2 ? 'text-orange-600' : 'text-gray-300'" x-text="active === 2 ? '−' : '+'">+</span>
                     </button>
-                    <div x-show="active === 2" class="px-5 pb-5 text-sm text-gray-600" x-text="text.a2[lang]"></div>
+                    <div x-show="active === 2" class="px-8 pb-8 pt-2 text-lg text-gray-600 border-t border-gray-100 leading-relaxed">
+                        <p x-text="text.a2[lang]"></p>
+                    </div>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-lg">
-                    <button @click="active === 3 ? active = null : active = 3" class="w-full px-5 py-4 flex justify-between font-bold text-gray-900 text-sm hover:bg-gray-50 text-left">
-                        <span x-text="text.q3[lang]"></span><span x-text="active === 3 ? '−' : '+'" class="text-orange-600"></span>
+
+                <div class="bg-white border-2 border-gray-100 rounded-3xl overflow-hidden hover:border-orange-200 transition" :class="active === 3 ? 'ring-4 ring-orange-500/10 border-orange-500' : ''">
+                    <button @click="active === 3 ? active = null : active = 3" class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none hover:bg-gray-50 transition">
+                        <span class="font-display font-bold text-xl md:text-2xl text-gray-900 flex items-center gap-4">
+                            <span class="text-3xl transition-colors duration-300" :class="active === 3 ? 'text-orange-600' : 'text-gray-300'">03.</span> 
+                            <span x-text="text.q3[lang]">Payment?</span>
+                        </span>
+                        <span class="font-black text-3xl transition-colors duration-300" :class="active === 3 ? 'text-orange-600' : 'text-gray-300'" x-text="active === 3 ? '−' : '+'">+</span>
                     </button>
-                    <div x-show="active === 3" class="px-5 pb-5 text-sm text-gray-600" x-text="text.a3[lang]"></div>
+                    <div x-show="active === 3" class="px-8 pb-8 pt-2 text-lg text-gray-600 border-t border-gray-100 leading-relaxed">
+                        <p x-text="text.a3[lang]"></p>
+                    </div>
                 </div>
+
+                <div class="bg-white border-2 border-gray-100 rounded-3xl overflow-hidden hover:border-orange-200 transition" :class="active === 4 ? 'ring-4 ring-orange-500/10 border-orange-500' : ''">
+                    <button @click="active === 4 ? active = null : active = 4" class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none hover:bg-gray-50 transition">
+                        <span class="font-display font-bold text-xl md:text-2xl text-gray-900 flex items-center gap-4">
+                            <span class="text-3xl transition-colors duration-300" :class="active === 4 ? 'text-orange-600' : 'text-gray-300'">04.</span> 
+                            <span x-text="text.q4[lang]">Support?</span>
+                        </span>
+                        <span class="font-black text-3xl transition-colors duration-300" :class="active === 4 ? 'text-orange-600' : 'text-gray-300'" x-text="active === 4 ? '−' : '+'">+</span>
+                    </button>
+                    <div x-show="active === 4" class="px-8 pb-8 pt-2 text-lg text-gray-600 border-t border-gray-100 leading-relaxed">
+                        <p x-text="text.a4[lang]"></p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
     
-
-<section class="py-24 bg-gray-50 border-t border-gray-200 text-center" x-data="{ msg: '' }">
-        <div class="max-w-4xl mx-auto px-6">
+<section class="py-24 bg-gray-50 border-t border-gray-200 text-center w-full" x-data="{ msg: '' }">
+        <div class="max-w-7xl mx-auto px-6">
             
-            <h2 class="text-5xl md:text-7xl font-display font-black mb-6 text-gray-900 tracking-tighter" x-text="text.footer_head[lang]">
-                READY TO LAUNCH?
+            <h2 class="text-5xl md:text-8xl font-display font-black mb-8 text-gray-900 tracking-tighter leading-none">
+                <span x-show="lang === 'ENG'">
+                    READY TO <span class="text-orange-600">LAUNCH?</span>
+                </span>
+                <span x-show="lang === 'BM'">
+                    SEDIA <span class="text-orange-600">MELUNCUR?</span>
+                </span>
             </h2>
-            <p class="text-gray-500 text-lg md:text-xl mb-10 max-w-2xl mx-auto font-medium" x-text="text.footer_sub[lang]">
+
+            <p class="text-gray-500 text-lg md:text-2xl mb-12 max-w-3xl mx-auto font-medium" x-text="text.footer_sub[lang]">
                 Tell us what you need.
             </p>
 
-            <div class="mb-8 relative max-w-2xl mx-auto">
+            <div class="mb-10 relative max-w-3xl mx-auto">
                 <textarea 
                     x-model="msg" 
-                    rows="3" 
+                    rows="2" 
                     :placeholder="lang === 'ENG' ? 'Hi MIJ, I need a website for...' : 'Hai MIJ, saya perlukan website untuk...'"
-                    class="w-full p-5 rounded-2xl border border-gray-300 bg-white text-lg focus:outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition shadow-sm resize-none"
+                    class="w-full p-6 rounded-2xl border border-gray-300 bg-white text-xl focus:outline-none focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 transition shadow-lg resize-none"
                 ></textarea>
             </div>
 
-            <div class="flex flex-col md:flex-row justify-center gap-4">
+            <div class="flex flex-col md:flex-row justify-center gap-5">
                 <a :href="'https://wa.me/601155886905?text=' + encodeURIComponent(msg ? msg : 'Hi MIJ Digital, I am interested in your services.')" 
                    target="_blank" 
-                   class="inline-flex items-center justify-center gap-3 bg-black text-white font-bold text-lg px-10 py-4 rounded-2xl hover:bg-orange-600 transition shadow-lg hover:shadow-orange-500/20 transform hover:-translate-y-1">
+                   class="inline-flex items-center justify-center gap-3 bg-black text-white font-bold text-lg px-12 py-5 rounded-full hover:bg-orange-600 transition shadow-xl hover:shadow-orange-500/20 transform hover:-translate-y-1">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.991c-.001 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></path></svg>
                     <span x-text="text.btn_wa[lang]">WhatsApp Now</span>
                 </a>
-                <a href="mailto:hello@mijdigital.com" class="inline-flex items-center justify-center gap-3 bg-white border-2 border-gray-200 text-gray-900 font-bold text-lg px-10 py-4 rounded-2xl hover:bg-gray-100 transition shadow-sm">
+                <a href="mailto:hello@mijdigital.com" class="inline-flex items-center justify-center gap-3 bg-white border-2 border-gray-200 text-gray-900 font-bold text-lg px-12 py-5 rounded-full hover:bg-gray-100 transition shadow-sm">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                     <span x-text="text.btn_contact[lang]">Contact Me</span>
                 </a>
@@ -667,21 +771,36 @@
     <footer class="bg-black text-white py-12 border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
             
-            <div class="text-center md:text-left">
-                <a href="#" class="font-display font-black text-2xl tracking-tighter block mb-2">MIJ<span class="text-orange-600">.</span></a>
-                <p class="text-gray-500 text-xs font-bold uppercase tracking-widest">&copy; 2026 MIJ Digital Sdn. Bhd.</p>
+            <div class="text-center md:text-left flex flex-col items-center md:items-start">
+                <a href="#" class="flex flex-col items-center md:items-start leading-none group hover:scale-105 transition duration-300 mb-4">
+                    <span class="font-modernica font-black text-4xl tracking-tighter text-white">
+                        MIJ<span class="text-orange-600">.</span>
+                    </span>
+                    <span class="font-sans font-bold text-[10px] tracking-[0.4em] text-white uppercase ml-1 mt-1">
+                        DIGITAL
+                    </span>
+                </a>
+                <p class="text-gray-500 text-xs font-bold uppercase tracking-widest">&copy; 2026</p>
             </div>
 
-            <div class="flex gap-6">
-                <a href="#" class="text-gray-400 hover:text-white hover:scale-110 transition">
+            <div class="flex items-center gap-8">
+                
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white hover:scale-110 transition">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-white hover:scale-110 transition">
+
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white hover:scale-110 transition">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
                 </a>
-                <a href="#" class="text-gray-400 hover:text-white hover:scale-110 transition">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+
+                <a href="#" target="_blank" class="text-gray-400 hover:text-white hover:scale-110 transition">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.186 18.06c-1.897 0-3.136-1.157-3.136-2.913v-1.18c0-1.996 1.636-3.876 4.39-3.876 1.42 0 2.378.435 2.943 1.054v-.706c0-1.633-1.222-2.613-2.998-2.613-1.61 0-2.43.682-2.73 1.554l-2.09-.724c.563-1.64 2.22-2.885 4.89-2.885 2.972 0 4.965 1.785 4.965 4.678v3.522c0 2.292 1.258 2.768 1.956 2.768.812 0 1.487-.582 1.487-2.31 0-3.328-2.62-6.522-6.936-6.522-4.522 0-7.832 3.32-7.832 7.77 0 4.293 3.11 7.373 7.625 7.373 2.513 0 4.385-.928 5.485-2.288l-1.57-1.46c-.732.906-1.87 1.69-3.843 1.69-2.913 0-5.328-1.928-5.328-5.337 0-3.235 2.253-5.308 5.498-5.308 1.48 0 2.593.753 2.593 2.113v.81c0 1.052-.7 1.66-1.638 1.66-.81 0-1.378-.507-1.378-1.416zm-1.022-2.64c0 .852.565 1.348 1.353 1.348.817 0 1.36-.532 1.36-1.417v-.714c-.453-.518-1.11-.84-2.036-.84-1.55 0-2.302 1.132-2.302 2.396 0 .848.066 1.53.066 1.53h1.56z"/></svg>
                 </a>
+
+                <a href="https://strava.app.link/PjuqKrltt0b" target="_blank" class="text-gray-400 hover:text-[#FC4C02] hover:scale-110 transition">
+                    <svg class="w-6 h-6" role="img" viewBox="0 0 24 24" fill="currentColor"><path d="M15.387 17.944l-2.089-4.116h-3.065l5.154 10.172 5.155-10.172h-3.066l-2.089 4.116zm-5.155-2.385l-1.896-3.738h3.792l-1.896 3.738zm.726-12.722l-4.17 8.21h3.313l.857-1.69.856 1.69h3.313l-4.169-8.21z"/></svg>
+                </a>
+
             </div>
 
             <div>
@@ -697,7 +816,6 @@
         </div>
     </footer>
     
-  
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
