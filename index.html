@@ -58,6 +58,33 @@
         
         /* Anti Blank Alpine */
         [x-cloak] { display: none !important; }
+
+        /* --- ANIMASI SVG 3D --- */
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-5px); }
+    }
+    @keyframes grow {
+        0%, 100% { transform: scaleY(1); opacity: 1; }
+        50% { transform: scaleY(0.6); opacity: 0.8; }
+    }
+    @keyframes pulse-ui {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.6; transform: scale(0.98); }
+    }
+    @keyframes pop {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
+
+    /* Class untuk elemen SVG */
+    .anim-float { animation: float 3s ease-in-out infinite; }
+    .anim-grow-1 { animation: grow 2s ease-in-out infinite; transform-origin: bottom; }
+    .anim-grow-2 { animation: grow 3s ease-in-out infinite; transform-origin: bottom; animation-delay: 0.5s; }
+    .anim-grow-3 { animation: grow 2.5s ease-in-out infinite; transform-origin: bottom; animation-delay: 1s; }
+    .anim-pop { animation: pop 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; transform-origin: center; }
+    .anim-pulse { animation: pulse-ui 3s infinite; }
+
     </style>
     
     
@@ -73,168 +100,7 @@
     
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    <script>
-        document.addEventListener('alpine:init', () => {
-            Alpine.data('contentData', () => ({
-                lang: 'ENG',
-                text: {
-                    // --- TOP BAR PROMO (HTML SUPPORTED) ---
-                    // Gunakan <s> untuk mencoret harga lama
-                    promo_text: { 
-                        ENG: '🔥 LIMITED OFFER: PERSONAL PORTFOLIO RM700 (<s>RM1000</s>) • COMPANY WEBSITE RM1000 (<s>RM1500</s>) • CLAIM NOW: +6011-5588-6905 • ', 
-                        BM: '🔥 TAWARAN TERHAD: PORTFOLIO PERSONAL RM700 (<s>RM1000</s>) • WEBSITE SYARIKAT RM1000 (<s>RM1500</s>) • TEKAN SINI: +6011-5588-6905 • ' 
-                    },
-
-                    // --- NAVBAR MENU ---
-                    nav_home: { ENG: 'Home', BM: 'Utama' },
-                    nav_about: { ENG: 'About Me', BM: 'Tentang Saya' },
-                    nav_services: { ENG: 'Services', BM: 'Servis' },
-                    nav_portfolio: { ENG: 'Portfolio', BM: 'Portfolio' },
-                    nav_faq: { ENG: 'FAQ', BM: 'Soalan Lazim' },
-                    nav_chat: { ENG: 'Chat With Me', BM: 'Hubungi Saya' },
-
-                    // --- HERO ---
-                    hero_badge: { ENG: 'About Me', BM: 'Tentang Saya' },
-                    hero_sub: { ENG: 'I HIKE. I RUN.', BM: 'SAYA MENDAKI. SAYA BERLARI.' },
-                    hero_and: { ENG: 'AND', BM: 'DAN' },
-                    hero_build: { ENG: 'I CAN BUILD', BM: 'SAYA BOLEH BINA' },
-                    hero_a: { ENG: 'A', BM: 'SEBUAH' },
-                    hero_beautiful: { ENG: 'BEAUTIFUL WEBSITE', BM: 'LAMAN WEB MENARIK' },
-                    hero_foryou: { ENG: 'FOR YOU.', BM: 'UNTUK ANDA.' },
-                    hero_desc: { ENG: 'The discipline of the outdoors applied to pixel-perfect code. I build high-performance digital assets tailored for you.', BM: 'Disiplin aktiviti luar diterapkan dalam kod yang sempurna. Saya membina aset digital berprestasi tinggi khusus untuk anda.' },
-                    btn_start: { ENG: 'Start Now', BM: 'Mula Sekarang' },
-
-                    // --- TRUSTED ---
-                    trusted_title: { ENG: 'TRUSTED BY', BM: 'DIPERCAYAI OLEH' },
-
-                    // --- TARGET AUDIENCE ---
-                    target_title: { ENG: 'TARGET AUDIENCE', BM: 'SASARAN KAMI' },
-                    target_head: { ENG: 'START BEING SEEN', BM: 'MULA DILIHAT ORANG' },
-                    card_aca_title: { ENG: 'Academicians', BM: 'Ahli Akademik' },
-                    card_aca_desc: { ENG: 'Showcase your research globally.', BM: 'Pamerkan kajian anda ke global.' },
-                    card_corp_title: { ENG: 'Corporate Branding', BM: 'Jenama Korporat' },
-                    card_corp_desc: { ENG: 'Look expensive, get paid expensive.', BM: 'Kelihatan mahal, dibayar mahal.' },
-                    card_ind_title: { ENG: 'Industry Experts', BM: 'Pakar Industri' },
-                    card_ind_desc: { ENG: 'Establish a verified presence.', BM: 'Bina kehadiran yang disahkan.' },
-
-                   // --- DOUBTS / REALITY CHECK (UPDATED FOR MALAYSIA) ---
-                    doubt_badge: { ENG: 'Why Choose Us', BM: 'Kenapa Pilih Kami' },
-                    doubt_head: { ENG: 'YOUR CONCERNS, SOLVED.', BM: 'KERAGUAN ANDA, TERJAWAB.' },
-                    
-                    // CARD 1: TRUST (ISU SCAM)
-                    d1_q: { ENG: '"Is this legitimate?"', BM: '"Ini scam ke?"' },
-                    d1_a: { ENG: 'We are a legitimate business entity. Official Invoice & Agreement provided.', BM: 'Kami entiti bisnes yang sah. Invois & Perjanjian Rasmi disediakan.' },
-
-                    // CARD 2: TECH (BUTA IT)
-                    d2_q: { ENG: '"I’m not tech-savvy."', BM: '"Saya buta IT."' },
-                    d2_a: { ENG: 'Zero coding needed. We handle domain, hosting, and design for you.', BM: 'Tak perlu coding. Kami uruskan domain, hosting, dan design untuk anda.' },
-
-                    // CARD 3: PAYMENT (GANTI ISU MAHAL -> JADI FLEXIBLE)
-                    d3_q: { ENG: '"Can I pay in installments?"', BM: '"Boleh bayar ansuran?"' },
-                    d3_a: { ENG: 'Yes! 50% deposit to start, remaining 50% only after completion.', BM: 'Ya! Deposit 50% untuk mula, baki 50% hanya selepas siap.' },
-
-                    // CARD 4: SUPPORT (ISU DITINGGALKAN)
-                    d4_q: { ENG: '"What if it breaks?"', BM: '"Kalau website rosak?"' },
-                    d4_a: { ENG: 'Relax. You get 1 Year Free Maintenance & Technical Support.', BM: 'Tenang. Anda dapat 1 Tahun Maintenance & Support Percuma.' },
-
-                    // CARD 5: CONTENT (TAK RETI NULIS)
-                    d5_q: { ENG: '"I don\'t have content."', BM: '"Tiada idea nak tulis apa."' },
-                    d5_a: { ENG: 'Just give us points. We structure professional copywriting for you.', BM: 'Bagi poin ringkas. Kami susun ayat copywriting profesional untuk anda.' },
-
-                    // CARD 6: SPEED (URGENT)
-                    d6_q: { ENG: '"How fast can it be ready?"', BM: '"Berapa lama boleh siap?"' },
-                    d6_a: { ENG: 'Rapid development. Personal sites in 3-7 days, Corporate in 7-14 days.', BM: 'Pantas. Web personal siap 3-7 hari, Korporat dalam 7-14 hari.' },
-
-                    // --- WORKS ---
-                    work_head: { ENG: 'Our Masterpieces', BM: 'Karya Agung Kami' },
-                    work_desc: { ENG: "We don't just build websites. We build Assets that generate value.", BM: "Kami bukan sekadar bina web. Kami bina Aset yang menjana nilai." },
-                    view_details: { ENG: 'View Details', BM: 'Lihat Detail' },
-                    work_1_title: { ENG: 'Personal Branding', BM: 'Personal Branding' },
-                    work_1_desc: { ENG: 'High-converting profile websites.', BM: 'Web profil konversi tinggi.' },
-                    work_2_title: { ENG: 'Corporate Branding', BM: 'Jenama Korporat' },
-                    work_2_desc: { ENG: 'Corporate digital identity.', BM: 'Identiti digital korporat.' },
-                    work_3_title: { ENG: 'Business System', BM: 'Sistem Bisnes' },
-                    work_3_desc: { ENG: 'Management System for Rentals, Clinics.', BM: 'Sistem Pengurusan Sewaan, Klinik.' },
-
-// --- PRICING HEADER (UPDATE HARGA & PROMO) ---
-                    price_badge: { ENG: 'Limited Offer', BM: 'Tawaran Terhad' },
-                    price_head_1: { ENG: 'YOUR WEBSITE', BM: 'LAMAN WEB ANDA' },
-                    price_head_2: { ENG: 'STARTS HERE.', BM: 'BERMULA DI SINI.' },
-                    price_sub: { ENG: 'Promo valid for the first 2 months only.', BM: 'Promo sah untuk 2 bulan pertama sahaja.' },
-                    price_btn: { ENG: 'Grab Promo', BM: 'Dapatkan Promo' },
-                    price_start: { ENG: 'Starts From', BM: 'Bermula Dari' },
-                    price_custom: { ENG: 'Custom Offer', BM: 'Harga Tersuai' },
-                    
-                    // LABEL PROMO BARU
-                    promo_tag: { ENG: '🔥 2 MONTHS PROMO', BM: '🔥 PROMO 2 BULAN' },
-                    
-                    // HARGA BARU (Variable Text)
-                    p1_old: { ENG: 'RM 700', BM: 'RM 700' },
-                    p1_new: { ENG: 'RM 350', BM: 'RM 350' },
-                    
-                    p2_old: { ENG: 'RM 1,500', BM: 'RM 1,500' },
-                    p2_new: { ENG: 'RM 1,000', BM: 'RM 1,000' },
-                    // Fitur Pricing
-                    pb_feat_1: { ENG: 'Bio & Portfolio Gallery', BM: 'Bio & Galeri Portfolio' },
-                    pb_feat_2: { ENG: 'Research List', BM: 'Senarai Kajian' },
-                    pb_feat_3: { ENG: 'WhatsApp Integration', BM: 'Integrasi WhatsApp' },
-                    cb_feat_1: { ENG: 'Modern Company Profile', BM: 'Profil Syarikat Moden' },
-                    cb_feat_2: { ENG: 'Product Showcase', BM: 'Pameran Produk' },
-                    cb_feat_3: { ENG: 'Google Maps & Trust', BM: 'Google Maps & Trust' },
-                    lms_feat_1: { ENG: 'POS, Sales & Payment', BM: 'POS, Jualan & Bayaran' },
-                    lms_feat_2: { ENG: 'Booking & Rental', BM: 'Tempahan & Sewaan' },
-                    lms_feat_3: { ENG: 'Attendance & Reports', BM: 'Kehadiran & Laporan' },
-
-// --- FAQ (UPDATED BIO & LINKS) ---
-faq_head: { ENG: 'FAQ', BM: 'Soalan Lazim' },
-    faq_sub: { ENG: 'Common questions.', BM: 'Pertanyaan biasa.' },
-    
-    // Q1: WHO ARE YOU (DETAIL BARU)
-    q1: { ENG: 'Who are you?', BM: 'Siapa anda?' },
-    
-    // Bio Panjang
-    a1_bio: {
-        ENG: "I’m a husband and a father of three, and I serve as a senior lecturer at a public university in Southern Malaysia. Outside of work, I enjoy hiking and I run half marathons. I am a tech enthusiast who enjoys exploring emerging AI and building websites and systems that simplify daily work and streamline business operations.",
-        BM: "Saya seorang suami dan bapa kepada tiga anak, serta berkhidmat sebagai pensyarah kanan di sebuah universiti awam di Selatan Malaysia. Di luar waktu kerja, saya gemar mendaki dan berlari separuh maraton. Saya peminat teknologi yang suka meneroka AI terkini dan membina sistem untuk memudahkan operasi perniagaan."
-    },
-    
-    // Label Tombol
-    a1_btn_utm: { ENG: 'View Academic Profile', BM: 'Lihat Profil Akademik' },
-    a1_btn_strava: { ENG: 'Follow on Strava', BM: 'Ikuti di Strava' },
-    
-    // Q2, Q3, Q4 (TETAP SAMA)
-    q2: { ENG: 'Timeline?', BM: 'Berapa lama?' },
-    a2: { ENG: 'Personal: 3-7 Days. Corporate: 7-14 Days.', BM: 'Personal: 3-7 Hari. Korporat: 7-14 Hari.' },
-    q3: { ENG: 'Payment terms?', BM: 'Bayaran?' },
-    a3: { ENG: '50% Deposit start, 50% completion.', BM: 'Deposit 50% mula, 50% siap.' },
-    q4: { ENG: 'Support?', BM: 'Support?' },
-    a4: { ENG: 'Yes, 1 Year Free Maintenance.', BM: 'Ya, 1 Tahun Maintenance Percuma.' },
-                    
-
-    // --- FOOTER LENGKAP & INTERAKTIF ---
-                    footer_head: { ENG: 'READY TO LAUNCH?', BM: 'SEDIA MELUNCUR?' },
-                    footer_sub: { ENG: 'Tell us what you need.', BM: 'Beritahu apa yang anda perlukan.' },
-                    btn_wa: { ENG: 'WhatsApp Now', BM: 'WhatsApp Sekarang' },
-                    btn_contact: { ENG: 'Contact Me', BM: 'Hubungi Saya' },
-
-                    // Kolom Footer
-                    ft_desc: { ENG: 'Building high-performance digital assets for forward-thinking individuals and corporations.', BM: 'Membina aset digital berprestasi tinggi untuk individu dan korporat berwawasan.' },
-                    ft_links: { ENG: 'Quick Links', BM: 'Pautan Pantas' },
-                    ft_legal: { ENG: 'Term & Conditions', BM: 'Terma & Syarat' },
-                    ft_connect: { ENG: 'Connect', BM: 'Hubungan' },
-                    
-                    // Menu Links
-                    ft_privacy: { ENG: 'Privacy Policy', BM: 'Dasar Privasi' },
-                    ft_terms: { ENG: 'Terms of Service', BM: 'Terma Perkhidmatan' },
-                    ft_cookies: { ENG: 'Cookie Policy', BM: 'Dasar Kuki' },
-                    
-                    // Copyright
-                    ft_copy: { ENG: '© 2026 MIJ Digital Int. All Rights Reserved.', BM: '© 2026 MIJ Digital Int. Hak Cipta Terpelihara.' },
-                    ft_back: { ENG: 'Back to Top ↑', BM: 'Ke Atas ↑' }
-                }
-            }))
-        })
-    </script>
+  
     
     <style>
         [x-cloak] { display: none !important; }
@@ -269,13 +135,10 @@ faq_head: { ENG: 'FAQ', BM: 'Soalan Lazim' },
             <div class="max-w-7xl mx-auto flex items-center justify-between py-4 px-4 relative z-50">
                 
                 <div class="flex items-center gap-4">
-                    
-                    <button @click="mobileMenu = !mobileMenu" 
-                            class="md:hidden w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-orange-600 transition shadow-lg pointer-events-auto relative z-50">
+                    <button @click="mobileMenu = !mobileMenu" class="md:hidden w-10 h-10 bg-black text-white rounded-full flex items-center justify-center hover:bg-orange-600 transition shadow-lg pointer-events-auto relative z-50">
                         <svg x-show="!mobileMenu" class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                         <svg x-show="mobileMenu" class="w-6 h-6 transform transition-transform duration-300 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" x-cloak><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                     </button>
-
                     <a href="index.html" class="flex flex-col items-start leading-none group transition duration-300">
                         <span class="font-modernica font-black text-4xl md:text-5xl tracking-tighter text-black group-hover:text-orange-600 transition">MIJ<span class="text-orange-600 group-hover:text-black">.</span></span>
                         <span class="font-sans font-bold text-[10px] tracking-[0.4em] text-black uppercase ml-1 mt-1 group-hover:text-orange-600 transition">DIGITAL</span>
@@ -286,6 +149,9 @@ faq_head: { ENG: 'FAQ', BM: 'Soalan Lazim' },
                     <a href="index.html" class="px-4 py-2 text-sm font-bold text-gray-900 hover:text-orange-600 hover:bg-white/50 rounded-full transition" x-text="text.nav_home[lang]"></a>
                     <a href="index.html#about-me" class="px-4 py-2 text-sm font-bold text-gray-900 hover:text-orange-600 hover:bg-white/50 rounded-full transition" x-text="text.nav_about[lang]"></a>
                     <a href="services.html" class="px-4 py-2 text-sm font-bold text-gray-900 hover:text-orange-600 hover:bg-white/50 rounded-full transition" x-text="text.nav_services[lang]"></a>
+                    
+                    <a href="#testimonials" class="px-4 py-2 text-sm font-bold text-gray-900 hover:text-orange-600 hover:bg-white/50 rounded-full transition" x-text="text.nav_testi[lang]"></a>
+                    
                     <a href="portfolio.html" class="px-4 py-2 text-sm font-bold text-gray-900 hover:text-orange-600 hover:bg-white/50 rounded-full transition" x-text="text.nav_portfolio[lang]"></a>
                     <a href="faq.html" class="px-4 py-2 text-sm font-bold text-gray-900 hover:text-orange-600 hover:bg-white/50 rounded-full transition" x-text="text.nav_faq[lang]"></a>
                 </div>
@@ -296,38 +162,30 @@ faq_head: { ENG: 'FAQ', BM: 'Soalan Lazim' },
                         <button @click="lang = 'BM'" :class="lang === 'BM' ? 'bg-white text-black shadow-sm' : 'text-gray-500 hover:text-black'" class="px-3 py-1.5 rounded-full transition-all">BM</button>
                     </div>
                     <a href="https://wa.me/601155886905" target="_blank" class="bg-orange-600 text-white font-bold text-xs px-5 py-3 rounded-full shadow-xl hover:bg-black transition transform hover:scale-105 flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.48s1.066 2.875 1.215 3.072c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg><span x-text="text.nav_chat[lang]"></span></a>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.991c-.001 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></path></svg>
+                        <span x-text="text.nav_chat[lang]">Chat</span>
+                    </a>
                 </div>
             </div>
 
             <div x-show="mobileMenu" 
-                 x-transition:enter="transition ease-out duration-300"
-                 x-transition:enter-start="opacity-0"
-                 x-transition:enter-end="opacity-100"
-                 x-transition:leave="transition ease-in duration-200"
-                 x-transition:leave-start="opacity-100"
-                 x-transition:leave-end="opacity-0"
+                 x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                 x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
                  @click="mobileMenu = false"
                  class="fixed inset-0 bg-black/20 backdrop-blur-[2px] z-30 md:hidden h-screen w-full cursor-pointer">
             </div>
 
             <div x-show="mobileMenu" 
-                 x-transition:enter="transition ease-out duration-200"
-                 x-transition:enter-start="opacity-0 -translate-y-2"
-                 x-transition:enter-end="opacity-100 translate-y-0"
-                 x-transition:leave="transition ease-in duration-150"
-                 x-transition:leave-start="opacity-100 translate-y-0"
-                 x-transition:leave-end="opacity-0 -translate-y-2"
-                 class="absolute top-full left-0 right-0 bg-white border-t border-gray-100 shadow-2xl p-6 md:hidden z-40" 
-                 x-cloak>
-                
+                 x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+                 x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2"
+                 class="absolute top-full left-0 right-0 bg-white border-t border-gray-100 shadow-2xl p-6 md:hidden z-40" x-cloak>
                 <div class="flex flex-col gap-4 text-center">
                     <a href="index.html" @click="mobileMenu=false" class="py-3 text-xl font-bold text-gray-900 hover:text-orange-600 border-b border-gray-50" x-text="text.nav_home[lang]"></a>
                     <a href="index.html#about-me" @click="mobileMenu=false" class="py-3 text-xl font-bold text-gray-900 hover:text-orange-600 border-b border-gray-50" x-text="text.nav_about[lang]"></a>
                     <a href="services.html" @click="mobileMenu=false" class="py-3 text-xl font-bold text-gray-900 hover:text-orange-600 border-b border-gray-50" x-text="text.nav_services[lang]"></a>
+                    <a href="#testimonials" @click="mobileMenu=false" class="py-3 text-xl font-bold text-gray-900 hover:text-orange-600 border-b border-gray-50" x-text="text.nav_testi[lang]"></a>
                     <a href="portfolio.html" @click="mobileMenu=false" class="py-3 text-xl font-bold text-gray-900 hover:text-orange-600 border-b border-gray-50" x-text="text.nav_portfolio[lang]"></a>
                     <a href="faq.html" @click="mobileMenu=false" class="py-3 text-xl font-bold text-gray-900 hover:text-orange-600" x-text="text.nav_faq[lang]"></a>
-                    
                     <div class="flex gap-4 justify-center mt-6 pt-6 border-t border-gray-100">
                          <button @click="lang = 'ENG'" :class="lang === 'ENG' ? 'bg-black text-white' : 'text-gray-500 bg-gray-100'" class="px-6 py-3 rounded-full font-bold text-sm transition">ENG</button>
                          <button @click="lang = 'BM'" :class="lang === 'BM' ? 'bg-black text-white' : 'text-gray-500 bg-gray-100'" class="px-6 py-3 rounded-full font-bold text-sm transition">BM</button>
@@ -340,179 +198,198 @@ faq_head: { ENG: 'FAQ', BM: 'Soalan Lazim' },
 
 
 <section class="relative w-full min-h-[100dvh] flex flex-col lg:flex-row items-stretch bg-[#FFFBF5] overflow-hidden" id="home">
-        
         <div class="relative w-full lg:w-5/12 order-2 lg:order-1 flex-1 min-h-[50vh] lg:min-h-auto z-10">
-             
              <div class="hidden lg:block absolute top-20 bottom-20 -right-32 w-64 bg-black/30 blur-[120px] -z-10 pointer-events-none"></div>
-
              <div class="w-full h-full bg-[#0a0a0a] overflow-hidden group relative z-10">
                 <img src="hero.jpg" alt="Profile" class="w-full h-full object-cover object-top lg:object-center transition duration-1000 group-hover:scale-105">
                 <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-80 lg:hidden"></div>
              </div>
         </div>
-
         <div class="w-full lg:w-7/12 flex flex-col justify-center px-6 sm:px-12 pt-48 pb-20 lg:py-40 z-20 order-1 lg:order-2 text-left relative text-gray-900">
-            
             <div class="mx-auto max-w-3xl w-full flex flex-col justify-center h-full">
-
                 <div class="mb-6" data-aos="fade-up">
                     <p class="text-orange-600 font-display font-bold tracking-[0.3em] uppercase text-[10px] md:text-xs flex items-center gap-3">
-                        <span class="w-8 h-[2px] bg-orange-600 inline-block"></span> <span x-text="text.hero_badge[lang]">About Me</span>
+                        <span class="w-8 h-[2px] bg-orange-600 inline-block"></span> <span x-text="text.hero_badge[lang]"></span>
                     </p>
                 </div>
-
-                <h2 class="font-modernica text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-400 mb-4 leading-tight tracking-wide" data-aos="fade-up" data-aos-delay="100" x-text="text.hero_sub[lang]">
-                    I HIKE. I RUN.
-                </h2>
-                
+                <h2 class="font-modernica text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-400 mb-4 leading-tight tracking-wide" data-aos="fade-up" data-aos-delay="100" x-text="text.hero_sub[lang]"></h2>
                 <h1 class="font-modernica text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] mb-10 tracking-tighter text-gray-900">
-                    <span class="block" data-aos="fade-up" data-aos-delay="200" x-text="text.hero_and[lang]">AND</span>
-                    
-                    <span class="block text-gray-900" data-aos="fade-up" data-aos-delay="300" x-text="text.hero_build[lang]">I CAN BUILD</span>
-                    
+                    <span class="block" data-aos="fade-up" data-aos-delay="200" x-text="text.hero_and[lang]"></span>
+                    <span class="block text-gray-900" data-aos="fade-up" data-aos-delay="300" x-text="text.hero_build[lang]"></span>
                     <span class="block" data-aos="fade-up" data-aos-delay="400">
-                        <span class="text-gray-900" x-text="text.hero_a[lang]">A</span>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-orange-500 to-yellow-500" x-text="text.hero_beautiful[lang]">BEAUTIFUL WEBSITE</span>
+                        <span class="text-gray-900" x-text="text.hero_a[lang]"></span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-orange-500 to-yellow-500" x-text="text.hero_beautiful[lang]"></span>
                     </span>
-
-                    <span class="block text-gray-900" data-aos="fade-up" data-aos-delay="500" x-text="text.hero_foryou[lang]">FOR YOU.</span>
+                    <span class="block text-gray-900" data-aos="fade-up" data-aos-delay="500" x-text="text.hero_foryou[lang]"></span>
                 </h1>
-
-                <p class="text-sm sm:text-base lg:text-lg text-gray-600 mb-12 font-sans font-medium leading-relaxed max-w-xl border-l-4 border-orange-600 pl-6" data-aos="fade-up" data-aos-delay="600" x-text="text.hero_desc[lang]">
-                    The discipline of the outdoors applied to pixel-perfect code. I build high-performance digital assets tailored for you.
-                </p>
-
-                <div class="flex flex-row gap-5 justify-start items-center" data-aos="fade-up" data-aos-delay="800">
-                    <a href="https://wa.me/601155886905" class="px-8 md:px-10 py-4 md:py-5 bg-black text-white font-modernica font-bold text-xs tracking-[0.2em] uppercase hover:bg-orange-600 hover:scale-105 transition rounded-full shadow-2xl flex items-center gap-3">
-                        <span x-text="text.btn_start[lang]">Start Now</span>
+                <p class="text-sm sm:text-base lg:text-lg text-gray-600 mb-12 font-sans font-medium leading-relaxed max-w-xl border-l-4 border-orange-600 pl-6" data-aos="fade-up" data-aos-delay="600" x-text="text.hero_desc[lang]"></p>
+                <div class="flex flex-row gap-5 justify-start items-center">
+                    <a href="index.html#services" class="px-8 md:px-10 py-4 md:py-5 bg-black text-white font-modernica font-bold text-xs tracking-[0.2em] uppercase hover:bg-orange-600 transition rounded-full shadow-xl flex items-center gap-3">
+                        <span x-text="text.btn_start[lang]"></span> 
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
-                    
                     <a href="portfolio.html" class="group px-8 md:px-10 py-4 md:py-5 bg-white border-2 border-gray-200 text-black font-modernica font-bold text-xs tracking-[0.2em] uppercase hover:border-black transition rounded-full flex items-center gap-2">
-                        <span x-text="text.nav_portfolio[lang]">Portfolio</span>
+                        <span x-text="text.nav_portfolio[lang]"></span>
                     </a>
                 </div>
-
             </div>
         </div>
     </section>
 
-    
-
-<section class="relative py-24 bg-[#F9FAFB] border-t border-gray-200">
-        
-        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
-            
-            <h2 class="text-5xl md:text-7xl font-display font-black uppercase tracking-tighter mb-6">
-                <span x-show="lang === 'ENG'">
-                    <span class="text-gray-900">OUR</span> 
-                    <span class="text-orange-600">MASTERPIECES</span>
-                </span>
-                
-                <span x-show="lang === 'BM'">
-                    <span class="text-gray-900">KARYA AGUNG</span> 
-                    <span class="text-orange-600">KAMI</span>
-                </span>
-            </h2>
-
-            <p class="text-gray-500 max-w-2xl mx-auto font-medium text-lg leading-relaxed" x-text="text.work_desc[lang]">
-                We don't just build websites. We build Assets that generate value.
-            </p>
+    <section id="testimonials" class="py-24 bg-[#FFFBF5] relative overflow-hidden border-t border-orange-100">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-orange-200/30 rounded-full blur-[80px] pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-yellow-200/20 rounded-full blur-[80px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-orange-600 font-bold tracking-widest text-xs uppercase mb-3 block" x-text="text.testi_badge[lang]"></span>
+                <h2 class="text-4xl md:text-5xl font-display font-black text-gray-900 uppercase tracking-tight" x-text="text.testi_head[lang]"></h2>
+            </div>
+            <div class="swiper testiSwiper pb-12" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide h-auto">
+                        <div class="h-full bg-white p-8 rounded-[2rem] shadow-xl border border-orange-50 relative flex flex-col justify-between hover:shadow-2xl hover:border-orange-200 transition duration-300">
+                            <div class="absolute top-6 right-8 text-8xl font-serif text-orange-100 leading-none select-none">"</div>
+                            <div><div class="flex text-orange-500 mb-6 text-sm"><span class="tracking-widest">★★★★★</span></div><p class="text-gray-600 font-serif text-lg leading-relaxed italic mb-6 relative z-10" x-text="text.r1_quote[lang]"></p></div>
+                            <div class="flex items-center gap-4 border-t border-gray-100 pt-6"><div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 font-bold text-sm">DA</div><div><h4 class="font-bold text-gray-900 text-sm uppercase tracking-wide">Datuk Azman</h4><p class="text-xs text-orange-600 font-bold">Corporate Director</p></div></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div class="h-full bg-white p-8 rounded-[2rem] shadow-xl border border-orange-50 relative flex flex-col justify-between hover:shadow-2xl hover:border-orange-200 transition duration-300">
+                            <div class="absolute top-6 right-8 text-8xl font-serif text-orange-100 leading-none select-none">"</div>
+                            <div><div class="flex text-orange-500 mb-6 text-sm"><span class="tracking-widest">★★★★★</span></div><p class="text-gray-600 font-serif text-lg leading-relaxed italic mb-6 relative z-10" x-text="text.r2_quote[lang]"></p></div>
+                            <div class="flex items-center gap-4 border-t border-gray-100 pt-6"><div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 font-bold text-sm">SL</div><div><h4 class="font-bold text-gray-900 text-sm uppercase tracking-wide">Sarah Liyana</h4><p class="text-xs text-orange-600 font-bold">Founder, LiyanaScarf</p></div></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div class="h-full bg-white p-8 rounded-[2rem] shadow-xl border border-orange-50 relative flex flex-col justify-between hover:shadow-2xl hover:border-orange-200 transition duration-300">
+                            <div class="absolute top-6 right-8 text-8xl font-serif text-orange-100 leading-none select-none">"</div>
+                            <div><div class="flex text-orange-500 mb-6 text-sm"><span class="tracking-widest">★★★★★</span></div><p class="text-gray-600 font-serif text-lg leading-relaxed italic mb-6 relative z-10" x-text="text.r3_quote[lang]"></p></div>
+                            <div class="flex items-center gap-4 border-t border-gray-100 pt-6"><div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 font-bold text-sm">DF</div><div><h4 class="font-bold text-gray-900 text-sm uppercase tracking-wide">Dr. Farhan</h4><p class="text-xs text-orange-600 font-bold">Academic Lecturer</p></div></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div class="h-full bg-white p-8 rounded-[2rem] shadow-xl border border-orange-50 relative flex flex-col justify-between hover:shadow-2xl hover:border-orange-200 transition duration-300">
+                            <div class="absolute top-6 right-8 text-8xl font-serif text-orange-100 leading-none select-none">"</div>
+                            <div><div class="flex text-orange-500 mb-6 text-sm"><span class="tracking-widest">★★★★★</span></div><p class="text-gray-600 font-serif text-lg leading-relaxed italic mb-6 relative z-10" x-text="text.r4_quote[lang]"></p></div>
+                            <div class="flex items-center gap-4 border-t border-gray-100 pt-6"><div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 font-bold text-sm">KA</div><div><h4 class="font-bold text-gray-900 text-sm uppercase tracking-wide">Dr. Aishah</h4><p class="text-xs text-orange-600 font-bold">Klinik Aishah</p></div></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div class="h-full bg-white p-8 rounded-[2rem] shadow-xl border border-orange-50 relative flex flex-col justify-between hover:shadow-2xl hover:border-orange-200 transition duration-300">
+                            <div class="absolute top-6 right-8 text-8xl font-serif text-orange-100 leading-none select-none">"</div>
+                            <div><div class="flex text-orange-500 mb-6 text-sm"><span class="tracking-widest">★★★★★</span></div><p class="text-gray-600 font-serif text-lg leading-relaxed italic mb-6 relative z-10" x-text="text.r5_quote[lang]"></p></div>
+                            <div class="flex items-center gap-4 border-t border-gray-100 pt-6"><div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 font-bold text-sm">JL</div><div><h4 class="font-bold text-gray-900 text-sm uppercase tracking-wide">Jason Lim</h4><p class="text-xs text-orange-600 font-bold">Real Estate Agent</p></div></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div class="h-full bg-white p-8 rounded-[2rem] shadow-xl border border-orange-50 relative flex flex-col justify-between hover:shadow-2xl hover:border-orange-200 transition duration-300">
+                            <div class="absolute top-6 right-8 text-8xl font-serif text-orange-100 leading-none select-none">"</div>
+                            <div><div class="flex text-orange-500 mb-6 text-sm"><span class="tracking-widest">★★★★★</span></div><p class="text-gray-600 font-serif text-lg leading-relaxed italic mb-6 relative z-10" x-text="text.r6_quote[lang]"></p></div>
+                            <div class="flex items-center gap-4 border-t border-gray-100 pt-6"><div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 font-bold text-sm">NZ</div><div><h4 class="font-bold text-gray-900 text-sm uppercase tracking-wide">Zubair</h4><p class="text-xs text-orange-600 font-bold">Restoran Nasi Kandar</p></div></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div class="h-full bg-white p-8 rounded-[2rem] shadow-xl border border-orange-50 relative flex flex-col justify-between hover:shadow-2xl hover:border-orange-200 transition duration-300">
+                            <div class="absolute top-6 right-8 text-8xl font-serif text-orange-100 leading-none select-none">"</div>
+                            <div><div class="flex text-orange-500 mb-6 text-sm"><span class="tracking-widest">★★★★★</span></div><p class="text-gray-600 font-serif text-lg leading-relaxed italic mb-6 relative z-10" x-text="text.r7_quote[lang]"></p></div>
+                            <div class="flex items-center gap-4 border-t border-gray-100 pt-6"><div class="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 font-bold text-sm">KR</div><div><h4 class="font-bold text-gray-900 text-sm uppercase tracking-wide">Kevin Raj</h4><p class="text-xs text-orange-600 font-bold">Tech Startup Founder</p></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
         </div>
+    </section>
 
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 relative z-10">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var swiperTesti = new Swiper(".testiSwiper", {
+                slidesPerView: 1, spaceBetween: 30, loop: true, grabCursor: true,
+                pagination: { el: ".swiper-pagination", clickable: true },
+                breakpoints: { 640: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 30 } },
+                autoplay: { delay: 3500, disableOnInteraction: false }
+            });
+        });
+    </script>
+
+<section class="py-24 bg-gray-50 relative overflow-hidden">
+        
+        <div class="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:20px_20px] opacity-30 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
             
-            <div class="bg-white border border-gray-200 rounded-[2rem] p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition duration-500 h-[500px] flex flex-col group overflow-hidden">
-                <div class="mb-4">
-                    <span class="text-orange-600 font-bold tracking-widest text-xs uppercase bg-orange-50 px-3 py-1 rounded-full">Profile Site</span>
-                </div>
-                <h3 class="text-3xl font-display font-black mb-2 text-gray-900" x-text="text.work_1_title[lang]">Personal Branding</h3>
-                <p class="text-gray-500 text-sm mb-8 leading-relaxed" x-text="text.work_1_desc[lang]">High-converting profile websites.</p>
+            <div class="mb-16 text-center max-w-3xl mx-auto" data-aos="fade-up">
+                <span class="text-orange-600 font-bold tracking-widest text-xs uppercase mb-3 block">Portfolio</span>
+                <h2 class="font-modernica text-5xl md:text-6xl font-black text-black leading-none mb-6 uppercase" x-text="text.work_head[lang]"></h2>
+                <p class="text-gray-500 text-lg leading-relaxed mb-8" x-text="text.work_desc[lang]"></p>
                 
-                <div class="mt-auto w-full h-48 bg-gray-50 rounded-2xl border border-gray-100 flex items-center justify-center overflow-hidden relative group-hover:bg-orange-50/30 transition">
-                    <svg class="w-40 h-auto drop-shadow-lg transform group-hover:scale-110 transition duration-500" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="20" y="20" width="160" height="140" rx="8" fill="white" stroke="#E5E7EB" stroke-width="2"/>
-                        <circle cx="35" cy="35" r="3" fill="#E5E7EB"/>
-                        <circle cx="45" cy="35" r="3" fill="#E5E7EB"/>
-                        <circle cx="100" cy="70" r="20" fill="#FFEDD5" stroke="#F97316" stroke-width="2"/>
-                        <rect x="70" y="100" width="60" height="6" rx="3" fill="#1F2937"/>
-                        <rect x="60" y="115" width="80" height="4" rx="2" fill="#9CA3AF"/>
-                        <rect x="75" y="125" width="50" height="4" rx="2" fill="#D1D5DB"/>
-                        <rect x="85" y="140" width="30" height="8" rx="4" fill="#F97316"/>
-                    </svg>
-                </div>
-                
-                <div class="mt-6 pt-6 border-t border-gray-100 flex justify-between items-center">
-                    <span class="text-xs font-bold uppercase tracking-widest text-gray-400 group-hover:text-orange-600 transition" x-text="text.view_details[lang]">View Details</span>
-                    <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-orange-600 group-hover:text-white transition">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                    </div>
-                </div>
+                <a href="portfolio.html" class="inline-flex items-center gap-2 font-bold text-black border-b-2 border-orange-500 hover:text-orange-600 transition pb-1">
+                    <span x-text="text.view_details[lang]"></span> <span aria-hidden="true">→</span>
+                </a>
             </div>
 
-            <div class="bg-white border border-gray-200 rounded-[2rem] p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition duration-500 h-[500px] flex flex-col group overflow-hidden">
-                <div class="mb-4">
-                    <span class="text-orange-600 font-bold tracking-widest text-xs uppercase bg-orange-50 px-3 py-1 rounded-full">Company Site</span>
-                </div>
-                <h3 class="text-3xl font-display font-black mb-2 text-gray-900" x-text="text.work_2_title[lang]">Corporate Branding</h3>
-                <p class="text-gray-500 text-sm mb-8 leading-relaxed" x-text="text.work_2_desc[lang]">Corporate digital identity.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <div class="mt-auto w-full h-48 bg-gray-50 rounded-2xl border border-gray-100 flex items-center justify-center overflow-hidden relative group-hover:bg-orange-50/30 transition">
-                    <svg class="w-40 h-auto drop-shadow-lg transform group-hover:scale-110 transition duration-500" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="20" y="20" width="160" height="140" rx="8" fill="white" stroke="#E5E7EB" stroke-width="2"/>
-                        <rect x="20" y="20" width="160" height="50" rx="8" fill="#F3F4F6"/>
-                        <rect x="40" y="35" width="60" height="6" rx="3" fill="#1F2937"/>
-                        <rect x="40" y="46" width="40" height="4" rx="2" fill="#F97316"/>
-                        <rect x="35" y="85" width="35" height="25" rx="4" fill="#FFEDD5"/>
-                        <rect x="82" y="85" width="35" height="25" rx="4" fill="#F3F4F6"/>
-                        <rect x="130" y="85" width="35" height="25" rx="4" fill="#F3F4F6"/>
-                        <rect x="35" y="115" width="20" height="3" rx="1.5" fill="#D1D5DB"/>
-                        <rect x="82" y="115" width="20" height="3" rx="1.5" fill="#D1D5DB"/>
-                        <rect x="130" y="115" width="20" height="3" rx="1.5" fill="#D1D5DB"/>
-                    </svg>
-                </div>
-
-                <div class="mt-6 pt-6 border-t border-gray-100 flex justify-between items-center">
-                    <span class="text-xs font-bold uppercase tracking-widest text-gray-400 group-hover:text-orange-600 transition" x-text="text.view_details[lang]">View Details</span>
-                    <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-orange-600 group-hover:text-white transition">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                <div class="group bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-100 hover:border-orange-500 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-24 h-24 bg-orange-50 rounded-2xl flex items-center justify-center mb-6 border border-orange-100 relative overflow-visible">
+                        <svg class="w-16 h-16 drop-shadow-xl" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="40" fill="url(#grad1)" class="opacity-10" />
+                            <circle cx="50" cy="40" r="12" fill="#EA580C" />
+                            <path d="M26 75C26 61.7452 36.7452 51 50 51C63.2548 51 74 61.7452 74 75" stroke="#EA580C" stroke-width="6" stroke-linecap="round" />
+                            <g class="anim-float">
+                                <rect x="60" y="10" width="28" height="28" rx="8" fill="white" stroke="#EA580C" stroke-width="2"/>
+                                <path class="anim-pop" d="M74 32C71 32 69 29 69 27C69 25 71 22 74 22C77 22 79 25 79 27C79 29 77 32 74 32Z" fill="#EF4444"/>
+                            </g>
+                            <defs>
+                                <linearGradient id="grad1" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#EA580C" stop-opacity="0.2"/>
+                                    <stop offset="1" stop-color="#EA580C" stop-opacity="0"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-black text-2xl mb-3 text-gray-900 group-hover:text-orange-600 transition-colors" x-text="text.work_1_title[lang]"></h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed text-sm" x-text="text.work_1_desc[lang]"></p>
+                    <div class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-black group-hover:border-black group-hover:text-white transition-all">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </div>
                 </div>
-            </div>
 
-            <div class="bg-white border border-gray-200 rounded-[2rem] p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition duration-500 h-[500px] flex flex-col group overflow-hidden">
-                <div class="mb-4">
-                    <span class="text-orange-600 font-bold tracking-widest text-xs uppercase bg-orange-50 px-3 py-1 rounded-full">System & App</span>
-                </div>
-                <h3 class="text-3xl font-display font-black mb-2 text-gray-900" x-text="text.work_3_title[lang]">Business System</h3>
-                <p class="text-gray-500 text-sm mb-8 leading-relaxed" x-text="text.work_3_desc[lang]">Management System for Rentals, Clinics.</p>
-                
-                <div class="mt-auto w-full h-48 bg-gray-50 rounded-2xl border border-gray-100 flex items-center justify-center overflow-hidden relative group-hover:bg-orange-50/30 transition">
-                    <svg class="w-40 h-auto drop-shadow-lg transform group-hover:scale-110 transition duration-500" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="20" y="20" width="160" height="140" rx="8" fill="white" stroke="#E5E7EB" stroke-width="2"/>
-                        <path d="M20 28C20 23.5817 23.5817 20 28 20H60V160H28C23.5817 160 20 156.418 20 152V28Z" fill="#1F2937"/>
-                        <rect x="30" y="40" width="20" height="4" rx="2" fill="#4B5563"/>
-                        <rect x="30" y="55" width="15" height="3" rx="1.5" fill="#374151"/>
-                        <rect x="30" y="65" width="15" height="3" rx="1.5" fill="#374151"/>
-                        <rect x="75" y="40" width="90" height="60" rx="4" fill="#F9FAFB" stroke="#E5E7EB"/>
-                        <rect x="85" y="70" width="10" height="20" rx="2" fill="#D1D5DB"/>
-                        <rect x="100" y="60" width="10" height="30" rx="2" fill="#D1D5DB"/>
-                        <rect x="115" y="50" width="10" height="40" rx="2" fill="#F97316"/>
-                        <rect x="130" y="65" width="10" height="25" rx="2" fill="#D1D5DB"/>
-                        <rect x="145" y="55" width="10" height="35" rx="2" fill="#D1D5DB"/>
-                        <rect x="75" y="110" width="40" height="30" rx="4" fill="#FFEDD5"/>
-                        <rect x="125" y="110" width="40" height="30" rx="4" fill="#F3F4F6"/>
-                    </svg>
-                </div>
-
-                <div class="mt-6 pt-6 border-t border-gray-100 flex justify-between items-center">
-                    <span class="text-xs font-bold uppercase tracking-widest text-gray-400 group-hover:text-orange-600 transition" x-text="text.view_details[lang]">View Details</span>
-                    <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-orange-600 group-hover:text-white transition">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                <div class="group bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-100 hover:border-orange-500 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-24 h-24 bg-orange-50 rounded-2xl flex items-center justify-center mb-6 border border-orange-100">
+                        <svg class="w-16 h-16 drop-shadow-lg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 20V80H80" stroke="#CBD5E1" stroke-width="4" stroke-linecap="round"/>
+                            <rect x="30" y="40" width="12" height="40" rx="4" fill="#FDBA74" class="anim-grow-1"/>
+                            <rect x="50" y="25" width="12" height="55" rx="4" fill="#FB923C" class="anim-grow-2"/>
+                            <rect x="70" y="10" width="12" height="70" rx="4" fill="#EA580C" class="anim-grow-3"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-black text-2xl mb-3 text-gray-900 group-hover:text-orange-600 transition-colors" x-text="text.work_2_title[lang]"></h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed text-sm" x-text="text.work_2_desc[lang]"></p>
+                    <div class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-black group-hover:border-black group-hover:text-white transition-all">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </div>
                 </div>
-            </div>
 
+                <div class="group bg-white rounded-[2.5rem] p-8 shadow-xl border border-gray-100 hover:border-orange-500 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-24 h-24 bg-orange-50 rounded-2xl flex items-center justify-center mb-6 border border-orange-100">
+                        <svg class="w-16 h-16 drop-shadow-md" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="15" y="20" width="70" height="60" rx="6" fill="white" stroke="#EA580C" stroke-width="3"/>
+                            <rect x="15" y="20" width="70" height="12" rx="6" fill="#EA580C"/>
+                            <rect x="22" y="38" width="15" height="35" rx="3" fill="#FED7AA" class="anim-pulse"/>
+                            <rect x="42" y="38" width="35" height="8" rx="2" fill="#CBD5E1"/>
+                            <rect x="42" y="50" width="35" height="8" rx="2" fill="#CBD5E1"/>
+                            <rect x="42" y="62" width="25" height="8" rx="2" fill="#CBD5E1"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-black text-2xl mb-3 text-gray-900 group-hover:text-orange-600 transition-colors" x-text="text.work_3_title[lang]"></h3>
+                    <p class="text-gray-500 mb-6 leading-relaxed text-sm" x-text="text.work_3_desc[lang]"></p>
+                    <div class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-black group-hover:border-black group-hover:text-white transition-all">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -606,167 +483,233 @@ faq_head: { ENG: 'FAQ', BM: 'Soalan Lazim' },
         });
     </script>
 
-
-
-  
-<section id="pricing" class="py-24 bg-white relative border-t border-gray-100">
+<section id="pricing" class="py-32 bg-gray-50 relative">
         
-        <div class="max-w-7xl mx-auto px-4 text-center mb-16" data-aos="fade-up">
-            <h2 class="text-5xl md:text-7xl font-display font-black uppercase tracking-tighter mb-4">
-                <span x-text="text.price_head_1[lang]" class="block text-gray-900 leading-none">YOUR WEBSITE</span>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-400 leading-none" x-text="text.price_head_2[lang]">STARTS HERE.</span>
-            </h2>
-            <p class="text-orange-600 font-bold mt-4 animate-pulse" x-text="text.price_sub[lang]">Promo valid for the first 2 months only.</p>
-        </div>
+        <div class="absolute inset-0" style="background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 30px 30px; opacity: 0.3;"></div>
 
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
             
-            <div class="h-full bg-black text-white p-8 rounded-3xl border border-gray-800 hover:border-orange-500 transition duration-500 flex flex-col relative group">
-                <div class="absolute top-0 inset-x-0 flex justify-center -mt-3">
-                    <span class="bg-orange-600 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest shadow-lg" x-text="text.promo_tag[lang]">PROMO</span>
+            <div class="text-center mb-20" data-aos="fade-up">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm mb-6">
+                    <span class="w-2 h-2 rounded-full bg-orange-600 animate-pulse"></span>
+                    <span class="text-xs font-bold tracking-widest uppercase text-gray-900" x-text="text.price_badge[lang]"></span>
                 </div>
+                <h2 class="font-modernica text-6xl md:text-8xl font-black text-black leading-[0.9] tracking-tighter">
+                    <span x-text="text.price_head_1[lang]"></span>
+                    <span class="text-orange-600" x-text="text.price_head_2[lang]"></span>
+                </h2>
+                <p class="text-xl text-gray-500 mt-6 max-w-2xl mx-auto font-medium" x-text="text.price_sub[lang]"></p>
+            </div>
 
-                <h3 class="text-2xl font-display font-black mb-1 mt-2" x-text="text.work_1_title[lang]">Personal Branding</h3>
-                <p class="text-xs text-gray-400 mb-6 border-b border-gray-800 pb-4" x-text="text.work_1_desc[lang]"></p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
                 
-                <div class="mb-8">
-                    <div class="flex items-center gap-2 text-gray-500 text-sm font-bold line-through decoration-orange-600 decoration-2">
-                        <span x-text="text.p1_old[lang]">RM 700</span>
+                <div class="flex flex-col relative bg-white rounded-[2rem] border border-gray-200 p-8 shadow-xl hover:shadow-2xl hover:border-orange-500 transition-all duration-300 group h-full" data-aos="fade-up" data-aos-delay="100">
+                    
+                    <div class="absolute top-6 right-6 bg-orange-100 text-orange-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest border border-orange-200 animate-pulse" x-text="text.promo_tag[lang]"></div>
+
+                    <div class="mb-8 border-b border-gray-100 pb-8">
+                        <h3 class="font-display font-black text-2xl uppercase mb-4 text-gray-900">Personal<br>Branding</h3>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2" x-text="text.price_start[lang]"></p>
+                        <div class="flex items-baseline gap-3">
+                            <span class="text-lg text-gray-400 line-through font-bold decorations-red-500" x-text="text.p1_old[lang]"></span>
+                            <span class="text-5xl font-black text-orange-600 tracking-tighter" x-text="text.p1_new[lang]"></span>
+                        </div>
                     </div>
-                    <span class="text-5xl font-display font-black text-white" x-text="text.p1_new[lang]">RM 350</span>
+
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-orange-50 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg></div>
+                            <span class="text-gray-600 font-medium text-sm leading-tight" x-text="text.pb_feat_1[lang]"></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-orange-50 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg></div>
+                            <span class="text-gray-600 font-medium text-sm leading-tight" x-text="text.pb_feat_2[lang]"></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-green-50 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg></div>
+                            <span class="text-gray-600 font-medium text-sm leading-tight" x-text="text.pb_feat_3[lang]"></span>
+                        </li>
+                    </ul>
+
+                    <a href="https://wa.me/601155886905?text=I'm%20interested%20in%20Personal%20Branding" target="_blank" class="w-full py-4 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 font-bold uppercase tracking-widest text-xs hover:bg-orange-600 hover:text-white hover:border-orange-600 transition-all flex justify-center items-center gap-2 group-hover:shadow-lg">
+                        <span x-text="text.price_btn[lang]"></span> →
+                    </a>
                 </div>
 
-                <ul class="space-y-3 mb-8 flex-1">
-                    <li class="flex items-start text-sm font-medium text-gray-300"><span class="text-orange-500 mr-2">✓</span> <span x-text="text.pb_feat_1[lang]"></span></li>
-                    <li class="flex items-start text-sm font-medium text-gray-300"><span class="text-orange-500 mr-2">✓</span> <span x-text="text.pb_feat_2[lang]"></span></li>
-                    <li class="flex items-start text-sm font-medium text-gray-300"><span class="text-orange-500 mr-2">✓</span> <span x-text="text.pb_feat_3[lang]"></span></li>
-                </ul>
-                <a href="https://wa.me/601155886905" class="block w-full py-4 border border-white text-white text-center font-bold uppercase text-xs hover:bg-white hover:text-black transition rounded-xl" x-text="text.price_btn[lang]">Grab Promo</a>
-            </div>
-
-            <div class="h-full bg-black text-white p-8 rounded-3xl border-2 border-orange-600/50 hover:border-orange-600 shadow-xl flex flex-col relative group">
-                <div class="absolute top-0 inset-x-0 flex justify-center -mt-3">
-                    <span class="bg-gradient-to-r from-orange-600 to-red-600 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest shadow-lg" x-text="text.promo_tag[lang]">PROMO</span>
-                </div>
-
-                <h3 class="text-2xl font-display font-black mb-1 mt-2" x-text="text.work_2_title[lang]">Corporate Branding</h3>
-                <p class="text-xs text-gray-400 mb-6 border-b border-gray-800 pb-4" x-text="text.work_2_desc[lang]"></p>
-                
-                <div class="mb-8">
-                    <div class="flex items-center gap-2 text-gray-500 text-sm font-bold line-through decoration-orange-600 decoration-2">
-                        <span x-text="text.p2_old[lang]">RM 1,500</span>
+                <div class="flex flex-col relative bg-[#0a0a0a] rounded-[2rem] border border-gray-800 p-8 shadow-2xl hover:shadow-orange-900/20 transition-all duration-300 group h-full transform md:-translate-y-4" data-aos="fade-up" data-aos-delay="200">
+                    
+                    <div class="mb-8 border-b border-gray-800 pb-8">
+                        <h3 class="font-display font-black text-2xl uppercase mb-4 text-white">Corporate<br>Branding</h3>
+                        <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2" x-text="text.price_start[lang]"></p>
+                        <div class="flex items-baseline gap-3">
+                            <span class="text-lg text-gray-600 line-through font-bold" x-text="text.p2_old[lang]"></span>
+                            <span class="text-5xl font-black text-white tracking-tighter" x-text="text.p2_new[lang]"></span>
+                        </div>
                     </div>
-                    <span class="text-5xl font-display font-black text-orange-500" x-text="text.p2_new[lang]">RM 1,000</span>
+
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg></div>
+                            <span class="text-gray-300 font-medium text-sm leading-tight" x-text="text.cb_feat_1[lang]"></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg></div>
+                            <span class="text-gray-300 font-medium text-sm leading-tight" x-text="text.cb_feat_2[lang]"></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg></div>
+                            <span class="text-gray-300 font-medium text-sm leading-tight" x-text="text.cb_feat_3[lang]"></span>
+                        </li>
+                    </ul>
+
+                    <a href="https://wa.me/601155886905?text=I'm%20interested%20in%20Corporate%20Branding" target="_blank" class="w-full py-4 rounded-xl bg-orange-600 border border-orange-600 text-white font-bold uppercase tracking-widest text-xs hover:bg-white hover:text-orange-600 transition-all flex justify-center items-center gap-2 shadow-lg hover:shadow-orange-500/50">
+                        <span x-text="text.price_btn[lang]"></span> →
+                    </a>
                 </div>
 
-                <ul class="space-y-3 mb-8 flex-1">
-                    <li class="flex items-start text-sm font-medium text-white"><span class="text-orange-500 mr-2">✓</span> <span x-text="text.cb_feat_1[lang]"></span></li>
-                    <li class="flex items-start text-sm font-medium text-white"><span class="text-orange-500 mr-2">✓</span> <span x-text="text.cb_feat_2[lang]"></span></li>
-                    <li class="flex items-start text-sm font-medium text-white"><span class="text-orange-500 mr-2">✓</span> <span x-text="text.cb_feat_3[lang]"></span></li>
-                </ul>
-                <a href="https://wa.me/601155886905" class="block w-full py-4 bg-orange-600 text-white text-center font-bold uppercase text-xs hover:bg-white hover:text-black transition rounded-xl" x-text="text.price_btn[lang]">Grab Promo</a>
-            </div>
+                <div class="flex flex-col relative bg-white rounded-[2rem] border border-gray-200 p-8 shadow-xl hover:shadow-2xl hover:border-blue-500 transition-all duration-300 group h-full" data-aos="fade-up" data-aos-delay="300">
+                    
+                    <div class="absolute top-6 right-6 bg-blue-100 text-blue-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest border border-blue-200 animate-pulse">SPECIAL DEAL</div>
 
-            <div class="h-full bg-black text-white p-8 rounded-3xl border border-gray-800 hover:border-orange-500 transition duration-500 flex flex-col relative">
-                <h3 class="text-xl font-display font-black mb-1 mt-2" x-text="text.work_3_title[lang]">Business System</h3>
-                <p class="text-xs text-gray-400 mb-6 border-b border-gray-800 pb-4" x-text="text.work_3_desc[lang]"></p>
-                
-                <div class="mb-8 pt-5">
-                    <p class="text-gray-500 text-[10px] font-bold uppercase">Tailored</p>
-                    <span class="text-4xl font-display font-black" x-text="text.price_custom[lang]">Custom</span>
+                    <div class="mb-8 border-b border-gray-100 pb-8">
+                        <h3 class="font-display font-black text-2xl uppercase mb-2 text-gray-900">Business<br>System</h3>
+                        <p class="text-xs text-gray-500 font-medium mb-4 leading-relaxed" x-text="text.price_lms_desc[lang]"></p>
+                        
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2" x-text="text.price_start[lang]"></p>
+                        <div class="flex items-baseline gap-3">
+                            <span class="text-4xl font-black text-gray-900 tracking-tighter" x-text="text.price_custom[lang]"></span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg></div>
+                            <span class="text-gray-600 font-medium text-sm leading-tight" x-text="text.lms_feat_1[lang]"></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg></div>
+                            <span class="text-gray-600 font-medium text-sm leading-tight" x-text="text.lms_feat_2[lang]"></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-3 h-3 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg></div>
+                            <span class="text-gray-600 font-medium text-sm leading-tight" x-text="text.lms_feat_3[lang]"></span>
+                        </li>
+                    </ul>
+
+                    <a href="https://wa.me/601155886905?text=I'm%20interested%20in%20System" target="_blank" class="w-full py-4 rounded-xl bg-gray-900 border border-gray-900 text-white font-bold uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-all flex justify-center items-center gap-2 group-hover:shadow-lg">
+                        Discuss Now →
+                    </a>
                 </div>
-                
-                <ul class="space-y-3 mb-8 flex-1">
-                    <li class="flex items-start text-sm font-medium text-gray-300"><span class="text-orange-500 mr-2">✓</span> <span x-text="text.lms_feat_1[lang]"></span></li>
-                    <li class="flex items-start text-sm font-medium text-gray-300"><span class="text-orange-500 mr-2">✓</span> <span x-text="text.lms_feat_2[lang]"></span></li>
-                    <li class="flex items-start text-sm font-medium text-gray-300"><span class="text-orange-500 mr-2">✓</span> <span x-text="text.lms_feat_3[lang]"></span></li>
-                </ul>
-                <a href="https://wa.me/601155886905" class="block w-full py-4 border border-white text-white text-center font-bold uppercase text-xs hover:bg-white hover:text-black transition rounded-xl">Discuss Budget</a>
-            </div>
 
+            </div>
         </div>
     </section>
     
-<section class="py-24 bg-gray-50 border-t border-gray-200" x-data="{ active: 1 }">
+<section id="faq" class="py-24 bg-white border-t border-gray-100" x-data="{ active: null }">
         <div class="max-w-7xl mx-auto px-6">
             
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-5xl md:text-7xl font-display font-black uppercase tracking-tighter mb-4 text-black" x-text="text.faq_head[lang]">
-                    FAQ
+                <span class="inline-block py-1 px-3 rounded-full bg-orange-100 text-orange-600 text-xs font-bold tracking-widest uppercase mb-4" x-text="text.faq_head[lang]"></span>
+                <h2 class="font-modernica text-5xl md:text-7xl font-black text-black leading-none mb-6">
+                    <span x-show="lang === 'ENG'">FREQUENTLY <span class="text-orange-600">ASKED</span></span>
+                    <span x-show="lang === 'BM'">SOALAN <span class="text-orange-600">LAZIM</span></span>
                 </h2>
-                <p class="text-xl md:text-2xl text-orange-600 font-bold tracking-wide" x-text="text.faq_sub[lang]">
-                    Common questions.
-                </p>
+                <p class="text-xl text-gray-500 max-w-2xl mx-auto font-medium" x-text="text.faq_sub[lang]"></p>
             </div>
 
-            <div class="space-y-6">
-
-                <div id="about-me" class="bg-white border-2 border-gray-100 rounded-3xl overflow-hidden scroll-mt-40 transition duration-500 hover:border-orange-200" :class="active === 1 ? 'ring-4 ring-orange-500/10 border-orange-500' : ''">
-                    <button @click="active === 1 ? active = null : active = 1" class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none hover:bg-gray-50 transition">
-                        <span class="font-display font-bold text-xl md:text-2xl text-gray-900 flex items-center gap-4">
-                            <span class="text-3xl transition-colors duration-300" :class="active === 1 ? 'text-orange-600' : 'text-gray-300'">01.</span> 
-                            <span x-text="text.q1[lang]">Who are you?</span>
+            <div class="space-y-4">
+                
+                <div id="about-me" class="scroll-mt-32 border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300" :class="active === 1 ? 'bg-gray-50 border-orange-200 shadow-lg' : 'bg-white hover:border-orange-200'">
+                    <button @click="active === 1 ? active = null : active = 1" class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none">
+                        <span class="font-display font-bold text-xl md:text-2xl text-gray-900 flex items-center gap-6">
+                            <span class="text-sm font-mono text-orange-500 opacity-50">01</span> 
+                            <span x-text="text.q1[lang]"></span>
                         </span>
-                        <span class="font-black text-3xl transition-colors duration-300" :class="active === 1 ? 'text-orange-600' : 'text-gray-300'" x-text="active === 1 ? '−' : '+'">+</span>
+                        <span class="text-3xl transition-transform duration-300 text-orange-500" :class="active === 1 ? 'rotate-45' : ''">+</span>
                     </button>
-                    
-                    <div x-show="active === 1" class="px-8 pb-8 pt-2 text-lg text-gray-600 border-t border-gray-100 leading-relaxed">
-                        <p class="mb-6" x-text="text.a1_bio[lang]"></p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="https://people.utm.my/ikhwanjamal" target="_blank" class="inline-flex items-center gap-2 bg-gray-100 hover:bg-orange-600 hover:text-white px-6 py-3 rounded-full text-sm font-bold transition transform hover:scale-105">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path></svg>
-                                <span x-text="text.a1_btn_utm[lang]">Academic Profile</span>
+                    <div x-show="active === 1" class="px-8 pb-8 pt-0 text-gray-600 text-lg leading-relaxed border-t border-gray-100/50 mt-2" x-collapse>
+                        <div class="pt-6">
+                            <p class="mb-6" x-text="text.a1_bio[lang]"></p>
+                            <div class="flex flex-wrap gap-3 mt-4">
+                            
+                            <a href="https://people.utm.my/ikhwanjamal" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-black text-white text-sm font-bold hover:bg-orange-600 transition shadow-md">
+                                <span x-show="lang === 'ENG'">View Profile</span>
+                                <span x-show="lang === 'BM'" style="display: none;">Lihat Profil</span>
+                                <span>↗</span>
                             </a>
-                            <a href="https://www.strava.com/" target="_blank" class="inline-flex items-center gap-2 bg-gray-100 hover:bg-[#FC4C02] hover:text-white px-6 py-3 rounded-full text-sm font-bold transition transform hover:scale-105">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                                <span x-text="text.a1_btn_strava[lang]">Follow on Strava</span>
+
+                            <a href="https://www.strava.com/" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-gray-300 text-gray-900 text-sm font-bold hover:border-orange-600 hover:text-orange-600 transition shadow-sm">
+                                <span>Strava</span>
+                                <span>↗</span>
                             </a>
+
+                        </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-white border-2 border-gray-100 rounded-3xl overflow-hidden hover:border-orange-200 transition" :class="active === 2 ? 'ring-4 ring-orange-500/10 border-orange-500' : ''">
-                    <button @click="active === 2 ? active = null : active = 2" class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none hover:bg-gray-50 transition">
-                        <span class="font-display font-bold text-xl md:text-2xl text-gray-900 flex items-center gap-4">
-                            <span class="text-3xl transition-colors duration-300" :class="active === 2 ? 'text-orange-600' : 'text-gray-300'">02.</span> 
-                            <span x-text="text.q2[lang]">Timeline?</span>
+                <div class="border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300" :class="active === 2 ? 'bg-gray-50 border-orange-200 shadow-lg' : 'bg-white hover:border-orange-200'">
+                    <button @click="active === 2 ? active = null : active = 2" class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none">
+                        <span class="font-display font-bold text-xl md:text-2xl text-gray-900 flex items-center gap-6">
+                            <span class="text-sm font-mono text-orange-500 opacity-50">02</span> 
+                            <span x-text="text.q2[lang]"></span>
                         </span>
-                        <span class="font-black text-3xl transition-colors duration-300" :class="active === 2 ? 'text-orange-600' : 'text-gray-300'" x-text="active === 2 ? '−' : '+'">+</span>
+                        <span class="text-3xl transition-transform duration-300 text-orange-500" :class="active === 2 ? 'rotate-45' : ''">+</span>
                     </button>
-                    <div x-show="active === 2" class="px-8 pb-8 pt-2 text-lg text-gray-600 border-t border-gray-100 leading-relaxed">
-                        <p x-text="text.a2[lang]"></p>
+                    <div x-show="active === 2" class="px-8 pb-8 pt-0 text-gray-600 text-lg leading-relaxed border-t border-gray-100/50 mt-2" x-collapse>
+                        <p class="pt-6" x-text="text.a2[lang]"></p>
                     </div>
                 </div>
 
-                <div class="bg-white border-2 border-gray-100 rounded-3xl overflow-hidden hover:border-orange-200 transition" :class="active === 3 ? 'ring-4 ring-orange-500/10 border-orange-500' : ''">
-                    <button @click="active === 3 ? active = null : active = 3" class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none hover:bg-gray-50 transition">
-                        <span class="font-display font-bold text-xl md:text-2xl text-gray-900 flex items-center gap-4">
-                            <span class="text-3xl transition-colors duration-300" :class="active === 3 ? 'text-orange-600' : 'text-gray-300'">03.</span> 
-                            <span x-text="text.q3[lang]">Payment?</span>
+                <div class="border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300" :class="active === 3 ? 'bg-gray-50 border-orange-200 shadow-lg' : 'bg-white hover:border-orange-200'">
+                    <button @click="active === 3 ? active = null : active = 3" class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none">
+                        <span class="font-display font-bold text-xl md:text-2xl text-gray-900 flex items-center gap-6">
+                            <span class="text-sm font-mono text-orange-500 opacity-50">03</span> 
+                            <span x-text="text.q3[lang]"></span>
                         </span>
-                        <span class="font-black text-3xl transition-colors duration-300" :class="active === 3 ? 'text-orange-600' : 'text-gray-300'" x-text="active === 3 ? '−' : '+'">+</span>
+                        <span class="text-3xl transition-transform duration-300 text-orange-500" :class="active === 3 ? 'rotate-45' : ''">+</span>
                     </button>
-                    <div x-show="active === 3" class="px-8 pb-8 pt-2 text-lg text-gray-600 border-t border-gray-100 leading-relaxed">
-                        <p x-text="text.a3[lang]"></p>
+                    <div x-show="active === 3" class="px-8 pb-8 pt-0 text-gray-600 text-lg leading-relaxed border-t border-gray-100/50 mt-2" x-collapse>
+                        <p class="pt-6" x-text="text.a3[lang]"></p>
                     </div>
                 </div>
 
-                <div class="bg-white border-2 border-gray-100 rounded-3xl overflow-hidden hover:border-orange-200 transition" :class="active === 4 ? 'ring-4 ring-orange-500/10 border-orange-500' : ''">
-                    <button @click="active === 4 ? active = null : active = 4" class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none hover:bg-gray-50 transition">
-                        <span class="font-display font-bold text-xl md:text-2xl text-gray-900 flex items-center gap-4">
-                            <span class="text-3xl transition-colors duration-300" :class="active === 4 ? 'text-orange-600' : 'text-gray-300'">04.</span> 
-                            <span x-text="text.q4[lang]">Support?</span>
+                <div class="border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300" :class="active === 4 ? 'bg-gray-50 border-orange-200 shadow-lg' : 'bg-white hover:border-orange-200'">
+                    <button @click="active === 4 ? active = null : active = 4" class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none">
+                        <span class="font-display font-bold text-xl md:text-2xl text-gray-900 flex items-center gap-6">
+                            <span class="text-sm font-mono text-orange-500 opacity-50">04</span> 
+                            <span x-text="text.q4[lang]"></span>
                         </span>
-                        <span class="font-black text-3xl transition-colors duration-300" :class="active === 4 ? 'text-orange-600' : 'text-gray-300'" x-text="active === 4 ? '−' : '+'">+</span>
+                        <span class="text-3xl transition-transform duration-300 text-orange-500" :class="active === 4 ? 'rotate-45' : ''">+</span>
                     </button>
-                    <div x-show="active === 4" class="px-8 pb-8 pt-2 text-lg text-gray-600 border-t border-gray-100 leading-relaxed">
-                        <p x-text="text.a4[lang]"></p>
+                    <div x-show="active === 4" class="px-8 pb-8 pt-0 text-gray-600 text-lg leading-relaxed border-t border-gray-100/50 mt-2" x-collapse>
+                        <p class="pt-6" x-text="text.a4[lang]"></p>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300" :class="active === 5 ? 'bg-gray-50 border-orange-200 shadow-lg' : 'bg-white hover:border-orange-200'">
+                    <button @click="active === 5 ? active = null : active = 5" class="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none">
+                        <span class="font-display font-bold text-xl md:text-2xl text-gray-900 flex items-center gap-6">
+                            <span class="text-sm font-mono text-orange-500 opacity-50">05</span> 
+                            <span x-text="text.q5[lang]"></span>
+                        </span>
+                        <span class="text-3xl transition-transform duration-300 text-orange-500" :class="active === 5 ? 'rotate-45' : ''">+</span>
+                    </button>
+                    <div x-show="active === 5" class="px-8 pb-8 pt-0 text-gray-600 text-lg leading-relaxed border-t border-gray-100/50 mt-2" x-collapse>
+                        <div class="pt-6">
+                            <p class="mb-4" x-text="text.a5[lang]"></p>
+                            <div class="flex gap-3">
+                                <span class="px-3 py-1 bg-black text-white text-xs font-bold rounded uppercase tracking-wider">No WordPress</span>
+                                <span class="px-3 py-1 bg-orange-100 text-orange-700 text-xs font-bold rounded uppercase tracking-wider">From Scratch</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded uppercase tracking-wider">AI Assisted</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
             </div>
         </div>
-    </section>
+    </section>  
     
 
 <section class="py-24 bg-gray-50 border-t border-gray-200 text-center w-full" x-data="{ msg: '' }">
@@ -796,58 +739,35 @@ faq_head: { ENG: 'FAQ', BM: 'Soalan Lazim' },
         </div>
     </section>
 
-    <footer class="bg-black text-white pt-20 pb-10 border-t border-gray-900">
+<footer class="bg-black text-white pt-20 pb-10 border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-6">
-            
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20 border-b border-gray-800 pb-12">
                 
                 <div class="col-span-1 md:col-span-1">
-                    <a href="index.html" class="flex flex-col items-start leading-none group hover:scale-105 transition duration-300 mb-6">
-                        <span class="font-modernica font-black text-4xl tracking-tighter text-white">
-                            MIJ<span class="text-orange-600">.</span>
-                        </span>
-                        <span class="font-sans font-bold text-[10px] tracking-[0.4em] text-white uppercase ml-1 mt-1">
-                            DIGITAL
-                        </span>
-                    </a>
-                    <p class="text-gray-400 text-sm leading-relaxed pr-4" x-text="text.ft_desc[lang]"></p>
+                    <a href="index.html" class="flex flex-col items-start leading-none group hover:scale-105 transition duration-300 mb-8"><span class="font-modernica font-black text-4xl tracking-tighter text-white">MIJ<span class="text-orange-600">.</span></span><span class="font-sans font-bold text-[10px] tracking-[0.4em] text-white uppercase ml-1 mt-1">DIGITAL</span></a>
+                    <div class="opacity-80"><svg width="60" height="6" viewBox="0 0 60 6" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="35" height="6" rx="3" fill="#EA580C"/><rect x="40" width="6" height="6" rx="3" fill="#333333"/><rect x="50" width="6" height="6" rx="3" fill="#555555"/></svg></div>
                 </div>
 
-                <div>
-                    <h3 class="font-bold text-white mb-6 uppercase tracking-wider text-xs" x-text="text.ft_links[lang]"></h3>
-                    <ul class="space-y-4 text-sm text-gray-400 font-medium">
-                        <li><a href="index.html" class="hover:text-orange-500 hover:pl-2 transition-all duration-300" x-text="text.nav_home[lang]"></a></li>
-                        <li><a href="services.html" class="hover:text-orange-500 hover:pl-2 transition-all duration-300" x-text="text.nav_services[lang]"></a></li>
-                        <li><a href="portfolio.html" class="hover:text-orange-500 hover:pl-2 transition-all duration-300" x-text="text.nav_portfolio[lang]"></a></li>
-                        <li><a href="faq.html" class="hover:text-orange-500 hover:pl-2 transition-all duration-300" x-text="text.nav_faq[lang]"></a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="font-bold text-white mb-6 uppercase tracking-wider text-xs" x-text="text.ft_legal[lang]"></h3>
-                    <ul class="space-y-4 text-sm text-gray-400 font-medium">
-                        <li><a href="privacy.html" class="hover:text-orange-500 hover:pl-2 transition-all duration-300" x-text="text.ft_privacy[lang]"></a></li>
-                        <li><a href="terms.html" class="hover:text-orange-500 hover:pl-2 transition-all duration-300" x-text="text.ft_terms[lang]"></a></li>
-                        <li><a href="cookies.html" class="hover:text-orange-500 hover:pl-2 transition-all duration-300" x-text="text.ft_cookies[lang]"></a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="font-bold text-white mb-6 uppercase tracking-wider text-xs" x-text="text.ft_connect[lang]"></h3>
+                <div><h3 class="font-bold text-white mb-6 uppercase tracking-wider text-xs" x-text="text.ft_links[lang]"></h3><ul class="space-y-4 text-sm text-gray-400 font-medium"><li><a href="index.html" class="hover:text-orange-500 hover:pl-2 transition-all duration-300" x-text="text.nav_home[lang]"></a></li><li><a href="services.html" class="hover:text-orange-500 hover:pl-2 transition-all duration-300" x-text="text.nav_services[lang]"></a></li><li><a href="portfolio.html" class="hover:text-orange-500 hover:pl-2 transition-all duration-300" x-text="text.nav_portfolio[lang]"></a></li><li><a href="faq.html" class="hover:text-orange-500 hover:pl-2 transition-all duration-300" x-text="text.nav_faq[lang]"></a></li></ul></div>
+                
+                <div><h3 class="font-bold text-white mb-6 uppercase tracking-wider text-xs" x-text="text.ft_legal_col[lang]"></h3><ul class="space-y-4 text-sm text-gray-400 font-medium"><li><a href="privacy.html" class="hover:text-orange-500 hover:pl-2 transition-all duration-300" x-text="text.ft_privacy[lang]"></a></li><li><a href="terms.html" class="hover:text-orange-500 hover:pl-2 transition-all duration-300" x-text="text.ft_terms[lang]"></a></li><li><a href="cookies.html" class="hover:text-orange-500 hover:pl-2 transition-all duration-300" x-text="text.ft_cookies[lang]"></a></li></ul></div>
+                
+                <div><h3 class="font-bold text-white mb-6 uppercase tracking-wider text-xs" x-text="text.ft_connect[lang]"></h3>
                     <div class="flex gap-4">
                         <a href="https://www.instagram.com/ikhwanjamal90?igsh=ejdmb2NvMjh2b2V1" target="_blank" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center transition-all duration-500 group hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-red-500 hover:to-purple-600 hover:scale-110"><svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></path></svg></a>
-                        <a href="#" target="_blank" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 group hover:scale-110"><svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12.186 18.06c-1.897 0-3.136-1.157-3.136-2.913v-1.18c0-1.996 1.636-3.876 4.39-3.876 1.42 0 2.378.435 2.943 1.054v-.706c0-1.633-1.222-2.613-2.998-2.613-1.61 0-2.43.682-2.73 1.554l-2.09-.724c.563-1.64 2.22-2.885 4.89-2.885 2.972 0 4.965 1.785 4.965 4.678v3.522c0 2.292 1.258 2.768 1.956 2.768.812 0 1.487-.582 1.487-2.31 0-3.328-2.62-6.522-6.936-6.522-4.522 0-7.832 3.32-7.832 7.77 0 4.293 3.11 7.373 7.625 7.373 2.513 0 4.385-.928 5.485-2.288l-1.57-1.46c-.732.906-1.87 1.69-3.843 1.69-2.913 0-5.328-1.928-5.328-5.337 0-3.235 2.253-5.308 5.498-5.308 1.48 0 2.593.753 2.593 2.113v.81c0 1.052-.7 1.66-1.638 1.66-.81 0-1.378-.507-1.378-1.416zm-1.022-2.64c0 .852.565 1.348 1.353 1.348.817 0 1.36-.532 1.36-1.417v-.714c-.453-.518-1.11-.84-2.036-.84-1.55 0-2.302 1.132-2.302 2.396 0 .848.066 1.53.066 1.53h1.56z"/></path></svg></a>
+                        <a href="https://www.threads.com/@ikhwanjamal90?invite=0" target="_blank" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 group hover:scale-110"><svg class="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12.186 18.06c-1.897 0-3.136-1.157-3.136-2.913v-1.18c0-1.996 1.636-3.876 4.39-3.876 1.42 0 2.378.435 2.943 1.054v-.706c0-1.633-1.222-2.613-2.998-2.613-1.61 0-2.43.682-2.73 1.554l-2.09-.724c.563-1.64 2.22-2.885 4.89-2.885 2.972 0 4.965 1.785 4.965 4.678v3.522c0 2.292 1.258 2.768 1.956 2.768.812 0 1.487-.582 1.487-2.31 0-3.328-2.62-6.522-6.936-6.522-4.522 0-7.832 3.32-7.832 7.77 0 4.293 3.11 7.373 7.625 7.373 2.513 0 4.385-.928 5.485-2.288l-1.57-1.46c-.732.906-1.87 1.69-3.843 1.69-2.913 0-5.328-1.928-5.328-5.337 0-3.235 2.253-5.308 5.498-5.308 1.48 0 2.593.753 2.593 2.113v.81c0 1.052-.7 1.66-1.638 1.66-.81 0-1.378-.507-1.378-1.416zm-1.022-2.64c0 .852.565 1.348 1.353 1.348.817 0 1.36-.532 1.36-1.417v-.714c-.453-.518-1.11-.84-2.036-.84-1.55 0-2.302 1.132-2.302 2.396 0 .848.066 1.53.066 1.53h1.56z"/></path></svg></a>
                         <a href="https://strava.app.link/PjuqKrltt0b" target="_blank" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center hover:bg-[#FC4C02] hover:text-white transition-all duration-300 group hover:scale-110"><svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" role="img" viewBox="0 0 24 24" fill="currentColor"><path d="M15.387 17.944l-2.089-4.116h-3.065l5.154 10.172 5.155-10.172h-3.066l-2.089 4.116zm-5.155-2.385l-1.896-3.738h3.792l-1.896 3.738zm.726-12.722l-4.17 8.21h3.313l.857-1.69.856 1.69h3.313l-4.169-8.21z"/></svg></a>
                     </div>
                 </div>
             </div>
-
             <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-gray-600">
                 <p x-text="text.ft_copy[lang]"></p>
                 <a href="#home" class="group flex items-center gap-2 hover:text-orange-500 transition-colors"><span x-text="text.ft_back[lang]"></span></a>
             </div>
         </div>
     </footer>
+
+
     
 
     
@@ -884,6 +804,168 @@ faq_head: { ENG: 'FAQ', BM: 'Soalan Lazim' },
                 });
             }
         });
+    </script>
+
+    <script>
+        AOS.init();
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('contentData', () => ({
+                lang: 'ENG',
+                text: {
+                    // --- 1. NAV & PROMO (CLEAN VERSION) ---
+                    promo_text: { 
+                        ENG: '🔥 LIMITED OFFER: PERSONAL PORTFOLIO RM700 (<s>RM1000</s>) • COMPANY WEBSITE RM1000 (<s>RM1500</s>) • ', 
+                        BM: '🔥 TAWARAN TERHAD: PORTFOLIO PERSONAL RM700 (<s>RM1000</s>) • WEBSITE SYARIKAT RM1000 (<s>RM1500</s>) • ' 
+                    },
+                    nav_home: { ENG: 'Home', BM: 'Utama' },
+                    nav_about: { ENG: 'About Me', BM: 'Tentang Saya' },
+                    nav_services: { ENG: 'Services', BM: 'Servis' },
+                    nav_testi: { ENG: 'Testimonials', BM: 'Testimoni' }, 
+                    // MENU BARU
+                    nav_portfolio: { ENG: 'Portfolio', BM: 'Portfolio' },
+                    nav_faq: { ENG: 'FAQ', BM: 'Soalan Lazim' },
+                    nav_chat: { ENG: 'Chat With Me', BM: 'Hubungi Saya' },
+
+                    // --- 2. HERO SECTION ---
+                    hero_badge: { ENG: 'About Me', BM: 'Tentang Saya' },
+                    hero_sub: { ENG: 'I HIKE. I RUN.', BM: 'SAYA MENDAKI. SAYA BERLARI.' },
+                    hero_and: { ENG: 'AND', BM: 'DAN' },
+                    hero_build: { ENG: 'I CAN BUILD', BM: 'SAYA BOLEH BINA' },
+                    hero_a: { ENG: 'A', BM: 'SEBUAH' },
+                    hero_beautiful: { ENG: 'BEAUTIFUL WEBSITE', BM: 'LAMAN WEB MENARIK' },
+                    hero_foryou: { ENG: 'FOR YOU.', BM: 'UNTUK ANDA.' },
+                    hero_desc: { ENG: 'The discipline of the outdoors applied to pixel-perfect code. I build high-performance digital assets tailored for you.', BM: 'Disiplin aktiviti luar diterapkan dalam kod yang sempurna. Saya membina aset digital berprestasi tinggi khusus untuk anda.' },
+                    btn_start: { ENG: 'Explore More', BM: 'Bina Website Anda' }, // TOMBOL BARU
+
+                    // --- 3. TESTIMONIALS (DATA UNTUK SLIDER) ---
+                    testi_badge: { ENG: 'Real Stories', BM: 'Kisah Benar' },
+                    testi_head: { ENG: 'WHAT THEY SAY', BM: 'APA KATA MEREKA' },
+                    r1_quote: { ENG: "MIJ Digital transformed our corporate image completely. The system is robust, and the design exudes professionalism. Truly world-class service.", BM: "MIJ Digital mengubah imej korporat kami sepenuhnya. Sistem yang mantap dan reka bentuk yang memancarkan profesionalisme. Servis bertaraf dunia." },
+                    r2_quote: { ENG: "I was skeptical about selling online, but their e-commerce setup was so easy to manage. Sales increased by 200% in the first month!", BM: "Mula-mula ragu nak jual online, tapi setup e-commerce mereka sangat mudah diurus. Jualan naik 200% pada bulan pertama!" },
+                    r3_quote: { ENG: "My academic portfolio looks stunning now. It helps me showcase my research and publications effectively to international peers.", BM: "Portfolio akademik saya nampak sangat hebat sekarang. Ia membantu saya mempamerkan kajian dan penerbitan saya kepada rakan antarabangsa." },
+                    r4_quote: { ENG: "The booking system they built for my clinic reduced patient waiting time significantly. Highly recommended for medical practitioners.", BM: "Sistem tempahan yang dibina untuk klinik saya mengurangkan masa menunggu pesakit dengan ketara. Sangat disyorkan untuk pengamal perubatan." },
+                    r5_quote: { ENG: "Fast, responsive, and creates trust. My property listing website looks premium and clients love the smooth navigation.", BM: "Pantas, responsif, dan membina kepercayaan. Website senarai hartanah saya nampak premium dan klien suka navigasi yang lancar." },
+                    r6_quote: { ENG: "We needed a simple site for our menu and location. MIJ delivered it in 3 days. Now tourists can find us easily on Google.", BM: "Kami perlukan web simple untuk menu dan lokasi. MIJ siapkan dalam 3 hari. Sekarang pelancong senang jumpa kami di Google." },
+                    r7_quote: { ENG: "As a tech guy, I'm picky about code. Their Next.js framework is clean, fast, and SEO optimized. Solid engineering.", BM: "Sebagai orang teknikal, saya cerewet pasal kod. Framework Next.js mereka bersih, laju, dan mesra SEO. Kejuruteraan yang padu." },
+
+                    // --- 4. DOUBTS / REALITY CHECK ---
+                    doubt_badge: { ENG: 'Why Choose Us', BM: 'Kenapa Pilih Kami' },
+                    doubt_head: { ENG: 'YOUR CONCERNS, SOLVED.', BM: 'KERAGUAN ANDA, TERJAWAB.' },
+                    // CARD 1: TRUST (UPDATED)
+                    d1_q: { 
+                        ENG: 'IS THIS LEGIT?', 
+                        BM: 'LEGIT KE NI?' 
+                    },
+                    d1_a: { 
+                        ENG: 'Yes — 100% legit. I’ll do my best to deliver your request.', 
+                        BM: '100% legit. Saya cuba buat yang terbaik tunai permintaan anda.' 
+                    },
+                    d2_q: { ENG: '"I’m not tech-savvy."', BM: '"Saya buta IT."' }, 
+                    d2_a: { ENG: 'Zero coding needed. We handle domain, hosting, and design for you.', BM: 'Tak perlu coding. Kami uruskan domain, hosting, dan design untuk anda.' },
+                    d3_q: { ENG: '"Can I pay in installments?"', BM: '"Boleh bayar ansuran?"' },
+                     d3_a: { ENG: 'Yes! 50% deposit to start, remaining 50% only after completion.', BM: 'Ya! Deposit 50% untuk mula, baki 50% hanya selepas siap.' },
+                    d4_q: { ENG: '"What if it breaks?"', BM: '"Kalau website rosak?"' }, d4_a: { ENG: 'Relax. You get 1 Year Free Maintenance & Technical Support.', BM: 'Tenang. Anda dapat 1 Tahun Maintenance & Support Percuma.' },
+                    d5_q: { ENG: '"I don\'t have content."', BM: '"Tiada idea nak tulis apa."' }, d5_a: { ENG: 'Just give us points. We structure professional copywriting for you.', BM: 'Bagi poin ringkas. Kami susun ayat copywriting profesional untuk anda.' },
+                    d6_q: { ENG: '"How fast can it be ready?"', BM: '"Berapa lama boleh siap?"' }, d6_a: { ENG: 'Rapid development. Personal sites in 3-7 days, Corporate in 7-14 days.', BM: 'Pantas. Web personal siap 3-7 hari, Korporat dalam 7-14 hari.' },
+
+                    // --- 5. FAQ (UPDATED) ---
+                    faq_head: { ENG: 'FAQ', BM: 'Soalan Lazim' },
+                    faq_sub: { ENG: 'Common questions.', BM: 'Pertanyaan biasa.' },
+                    
+                    // Q1: BIO
+                    q1: { ENG: 'Who are you?', BM: 'Siapa anda?' },
+                    a1_bio: {
+                        ENG: "I’m a husband and a father of three, and I serve as a senior lecturer at a public university in Southern Malaysia. Outside of work, I enjoy hiking and I run half marathons. I am a tech enthusiast who enjoys exploring emerging AI and building websites and systems that simplify daily work and streamline business operations.",
+                        BM: "Saya seorang suami dan bapa kepada tiga anak, serta berkhidmat sebagai pensyarah kanan di sebuah universiti awam di Selatan Malaysia. Di luar waktu kerja, saya gemar mendaki dan berlari separuh maraton. Saya peminat teknologi yang suka meneroka AI terkini dan membina sistem untuk memudahkan operasi perniagaan."
+                    },
+                    a1_btn_utm: { ENG: 'View Academic Profile', BM: 'Lihat Profil Akademik' },
+                    a1_btn_strava: { ENG: 'Follow on Strava', BM: 'Ikuti di Strava' },
+                    
+                    // Q2: TIMELINE (UPDATED)
+                    q2: { ENG: 'How long does it take?', BM: 'Berapa lama masa diambil?' },
+                    a2: { 
+                        ENG: 'For website development, personal sites typically take 3–7 days, and corporate sites usually take 7–14 days, depending on the features needed.', 
+                        BM: 'Untuk pembangunan web, laman personal biasanya ambil masa 3–7 hari, dan laman korporat 7–14 hari, bergantung pada ciri yang diperlukan.' 
+                    },
+                    
+                    // Q3: PAYMENT (UPDATED)
+                    q3: { ENG: 'What are the payment terms?', BM: 'Bagaimana dengan bayaran?' },
+                    a3: { 
+                        ENG: 'We’ll begin with a 50% non-refundable deposit, and the remaining 50% is due upon completion. If you need flexibility, feel free to reach out and we’ll discuss payment options.', 
+                        BM: 'Kami bermula dengan deposit 50% (tidak dikembalikan), dan baki 50% dibayar setelah siap. Jika perlukan fleksibiliti, hubungi kami untuk bincang pilihan bayaran.' 
+                    },
+                    
+                    // Q4: SUPPORT (UPDATED)
+                    q4: { ENG: 'Is there any support/warranty?', BM: 'Ada jaminan support?' },
+                    a4: { 
+                        ENG: 'The package includes 1 year of free maintenance (technical support for bugs/errors). Content updates and new features after handover are charged separately.', 
+                        BM: 'Pakej ini termasuk 1 tahun penyelenggaraan percuma (sokongan teknikal untuk pepijat/ralat). Kemaskini konten dan ciri baharu selepas serahan akan dicaj berasingan.' 
+                    },
+
+                    // Q5: TECH STACK (NEW)
+                    q5: { ENG: 'What Tech Stack do you use?', BM: 'Guna teknologi apa?' },
+                    a5: { 
+                        ENG: 'We avoid using WordPress templates. Instead, we build from scratch using a "Mixed-Mode" approach—combining modern frameworks with AI-assisted coding to ensure high performance and precision.', 
+                        BM: 'Kami elakkan template WordPress. Kami bina dari kosong menggunakan pendekatan "Mixed-Mode"—menggabungkan framework moden dengan bantuan AI untuk prestasi tinggi dan ketepatan.' 
+                    },
+                    // --- 6. PRICING & WORKS ---
+                    target_title: { ENG: 'TARGET AUDIENCE', BM: 'SASARAN KAMI' }, target_head: { ENG: 'START BEING SEEN', BM: 'MULA DILIHAT ORANG' },
+                    card_aca_title: { ENG: 'Academicians', BM: 'Ahli Akademik' }, card_aca_desc: { ENG: 'Showcase your research globally.', BM: 'Pamerkan kajian anda ke global.' },
+                    card_corp_title: { ENG: 'Corporate Branding', BM: 'Jenama Korporat' }, card_corp_desc: { ENG: 'Look expensive, get paid expensive.', BM: 'Kelihatan mahal, dibayar mahal.' },
+                    card_ind_title: { ENG: 'Industry Experts', BM: 'Pakar Industri' }, card_ind_desc: { ENG: 'Establish a verified presence.', BM: 'Bina kehadiran yang disahkan.' },
+                    
+                    // --- WORKS ---
+                    // "Karya Agung" diganti "Karya Terbaik"
+                    work_head: { ENG: 'Our Best Works', BM: 'Karya Terbaik Kami' }, 
+                    
+                    work_desc: { ENG: "We don't just build websites. We build Assets that generate value.", BM: "Kami bukan sekadar bina web. Kami bina Aset yang menjana nilai." },
+                    view_details: { ENG: 'View Details', BM: 'Lihat Detail' },
+                    
+                    work_1_title: { ENG: 'Personal Branding', BM: 'Personal Branding' },
+                    work_1_desc: { ENG: 'High-converting profile websites for professionals.', BM: 'Web profil konversi tinggi untuk profesional.' },
+                    
+                    work_2_title: { ENG: 'Corporate Branding', BM: 'Jenama Korporat' },
+                    work_2_desc: { ENG: 'Corporate digital identity establishment.', BM: 'Pembinaan identiti digital korporat.' },
+                    
+                    work_3_title: { ENG: 'Business System', BM: 'Sistem Bisnes' },
+                    work_3_desc: { ENG: 'Management System for Rentals, Clinics, Agencies.', BM: 'Sistem Pengurusan Sewaan, Klinik, Agensi.' },
+                    price_badge: { ENG: 'Limited Offer', BM: 'Tawaran Terhad' }, price_head_1: { ENG: 'YOUR WEBSITE', BM: 'LAMAN WEB ANDA' }, price_head_2: { ENG: 'STARTS HERE.', BM: 'BERMULA DI SINI.' },
+                    price_sub: { ENG: 'Promo valid for the first 2 months only.', BM: 'Promo sah untuk 2 bulan pertama sahaja.' }, price_btn: { ENG: 'Grab Promo', BM: 'Dapatkan Promo' },
+                    promo_tag: { ENG: '🔥 2 MONTHS PROMO', BM: '🔥 PROMO 2 BULAN' }, price_start: { ENG: 'Starts From', BM: 'Bermula Dari' }, price_custom: { ENG: 'Custom Offer', BM: 'Harga Tersuai' },
+                    p1_old: { ENG: 'RM 1000', BM: 'RM 1000' }, p1_new: { ENG: 'RM 700', BM: 'RM 700' },
+                    p2_old: { ENG: 'RM 1,500', BM: 'RM 1,500' }, p2_new: { ENG: 'RM 1,000', BM: 'RM 1,000' },
+                    pb_feat_1: { ENG: 'Bio & Portfolio Gallery', BM: 'Bio & Galeri Portfolio' }, pb_feat_2: { ENG: 'Research List', BM: 'Senarai Kajian' }, pb_feat_3: { ENG: 'WhatsApp Integration', BM: 'Integrasi WhatsApp' },
+                    cb_feat_1: { ENG: 'Modern Company Profile', BM: 'Profil Syarikat Moden' }, cb_feat_2: { ENG: 'Product Showcase', BM: 'Pameran Produk' }, cb_feat_3: { ENG: 'Google Maps & Trust', BM: 'Google Maps & Trust' },
+                    lms_feat_1: { ENG: 'POS, Sales & Payment', BM: 'POS, Jualan & Bayaran' }, lms_feat_2: { ENG: 'Booking & Rental', BM: 'Tempahan & Sewaan' }, lms_feat_3: { ENG: 'Attendance & Reports', BM: 'Kehadiran & Laporan' },
+
+                    // --- 7. FOOTER (UPDATED) ---
+                    ft_desc: { ENG: 'Building high-performance digital assets for forward-thinking individuals and corporations.', BM: 'Membina aset digital berprestasi tinggi untuk individu dan korporat berwawasan.' },
+                    ft_links: { ENG: 'Quick Links', BM: 'Pautan Pantas' },
+                    ft_legal_col: { ENG: 'Terms & Conditions', BM: 'Terma & Syarat' }, // JUDUL BARU
+                    ft_connect: { ENG: 'Connect', BM: 'Hubungan' },
+                    ft_privacy: { ENG: 'Privacy Policy', BM: 'Dasar Privasi' },
+                    ft_terms: { ENG: 'Terms of Service', BM: 'Terma Perkhidmatan' },
+                    ft_cookies: { ENG: 'Cookie Policy', BM: 'Dasar Kuki' },
+                    ft_copy: { ENG: '© 2026 MIJ Digital ENT. All Rights Reserved.', BM: '© 2026 MIJ Digital ENT. Hak Cipta Terpelihara.' }, // ENT
+                    ft_back: { ENG: 'Back to Top ↑', BM: 'Ke Atas ↑' },
+
+
+                    price_btn: { ENG: 'Grab Promo', BM: 'Dapatkan Promo' },
+promo_tag: { ENG: '🔥 2 MONTHS PROMO', BM: '🔥 PROMO 2 BULAN' }, 
+
+// PASTIKAN INI ADA:
+price_start: { ENG: 'Starts From', BM: 'Bermula Dari' }, 
+
+// TAMBAHKAN INI (Deskripsi Card 3):
+price_lms_desc: { 
+    ENG: 'Management System for Rentals, Clinics, Agencies, etc.', 
+    BM: 'Sistem Pengurusan untuk Sewaan, Klinik, Agensi, dll.' 
+},
+
+price_custom: { ENG: 'Custom Offer', BM: 'Harga Tersuai' },
+                }
+            }))
+        })
     </script>
 </body>
 </html>
